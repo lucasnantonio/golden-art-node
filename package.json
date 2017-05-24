@@ -9,6 +9,7 @@
     "async": "~0.2.8",
     "ejs": "^2.5.6",
     "express": "^3.21.2",
+    "naked-string": "^1.1.1",
     "request": "^2.81.0",
     "socket.io": "~0.9.14"
   },

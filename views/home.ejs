@@ -1,2 +1,19 @@
 <%- include('header', {title: "Golden-Art"}); %>
-<h1>Home</h1>
+<h1>Golden-Art</h1>
+<h2>Conheça nossas linhas</h2>
+
+<% var linhas = ["basic", "design", "vintage"] %>
+
+<% linhas.forEach(function(linha){ %>
+    <h3>
+        <%= linha %>
+    </h3>
+    <% data['records'].forEach(function(product) { %>
+    <% if (product['fields']['Linha'] == linha) { %>
+    <ul>
+        <li>
+         <%= product['fields']['Código'] %>   
+        </li>
+    </ul>
+    <% };}) %>
+<% }) %>

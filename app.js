@@ -23,7 +23,6 @@ app.get('/', function(req, res){
 
 app.get('/linhas/:linha', function(req, res) {
   var linha = nakedString(req.params.linha);
-  console.log(linha);
 
   request(airtableProductsUrl + '&filterByFormula={linha}="'+ linha + '"' , function(error, response, body){
     var parsedData = JSON.parse(body);

@@ -3,7 +3,7 @@
 <% var linhas = ["basic", "design", "vintage"] %>
 
 <% linhas.forEach(function(linha){ %>
-    <div class="w-100 cf debug">
+    <div class="w-100 cf mb3">
         <h3 class='w-100 tc'><%= linha %></h3>
     
         <% data['records'].forEach(function(product) { %>
@@ -21,6 +21,8 @@
         <% };}) %>
         
     </div>
-    <a class="db f6 link dim br1 ph3 pv2 mb2 white bg-black" href= <%="/linhas/" + linha %>> Conheça a linha completa </a>
     
+    <div class="tc">
+    <a class="dib f5 ttu link mb5 dim br1 ph4 pv3 white bg-black center tc" href= <%="/linhas/" + linha %>> Conheça a linha completa </a>
+    </div>
 <% }) %>

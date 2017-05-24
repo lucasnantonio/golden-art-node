@@ -3,17 +3,24 @@
 <% var linhas = ["basic", "design", "vintage"] %>
 
 <% linhas.forEach(function(linha){ %>
-    <h3><%= linha %></h3>
-    <% data['records'].forEach(function(product) { %>
-    <% if (product['fields']['Linha'] == linha) { %>
+    <div class="w-100 cf debug">
+        <h3 class='w-100 tc'><%= linha %></h3>
+    
+        <% data['records'].forEach(function(product) { %>
+        <% if (product['fields']['Linha'] == linha) { %>
+    
+            <div class="fl w-50 w-third-m w-25-ns">
+                <a class="" href= <%= "/linhas/" + linha + "/" + product['fields']['Código'] %> >        
+                    <div class="aspect-ratio aspect-ratio--1x1">
+                        <img style="background-image:url(http://mrmrs.io/images/0006.jpg);" class="db bg-center cover aspect-ratio--object">
+                    </div>
+                </a>
+            </div>
         
     
-        <a class="dib w-100 w-50-m w-20-ns bg-black" href= <%= "/linhas/" + linha + "/" + product['fields']['Código'] %> >
-                <%= product['fields']['Código'] %>   
-        </a>
-    
-    <% };}) %>
-    
+        <% };}) %>
+        
+    </div>
     <a class="db f6 link dim br1 ph3 pv2 mb2 white bg-black" href= <%="/linhas/" + linha %>> Conheça a linha completa </a>
     
 <% }) %>

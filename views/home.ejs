@@ -5,15 +5,16 @@
 <% var linhas = ["basic", "design", "vintage"] %>
 
 <% linhas.forEach(function(linha){ %>
-    <h3>
-        <%= linha %>
-    </h3>
+    <h3><%= linha %></h3>
     <% data['records'].forEach(function(product) { %>
     <% if (product['fields']['Linha'] == linha) { %>
     <ul>
-        <li>
-         <%= product['fields']['Código'] %>   
-        </li>
+        <a href= <%= "/linhas/" + linha + "/" + product['fields']['Código'] %> >
+            <li>
+                <%= product['fields']['Código'] %>   
+            </li>    
+        </a>
+        
     </ul>
     <% };}) %>
 <% }) %>

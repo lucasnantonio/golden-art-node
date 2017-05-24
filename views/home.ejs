@@ -1,6 +1,4 @@
 <%- include('header', {title: "Golden-Art"}); %>
-<h1>Golden-Art</h1>
-<h2>Conheça nossas linhas</h2>
 
 <% var linhas = ["basic", "design", "vintage"] %>
 
@@ -8,13 +6,14 @@
     <h3><%= linha %></h3>
     <% data['records'].forEach(function(product) { %>
     <% if (product['fields']['Linha'] == linha) { %>
-    <ul>
-        <a href= <%= "/linhas/" + linha + "/" + product['fields']['Código'] %> >
-            <li>
-                <%= product['fields']['Código'] %>   
-            </li>    
-        </a>
         
-    </ul>
+    
+        <a class="dib w-100 w-50-m w-20-ns bg-black" href= <%= "/linhas/" + linha + "/" + product['fields']['Código'] %> >
+                <%= product['fields']['Código'] %>   
+        </a>
+    
     <% };}) %>
+    
+    <a class="db f6 link dim br1 ph3 pv2 mb2 white bg-black" href= <%="/linhas/" + linha %>> Conheça a linha completa </a>
+    
 <% }) %>

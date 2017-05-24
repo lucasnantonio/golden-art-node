@@ -21,11 +21,6 @@ app.get('/', function(req, res){
   });
 });
 
-
-// app.get('/:section/:subsection', function(req, res){
-//   var sec
-// })
-
 app.get('/linhas/:linha', function(req, res) {
   var linha = nakedString(req.params.linha);
   console.log(linha);

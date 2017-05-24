@@ -16,6 +16,8 @@
   "scripts": {
     "start": "node app.js"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "tachyons": "^4.7.0"
+  },
   "license": "ISC"
 }

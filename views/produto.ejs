@@ -1,3 +1,5 @@
+<%- include('header', {title: "GA - " + produto }); %>
+
 <h1>Página de produto</h1>
 
 <% if (linha){ %>
@@ -8,4 +10,6 @@
 <%= categoria %>
 <% } %>
 
-<%= produto %>
+<%= data["Código"] %>
+<%= data["Categoria"] %>
+<%= data["Linha"] %>

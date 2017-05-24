@@ -58,18 +58,24 @@ app.get('/categorias/:categoria/:produto', function(req, res) {
   var categoria = req.params.categoria
   var produto = req.params.produto
   var url = airtableProductsUrl + '&filterByFormula={Código}="'+ produto + '"'
+  
   request(url , function(error, response, body){
     var parsedData = JSON.parse(body);
+    
     if(!error && response.statusCode == 200 && parsedData['records'].length !=0){
+  
       res.render('produto', {
-        
         produto: produto,
         categoria: categoria,
         linha: linha,
-        data: parsedData
+        data: parsedData["records"][0]["fields"]
       });
+
+      
     } else
+    
     res.render('404');
+    
   });
 });
 

@@ -15,7 +15,7 @@ var base = new Airtable({apiKey: process.env.AIRTABLE_KEY}).base('appswoobu90Djf
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
-app.use(compression())
+app.use(compression({level: 9}))
 
 app.listen(process.env.PORT, process.env.IP, function(){
   console.log("Golden-art has started!!!");

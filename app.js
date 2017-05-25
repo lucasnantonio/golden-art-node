@@ -1,3 +1,4 @@
+var compression = require('compression')
 var express = require('express');
 var request = require('request');
 const nakedString = require('naked-string');
@@ -14,6 +15,7 @@ var base = new Airtable({apiKey: process.env.AIRTABLE_KEY}).base('appswoobu90Djf
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
+app.use(compression())
 
 app.listen(process.env.PORT, process.env.IP, function(){
   console.log("Golden-art has started!!!");
@@ -90,7 +92,6 @@ app.get('/categorias/:categoria/:produto', function(req, res) {
       if (err || !records[0]) { res.render('404'); return; }
       data = records[0]["fields"];
       res.render('produto', {produto: produto, linha:linha, categoria: categoria, data: data});
-      console.log(data);
       });
   });
 

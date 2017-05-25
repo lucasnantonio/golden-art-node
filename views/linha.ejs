@@ -1,6 +1,6 @@
 <%- include('header', {title: linha }); %>
 <h1>Linha</h1>
 <%= linha %>
-<% data['records'].forEach(function(product) { %>
-    <%= product['fields']['Código'] %>
+<% data.forEach(function(product) { %>
+    <%= product['Código'] %>
 <% }) %>

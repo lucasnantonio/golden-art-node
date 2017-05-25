@@ -32,7 +32,10 @@ app.get('/', function(req, res){
   
   }, function done(err) {
       if (err) { res.render('404'); return; }
-      res.render('home', {data: data});
+      res.render('home', {
+        data: data,
+        url: req.originalUrl
+      });
   });
   
 });

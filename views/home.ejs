@@ -1,6 +1,11 @@
 <%- include('header', {title: "Golden-Art"}); %>
 
-<% var linhas = ["basic", "design", "vintage"] %>
+<% var linhas = [
+    "design",
+    "basic",
+    "cristal",
+    "vintage"
+] %>
 
 <% linhas.forEach(function(linha){ %>
     <div class="w-100 cf mb3">
@@ -8,7 +13,6 @@
     
         <% data.forEach(function(product) { %>
         <% if (product['fields']['Linha'] == linha && product['fields']['Fotos'] != undefined) { %>
-            <% console.log(product['fields']['Fotos']) %>
     
             <div class="fl w-50 w-third-m w-25-ns">
                 <a class="" href= <%= "/linhas/" + linha + "/" + product['fields']['Código'] %> >        

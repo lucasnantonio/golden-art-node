@@ -1,6 +1,6 @@
 <%- include('header', {title: categoria }); %>
 <h1>Categoria</h1>
 <%= categoria %>
-<% data['records'].forEach(function(product) { %>
-    <%= product['fields']['Código'] %>
+<% data.forEach(function(product) { %>
+    <%= product['Código'] %>
 <% }) %>

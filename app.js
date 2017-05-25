@@ -4,6 +4,7 @@ const nakedString = require('naked-string');
 var app = express();
 
 
+
 var airtableKey = process.env.AIRTABLE_KEY;
 var airtableProductsUrl = process.env.AIRTABLE_PRODUCTS_URL;
 
@@ -12,6 +13,7 @@ var base = new Airtable({apiKey: process.env.AIRTABLE_KEY}).base('appswoobu90Djf
 
 
 app.set('view engine', 'ejs')
+app.use(express.static('public'))
 
 app.listen(process.env.PORT, process.env.IP, function(){
   console.log("Golden-art has started!!!");

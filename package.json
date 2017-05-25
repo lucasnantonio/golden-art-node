@@ -14,7 +14,8 @@
     "socket.io": "~0.9.14"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified.\""
   },
   "devDependencies": {
     "tachyons": "^4.7.0"

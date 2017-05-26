@@ -1,6 +1,35 @@
 <%- include('./includes/header', {title: categoria }); %>
-<h1>Categoria</h1>
-<%= categoria %>
-<% data.forEach(function(product) { %>
-    <%= product['Código'] %>
-<% }) %>
+
+<% var linhas = [
+    "basic",
+    "design",
+    "cristal",
+    "vintage"
+];%>
+
+
+<div class="ph5-ns ph4">
+<h1>Categoria <%= categoria %> </h1>
+
+<% linhas.forEach(function(linha){ %>
+        
+    <main class="cf w-100 mt5">
+        <h1><%= linha %></h1>
+        <% data.forEach(function(product) { %>
+            <% if (product['fields']['Linha'] == linha && product['fields']['Fotos'] != undefined) { %>
+    
+            <div class="fl w-50 w-third-m w-25-ns">
+                <a class="" href= <%= "produtos/" + product['fields']['Código'] %> >        
+                    <div class="aspect-ratio aspect-ratio--1x1">
+                        <img style= <%= "background-image:url(" +  product['fields']['Fotos'][0]['thumbnails']['large']['url'] + ")"%> class="db bg-center cover aspect-ratio--object">
+                    </div>
+                </a>
+            </div>
+            
+            <% }; %>
+        <% }); %>
+    </main>
+    
+<% }); %>    
+
+</div>

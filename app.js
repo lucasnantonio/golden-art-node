@@ -24,6 +24,7 @@ app.listen(process.env.PORT, process.env.IP, function(){
 // HOME ROUTE
 
 app.get('/', function(req, res){
+
   var data;
   
   base('Produtos').select({}).eachPage(function page(records, fetchNextPage) {
@@ -44,6 +45,7 @@ app.get('/', function(req, res){
 // LINHAS/LINHA ROUTE
 
 app.get('/linhas/:linha', function(req, res) {
+
   var linha = nakedString(req.params.linha);
   var data;
   
@@ -67,7 +69,7 @@ app.get('/categorias/:categoria', function(req, res) {
   var data;
   
   base('Produtos').select({
-    filterByFormula: "{categoria} = '" +  categoria + "'"
+    filterByFormula: "{Categoria} = '" +  categoria + "'"
     }).eachPage(function page(records, fetchNextPage) {
       data = records;
       fetchNextPage();

@@ -21,7 +21,7 @@ var linha = linha
                 <% if ((product['fields']['Linha'] == linha && product['fields']['Fotos'] != undefined) && (product['fields']['Destaque?'])) { %>
         
                 <div class="fl w-50 w-third-m w-25-ns">
-                    <a class="" href= <%= "/linhas/" + linha + "/" + product['fields']['Código'] %> >        
+                    <a class="" href= <%= "produtos/" + product['fields']['Código'] %> >        
                         <div class="aspect-ratio aspect-ratio--1x1">
                             <img style= <%= "background-image:url(" +  product['fields']['Fotos'][0]['thumbnails']['large']['url'] + ")"%> class="db bg-center cover aspect-ratio--object">
                         </div>

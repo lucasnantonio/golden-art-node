@@ -1,65 +1,80 @@
 <%- include('./includes/header', {title: "GA - " + produto }); %>
 
-<div class="ph5 pt5">
+<div id="page-wrapper" class="ph5 pt5">
     
-    <div class="w-100">
-    
-    </div>
-    
-    <div class="fl w-50-ns w-100 mb4">
+    <div id="product-image" class="fl w-50-ns w-100 mb4">
         <div class="aspect-ratio aspect-ratio--1x1">
             <img style= <%= "background-image:url(" +  data['Fotos'][0]['url'] + ")"%> class="db bg-center cover aspect-ratio--object">
         </div>
     </div>
     
-    <div class="fl w-50-ns w-100 mb4 pl4-ns center">
+    <div id="product-content" class="fl w-50-ns w-100 mb4 pl4-ns center">
         
-        <div class="w-100 db cf">
+        <div id="product-content-header" class="w-100 db cf">
             <h1 class="fl mt0"> <%= data["Tipo"] + " " + data["Código"] %> </h1>
-            <h3 class=" mt2 fr f6 bg-near-black white pa1 ph2 br-pill di"><%= "linha " + data["Linha"] %> </h3>
+            <% if (data["Ficha Técnica"]) {  %>
+                <a class="pa2 fr dib-ns db f6 ba ba-red red link dim pointer mb3" target='blank' href= <%= data["Ficha Técnica"][0]['url'] %> > ⤓ <span class="dib-ns dn"> Baixar ficha técnica </span> </a>
+            <% } %> 
         </div>
         
-        <div class="w-100 db">
+        <div id="product-content-table" class="w-100 db">
             
             <% if (data["Descrição"]) { %>
                 <p class="pt1 mt1 db fl"><%= data["Descrição"] %> </p>
             <% } %>
             
             <table class="fl w-100 mt5" cellspacing="0">
+                
                 <colgroup>
                    <col class="w-30">
                    <col class="w-70">
                 </colgroup>
+                
                 <tbody class="lh-copy w-100">
+                    
+                    <% if (data["Medidas"]) { %>
                     <tr>
-                        <td class="w-10 b pt1 pb3 pr3 bt b--black-20">Medidas</td>
+                        <td class="w-10 b pt1 pb3 pr3 bt b--black-20"> <%= data["Medidas"] %> </td> 
                         <td class="w-10  pt1 pb3 pr3 bt b--black-20">23 x 45 x 45</td>
                     </tr>
+                    <% } %>
+                    
+                    <% if (data["Material"]) { %>
                     <tr>
-                        <td class="w-10 b pt1 pb3 pr3 bt b--black-20">Materiais</td>
-                        <td class="w-10  pt1 pb3 pr3 bt b--black-20">Latão e ferro</td>
+                        <td class="w-10 b pt1 pb3 pr3 bt b--black-20"> Materiais </td> 
+                        <td class="w-10  pt1 pb3 pr3 bt b--black-20"> 
+                        <% data["Material"].forEach(function(item, index){ %>
+                                <% if(index == data["Material"].length - 1) { %>
+                                <%= item %>
+                                <% } else { %>
+                                <%= item + "," %>
+                                <% } %>
+                        <% }); %>
+                        </td>
                     </tr>
+                    <% } %>
+
                     <tr>
                         <td class="w-10 b pt1 pb3 pr3 bt b--black-20">Cores disponíveis</td>
                         <td class="w-10  pt1 tb3 pr3 bt b--black-20">•••••••••••••••</td>
                     </tr>
+                    
                     <tr>
-                        <td class="w-10 b pt1 pb3 pr3 bt b--black-20">Prazo de produção</td>
-                        <td class="w-10  pt1 tb3 pr3 bt b--black-20">Pronta entrega</td>
+                        <td class="w-10 b pt1 pb3 pr3 bt b--black-20"> Prazo de produção </td> 
+                        <td class="w-10  pt1 pb3 pr3 bt b--black-20"> 
+                            <% if (!data["Pronta entrega?"]) { %>
+                                21 dias úteis
+                            <% } else { %>
+                                Pronta entrega
+                            <% } %>
+                        </td>
                     </tr>
+                    
                 </tbody>
             </table>
         </div>
     </div>
 </div>    
         
-        
-        
-    <!--    <% if (data["Medidas"]) { %>-->
-    <!--        <p class="bt pt1 mt1 b--light-gray"> <%= data["Medidas"] %> </p>-->
-    <!--    <% } %> -->
-        
-    <!--    <% if (data["Ficha Técnica"]) { %>-->
-    <!--        <a class="pa3 mt3 f6 bg-black white link dim pointer" target='blank' href= <%= data["Ficha Técnica"][0]['url'] %> > ⤓ Baixar ficha técnica </a>-->
-    <!--    <% } %> -->
+
         

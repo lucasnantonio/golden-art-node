@@ -23,7 +23,7 @@
                 <p class="pt1 mt1 db fl"><%= data["Descrição"] %> </p>
             <% } %>
             
-            <table class="fl w-100 mt5" cellspacing="0">
+            <table class="fl w-100 mt5 v-top" cellspacing="0">
                 
                 <colgroup>
                    <col class="w-30">
@@ -34,15 +34,15 @@
                     
                     <% if (data["Medidas"]) { %>
                     <tr>
-                        <td class="w-10 b pt1 pb3 pr3 bt b--black-20"> <%= data["Medidas"] %> </td> 
-                        <td class="w-10  pt1 pb3 pr3 bt b--black-20">23 x 45 x 45</td>
+                        <td class="v-top w-10 b pt1 pb3 pr3 bt b--black-20"> <%= data["Medidas"] %> </td> 
+                        <td class="v-top w-10  pt1 pb3 pr3 bt b--black-20">23 x 45 x 45</td>
                     </tr>
                     <% } %>
                     
                     <% if (data["Material"]) { %>
                     <tr>
-                        <td class="w-10 b pt1 pb3 pr3 bt b--black-20"> Materiais </td> 
-                        <td class="w-10  pt1 pb3 pr3 bt b--black-20"> 
+                        <td class="v-top w-10 b pt1 pb3 pr3 bt b--black-20"> Materiais </td> 
+                        <td class="v-top w-10  pt1 pb3 pr3 bt b--black-20"> 
                         <% data["Material"].forEach(function(item, index){ %>
                                 <% if(index == data["Material"].length - 1) { %>
                                 <%= item %>
@@ -55,13 +55,13 @@
                     <% } %>
 
                     <tr>
-                        <td class="w-10 b pt1 pb3 pr3 bt b--black-20">Cores disponíveis</td>
-                        <td class="w-10  pt1 tb3 pr3 bt b--black-20">•••••••••••••••</td>
+                        <td class="v-top w-10 b pt1 pb3 pr3 bt b--black-20">Cores disponíveis</td>
+                        <td class="v-top w-10  pt1 tb3 pr3 bt b--black-20">•••••••••••••••</td>
                     </tr>
                     
                     <tr>
-                        <td class="w-10 b pt1 pb3 pr3 bt b--black-20"> Prazo de produção </td> 
-                        <td class="w-10  pt1 pb3 pr3 bt b--black-20"> 
+                        <td class="v-top w-10 b pt1 pb3 pr3 bt b--black-20"> Prazo de produção </td> 
+                        <td class="v-top w-10  pt1 pb3 pr3 bt b--black-20"> 
                             <% if (!data["Pronta entrega?"]) { %>
                                 21 dias úteis
                             <% } else { %>

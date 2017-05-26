@@ -6,29 +6,37 @@
     "basic",
     "cristal",
     "vintage"
-] %>
+];
 
-<% linhas.forEach(function(linha){ %>
-    <div class="w-100 cf mb3">
-        <h3 class='w-100 tc'><%= linha %></h3>
+var linha = linha 
+%>
+
+<div class="ph4">
     
-        <% data.forEach(function(product) { %>
-        <% if (product['fields']['Linha'] == linha && product['fields']['Fotos'] != undefined) { %>
-    
-            <div class="fl w-50 w-third-m w-25-ns">
-                <a class="" href= <%= "/linhas/" + linha + "/" + product['fields']['Código'] %> >        
-                    <div class="aspect-ratio aspect-ratio--1x1">
-                        <img style= <%= "background-image:url(" +  product['fields']['Fotos'][0]['thumbnails']['large']['url'] + ")"%> class="db bg-center cover aspect-ratio--object">
-                    </div>
-                </a>
-            </div>
+    <% linhas.forEach(function(linha){ %>
+            
+        <main class="cf w-100 mt5">
+            <h1><%= linha %></h1>
+            <% data.forEach(function(product) { %>
+                <% if (product['fields']['Linha'] == linha && product['fields']['Fotos'] != undefined) { %>
         
+                <div class="fl w-50 w-third-m w-25-ns">
+                    <a class="" href= <%= "/linhas/" + linha + "/" + product['fields']['Código'] %> >        
+                        <div class="aspect-ratio aspect-ratio--1x1">
+                            <img style= <%= "background-image:url(" +  product['fields']['Fotos'][0]['thumbnails']['large']['url'] + ")"%> class="db bg-center cover aspect-ratio--object">
+                        </div>
+                    </a>
+                </div>
+                
+                <% }; %>
+            <% }); %>
     
-        <% };}) %>
+        </main>
         
-    </div>
+        <div class="tc">
+            <a class="dib f5 ttu link mb5 dim br1 ph4 pv3 white bg-black center tc" href= <%="/linhas/" + linha %>> Conheça a linha completa </a>
+        </div>
+    <% }); %>    
+
     
-    <div class="tc">
-    <a class="dib f5 ttu link mb5 dim br1 ph4 pv3 white bg-black center tc" href= <%="/linhas/" + linha %>> Conheça a linha completa </a>
-    </div>
-<% }) %>
+</div>

@@ -1,4 +1,4 @@
-<%- include('./includes/header', {title: "GA - " + produto }); %>
+<%- include('./includes/header', {title: "GA - " + data["Código"] }); %>
 
 <div id="page-wrapper" class="ph5 pt5">
     
@@ -58,17 +58,7 @@
                         <td class="v-top w-10 b pt1 pb3 pr3 bt b--black-20">Cores disponíveis</td>
                         <td class="v-top w-10  pt1 tb3 pr3 bt b--black-20">•••••••••••••••</td>
                     </tr>
-                    
-                    <tr>
-                        <td class="v-top w-10 b pt1 pb3 pr3 bt b--black-20"> Prazo de produção </td> 
-                        <td class="v-top w-10  pt1 pb3 pr3 bt b--black-20"> 
-                            <% if (!data["Pronta entrega?"]) { %>
-                                21 dias úteis
-                            <% } else { %>
-                                Pronta entrega
-                            <% } %>
-                        </td>
-                    </tr>
+
                     
                 </tbody>
             </table>

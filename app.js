@@ -80,13 +80,11 @@ app.get('/categorias/:categoria', function(req, res) {
 });
 
 
-// CATEGORIAS/CATEGORIA/PRODUTO ROUTE
+// PRODUTOS/PRODUTO ROUTE
 
-app.get('/categorias/:categoria/:produto', function(req, res) {
-  var linha = null
-  var categoria = req.params.categoria
+app.get('/produtos/:produto', function(req, res) {
+  
   var produto = req.params.produto
-  var url = airtableProductsUrl + '&filterByFormula={Código}="'+ produto + '"'
   var data;
   
   base('Produtos').select({
@@ -94,30 +92,9 @@ app.get('/categorias/:categoria/:produto', function(req, res) {
   }).firstPage(function(err, records) {
       if (err || !records[0]) { res.render('404'); return; }
       data = records[0]["fields"];
-      res.render('produto', {produto: produto, linha:linha, categoria: categoria, data: data});
+      res.render('produto', {data: data});
       });
   });
-
-
-// LINHAS/LINHA/PRODUTO ROUTE
-
-app.get('/linhas/:linha/:produto', function(req, res) {
-  
-  var linha = null
-  var categoria = req.params.categoria
-  var produto = req.params.produto
-  var url = airtableProductsUrl + '&filterByFormula={Código}="'+ produto + '"'
-  var data;
-  
-  base('Produtos').select({
-    filterByFormula: "{Código} = '" +  produto + "'"
-    }).firstPage(function(err, records) {
-        if (err || !records[0] ) { res.render('404'); return; }
-        data = records[0]["fields"];
-        res.render('produto', {produto: produto, linha:linha, categoria: categoria, data: data});
-  });
-  
-});
 
 
 app.get('*', function(req, res) {

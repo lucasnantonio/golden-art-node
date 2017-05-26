@@ -6,29 +6,64 @@
     
     </div>
     
-    <div class="fl w-50-ns w-100">
+    <div class="fl w-50-ns w-100 mb4">
         <div class="aspect-ratio aspect-ratio--1x1">
             <img style= <%= "background-image:url(" +  data['Fotos'][0]['url'] + ")"%> class="db bg-center cover aspect-ratio--object">
         </div>
     </div>
     
-    <div class="fl w-50-ns w-100 pl5">
+    <div class="fl w-50-ns w-100 mb4 pl4-ns center">
         
-        <h1> <%= data["Tipo"] + " " + data["Código"] %> </h1>
-        <h3><%= "linha " + data["Linha"] %> </h3>
+        <div class="w-100 db cf">
+            <h1 class="fl mt0"> <%= data["Tipo"] + " " + data["Código"] %> </h1>
+            <h3 class=" mt2 fr f6 bg-near-black white pa1 ph2 br-pill di"><%= "linha " + data["Linha"] %> </h3>
+        </div>
         
-        <% if (data["Descrição"]) { %>
-        <p class="bt pt1 mt1 b--light-gray"><%= data["Descrição"] %> </p>
-        <% } %>
-        
-        <% if (data["Medidas"]) { %>
-            <p class="bt pt1 mt1 b--light-gray"> <%= data["Medidas"] %> </p>
-        <% } %> 
-        
-        <% if (data["Ficha Técnica"]) { %>
-            <a class="pa3 mt3 f6 bg-black white link dim pointer" target='blank' href= <%= data["Ficha Técnica"][0]['url'] %> > ⤓ Baixar ficha técnica </a>
-        <% } %> 
-        
+        <div class="w-100 db">
+            
+            <% if (data["Descrição"]) { %>
+                <p class="pt1 mt1 db fl"><%= data["Descrição"] %> </p>
+            <% } %>
+            
+            <table class="fl w-100 mt5" cellspacing="0">
+                <colgroup>
+                   <col class="w-30">
+                   <col class="w-70">
+                </colgroup>
+                <tbody class="lh-copy w-100">
+                    <tr>
+                        <td class="w-10 b pt1 pb3 pr3 bt b--black-20">Medidas</td>
+                        <td class="w-10  pt1 pb3 pr3 bt b--black-20">@hassan</td>
+                    </tr>
+                    <tr>
+                        <td class="w-10 b pt1 pb3 pr3 bt b--black-20">Código</td>
+                        <td class="w-10  pt1 pb3 pr3 bt b--black-20">@hicks</td>
+                    </tr>
+                    <tr>
+                        <td class="w-10 b pt1 pb3 pr3 bt b--black-20">Tyrin Turner</td>
+                        <td class="w-10  pt1 tb3 pr3 bt b--black-20">@tt</td>
+                    </tr>
+                    <tr>
+                        <td class="w-10 b pt1 pb3 pr3 bt b--black-20">Oliver Grant</td>
+                        <td class="w-10  pt1 tb3 pr3 bt b--black-20">@oli</td>
+                    </tr>
+                    <tr>
+                        <td class="w-10 b pt1 pb3 pr3 bt b--black-20">Dean Blanc</td>
+                        <td class="w-10  pt1 pb3 pr3 bt b--black-20">@deanblanc</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-
-</div>
+</div>    
+        
+        
+        
+    <!--    <% if (data["Medidas"]) { %>-->
+    <!--        <p class="bt pt1 mt1 b--light-gray"> <%= data["Medidas"] %> </p>-->
+    <!--    <% } %> -->
+        
+    <!--    <% if (data["Ficha Técnica"]) { %>-->
+    <!--        <a class="pa3 mt3 f6 bg-black white link dim pointer" target='blank' href= <%= data["Ficha Técnica"][0]['url'] %> > ⤓ Baixar ficha técnica </a>-->
+    <!--    <% } %> -->
+        

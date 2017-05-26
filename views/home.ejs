@@ -18,7 +18,7 @@ var linha = linha
         <main class="cf w-100 mt5">
             <h1><%= linha %></h1>
             <% data.forEach(function(product) { %>
-                <% if (product['fields']['Linha'] == linha && product['fields']['Fotos'] != undefined) { %>
+                <% if ((product['fields']['Linha'] == linha && product['fields']['Fotos'] != undefined) && (product['fields']['Destaque?'])) { %>
         
                 <div class="fl w-50 w-third-m w-25-ns">
                     <a class="" href= <%= "/linhas/" + linha + "/" + product['fields']['Código'] %> >        

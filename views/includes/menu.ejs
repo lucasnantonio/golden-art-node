@@ -29,19 +29,18 @@
 
  %>
 
-<nav id="menuWrapper" class="">
-  <div id="menu-top" class="db dt w-100 border-box pv3 ph5 bg-white">
-    
+<!--DESKTOP MENU-->
+<nav id="desktopMenuWrapper" class="db-l dn w-100 border-box pv3 ph5 bg-white">
     <!--LOGO-->
     <a href="/" id="logo" class="w4 dib v-top mid-gray link dim">
     <img src="/images/logotipo_golden.svg" class="dib" alt="golden art logotype">
     </a>
     
     <!--//MENU ITEMS-->
-    <div id="menuItems" class="dib w-75 fr v-mid center tl pl5">
+    <div id="desktopMenuItems" class="dib w-75  fr v-mid center tl pl5">
         <% for (i in menuItems) { %>
           <div class="w4 dib v-top pt2">
-            <span class="link dark-gray f5 dib mr3 pv1 mb3">
+            <span class="dark-gray f5 dib pv1 mb3">
               <%= menuItems[i]['path'] %>
             </span>
             <% for (j in menuItems[i]['subitens']) { %>
@@ -50,5 +49,33 @@
           </div>
         <% } %>
     </div>
-  </div>
+    
+</nav>
+
+
+<!--MOBILE MENU-->
+<nav id="mobileMenuWrapper" class="dn-l db db dt w-100 border-box pv3 ph5 bg-white">
+    
+    <!--LOGO-->
+    <a href="/" id="logo" class="fl w4 dib-ns db v-top mid-gray link dim">
+    <img src="/images/logotipo_golden.svg" class="" alt="golden art logotype">
+    </a>
+    
+    <div id="mobileMenuButton" class='fr w-10 gray pt2 f5'>MENU</div>
+    
+    <!--//MENU ITEMS-->
+    <div id="mobileMenuItems" class="db w-100 fl v-mid center tl pt">
+        <div id="spacer" class="h3"></div>
+        <% for (i in menuItems) { %>
+          <div class="db v-top pb4 pt1 bt bt-gray">
+            <span class="link dark-gray f4 b db pv1 mb2">
+              <%= menuItems[i]['path'] %>
+            </span>
+            <% for (j in menuItems[i]['subitens']) { %>
+              <a class="link gray f5 mr3 db hover-red pv2 pointer" href=<%= "/" + menuItems[i]['path'] + "/" + menuItems[i]['subitens'][j] %>><%= menuItems[i]['subitens'][j] %> </a>
+            <% } %>
+          </div>
+        <% } %>
+    </div>
+ 
 </nav>

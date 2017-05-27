@@ -6,7 +6,8 @@ body{
     /*font-family: 'Space Mono', serif;*/
     /*font-family: 'Inconsolata', serif;*/
 }
-#menuWrapper{
+#desktopMenuWrapper,
+#mobileMenuItems{
     transition: all .2s;
     overflow: hidden;
 }

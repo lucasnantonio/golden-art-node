@@ -1,28 +1,54 @@
-<nav class="db dt-l w-100 border-box pa4 ph5-l">
-  <a class="db dtc-l v-mid mid-gray link dim w-100 w-25-l tc tl-l mb3 mb0-l" href="/" title="Home">
-    <img src="/images/logotipo_golden.svg" class="dib w4" alt="golden art logotype">
-  </a>
-  <ul class="relative db dtc-l v-mid w-100 w-75-l tc tr-l">
-    <a class="link  dark-gray f6 f5-l dib mr3 mr4-l hover-red" href="/sobre" title="Sobre Nós">Sobre nós</a>
-    <div class="link relative dark-gray f6 f5-l dib mr3 mr4-l hover-red hide-child">
-        Linhas
-        <ul class="child absolute bg-white pa3 z-1 w4">
-          <a class="ma3 db link black tl hover-red" href="/linhas/basic">Básica</a>
-          <a class="ma3 db link black tl hover-red" href="/linhas/vintage">Vintage</a>
-          <a class="ma3 db link black tl hover-red" href="/linhas/cristal">Cristal</a>
-          <a class="ma3 db link black tl hover-red " href="/linhas/design">Design</a>
-        </ul>
+<% var menuItems = {
+  categorias: {
+    "path": "Categorias",
+    "subitens": [
+      "Teto",
+      "Piso",
+      "Mesa",
+      "Parede"
+    ]
+  },
+  linhas: {
+    "path": "Linhas",
+    "subitens": [
+      "Design Lab",
+      "Basic",
+      "Vintage",
+      "Cristal"
+    ]
+  },
+  sobre: {
+    "path": "Sobre",
+    "subitens": [
+      "Sobre",
+      "Contato",
+      "News"
+    ]
+  }
+}
+
+ %>
+
+<nav id="menuWrapper" class="">
+  <div id="menu-top" class="db dt w-100 border-box pv3 ph5 bg-white">
+    
+    <!--LOGO-->
+    <a href="/" id="logo" class="w4 dib v-top mid-gray link dim">
+    <img src="/images/logotipo_golden.svg" class="dib" alt="golden art logotype">
+    </a>
+    
+    <!--//MENU ITEMS-->
+    <div id="menuItems" class="dib w-75 fr v-mid center tl pl5">
+        <% for (i in menuItems) { %>
+          <div class="w4 dib v-top pt2">
+            <span class="link dark-gray f5 dib mr3 pv1 mb3">
+              <%= menuItems[i]['path'] %>
+            </span>
+            <% for (j in menuItems[i]['subitens']) { %>
+              <a class="link gray f5 mr3 db hover-red pv2 pointer" href=<%= "/" + menuItems[i]['path'] + "/" + menuItems[i]['subitens'][j] %>><%= menuItems[i]['subitens'][j] %> </a>
+            <% } %>
+          </div>
+        <% } %>
     </div>
-    <div class="link relative dark-gray f6 f5-l dib mr3 mr4-l hover-red hide-child">
-        Categorias
-        <ul class="child absolute bg-white pa3 z-1 w4">
-          <a class="ma3 db link black tl hover-red" href="/categorias/teto">Teto</a>
-          <a class="ma3 db link black tl hover-red" href="/categorias/piso">Piso</a>
-          <a class="ma3 db link black tl hover-red" href="/categorias/parede">Parede</a>
-          <a class="ma3 db link black tl hover-red " href="/categorias/mesa">Mesa</a>
-        </ul>
-    </div>
-    <a class="link  dark-gray f6 f5-l dib mr3 mr4-l hover-red" href="/contato" title="Contato">Contato</a>
-    <a class="link  dark-gray f6 f5-l dib" href="/news" title="News">News</a>
-  </ul>
+  </div>
 </nav>

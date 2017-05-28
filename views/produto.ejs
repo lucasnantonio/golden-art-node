@@ -55,7 +55,7 @@
                    <col class="w-70">
                 </colgroup>
                 
-                <tbody class="lh-copy w-100">
+                <tbody class="w-100">
                     
                     <% if (data["Medidas"]) { %>
                     <tr>
@@ -85,9 +85,9 @@
                         <td class="v-top w-10  pt1 pb3 pr3 bt b--black-20"> 
                         <% console.log(colors) %>
                         <% colors.forEach(function(color, index){ %>
-                            <div class="db">
-                            <span class='h1 w1 dib br-100 ba b--light-gray' style= <%- "background-color:" + color["fields"]["Webcode"]   %> ></span>
-                            <%= color["fields"]["Nome"] %>
+                            <div class="db fl w-third-l w-50 f6 mt2">
+                            <div class='dtc h1 w1 dib br-100 ba b--light-gray mr2' style= <%- "background-color:" + color["fields"]["Webcode"]   %> ></div>
+                            <div class="dtc pl2"><%= color["fields"]["Nome"] %></div>
                             </div>
                         <% }); %>
                         </td>

@@ -79,10 +79,20 @@
                     </tr>
                     <% } %>
 
+                    <% if (colors) { %>
                     <tr>
-                        <td class="v-top w-10 b pt1 pb3 pr3 bt b--black-20">Cores disponíveis</td>
-                        <td class="v-top w-10  pt1 tb3 pr3 bt b--black-20">•••••••••••••••</td>
+                        <td class="v-top w-10 b pt1 pb3 pr3 bt b--black-20"> Cores Disponíveis </td> 
+                        <td class="v-top w-10  pt1 pb3 pr3 bt b--black-20"> 
+                        <% console.log(colors) %>
+                        <% colors.forEach(function(color, index){ %>
+                            <div class="db">
+                            <span class='h1 w1 dib br-100 ba b--light-gray' style= <%- "background-color:" + color["fields"]["Webcode"]   %> ></span>
+                            <%= color["fields"]["Nome"] %>
+                            </div>
+                        <% }); %>
+                        </td>
                     </tr>
+                    <% } %>
                 </tbody>
             </table>
 

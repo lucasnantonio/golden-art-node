@@ -29,9 +29,11 @@ var loadMenu = function(){
     desktopMenuWrapper.style.height = '4.5rem';
     desktopMenuItems.addEventListener("mouseenter", function( event ) {   
       desktopMenuWrapper.style.height = '15rem';
+      desktopMenuWrapper.style.boxShadow = "0px 0px 65px rgba(0,0,0,.2)";
     	desktopMenuWrapper.addEventListener("mouseleave", function(event){
         setTimeout(function() {
       		desktopMenuWrapper.style.height = '4.5rem';
+      		desktopMenuWrapper.style.boxShadow = "0px 0px 0px black";
           }, 500);
         })
     });

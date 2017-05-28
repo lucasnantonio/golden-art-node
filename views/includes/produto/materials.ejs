@@ -1,0 +1,14 @@
+<% if (data["Material"]) { %>
+<tr>
+    <td class="v-top w-10 b pt1 pb3 pr3 bt b--black-20"> Materiais </td> 
+    <td class="v-top w-10  pt1 pb3 pr3 bt b--black-20"> 
+    <% data["Material"].forEach(function(item, index){ %>
+            <% if(index == data["Material"].length - 1) { %>
+            <%= item %>
+            <% } else { %>
+            <%= item + "," %>
+            <% } %>
+    <% }); %>
+    </td>
+</tr>
+<% } %>

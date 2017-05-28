@@ -1,0 +1,6 @@
+<div id="product-content-header" class="w-100 db cf">
+    <h1 class="fl mt0"> <%= data["Tipo"] + " " + data["Código"] %> </h1>
+    <% if (data["Ficha Técnica"]) {  %>
+        <a class="pa2 fr-l w-auto-l w-100 tc fl dib-l db f6 ba ba-red red link bg-animate hover-bg-red hover-white pointer mb3" target='blank' href= <%= data["Ficha Técnica"][0]['url'] %> > ⤓ Baixar ficha técnica </a>
+    <% } %> 
+</div>

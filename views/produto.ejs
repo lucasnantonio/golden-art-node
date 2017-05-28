@@ -6,17 +6,18 @@
     <div id="product-image" class="fl w-50-ns w-100 mb4">
         <div class="relative">
         <div class="siema">
-          <div><img src= <%= data['Fotos'][0]['url'] %> alt="Siema image" /></div>
-          <div><img src= <%= data['Fotos'][0]['url'] %> alt="Siema image" /></div>
-          <div><img src= <%= data['Fotos'][0]['url'] %> alt="Siema image" /></div>
-          <div><img src= <%= data['Fotos'][0]['url'] %> alt="Siema image" /></div>
+            <% for (i in data['Fotos']){ %>
+          <div><img src= <%= data['Fotos'][i]['url'] %> alt="Siema image" /></div>
+            <% }%>
         </div>
+        <%if (data['Fotos'].length > 1) {%>
         <div class="prev absolute w2 h2 pointer" style="top:calc(40% + 20px); left:50px">
             <%-include includes/arrowleft.svg %>
         </div>
         <div class="next absolute w2 h2 pointer" style="top:calc(40% + 20px); right:50px">
             <%-include includes/arrowright.svg %>
         </div>
+        <% } %>
         
         </div>
         <% if (data["Desenho Técnico"]) { %>

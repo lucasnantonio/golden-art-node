@@ -6,9 +6,12 @@ var nakedString = require("naked-string");
 
 
 // PRODUTOS/PRODUTO ROUTE
-router.get('/produtos/:produto', getProductInfo, findColorMatches, function(req, res) {
-  // console.log(res.locals.productColors);
-  res.render('produto', {data: res.locals.data, colors: res.locals.colors});
+router.get('/produtos/:produto', 
+  getProductInfo, 
+  findColorMatches,
+  findVariations,
+  function(req, res) {
+  res.render('produto', {data: res.locals.data, colors: res.locals.colors, variations: res.locals.variations});
   res.end();
 });
 
@@ -25,20 +28,11 @@ function getProductInfo(req, res, next){
       });
 };
 
-// itemsProcessed++;
-//     if(itemsProcessed === array.length) {
-//       callback();
-//     }
-
-function callback () { console.log('all done'); }
-
-
 
 function findColorMatches(req, res, next){
   
   var itemsProcessed = 0;
   res.locals.colors = [];
-  console.log(res.locals.data['Cores Pintura']);
   
   if (res.locals.data['Cores Pintura']){
   res.locals.data['Cores Pintura'].forEach(function(colorId, index, arr){
@@ -57,6 +51,34 @@ function findColorMatches(req, res, next){
   next()}
 }
 
+//TODO: variations
+function findVariations(req, res, next){
+  
+  var itemsProcessed = 0;
+  res.locals.variations = [];
+
+  if (res.locals.data['Variações']){
+  res.locals.data['Variações'].forEach(function(variationId, index, arr){
+    
+      base('Produtos').find(variationId, function(err, record) {
+        if (err) { console.error(err); return; }
+        itemsProcessed++;
+        res.locals.variations.push(record);
+
+        if(itemsProcessed === arr.length) {
+          console.log(res.locals.variations);
+          next();
+        };
+    });
+    });
+} else {
+  next()}
+}
+
+//TODO: special colors
+//TODO: cúpulas
+//TODO: acessórios
+//TODO: related products
 
 
 

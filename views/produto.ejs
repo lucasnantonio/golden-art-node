@@ -33,12 +33,12 @@
         
 
     
-    <div id="product-content" class="fl w-50-l w-100 mb4 pl4-ns center">
+    <div id="product-content" class="fl w-50-l w-100 mb4 pl4-l center">
         
         <div id="product-content-header" class="w-100 db cf">
             <h1 class="fl mt0"> <%= data["Tipo"] + " " + data["Código"] %> </h1>
             <% if (data["Ficha Técnica"]) {  %>
-                <a class="pa2 fr dib-ns db f6 ba ba-red red link bg-animate hover-bg-red hover-white pointer mb3" target='blank' href= <%= data["Ficha Técnica"][0]['url'] %> > ⤓ <span class="dib-ns dn"> Baixar ficha técnica </span> </a>
+                <a class="pa2 fr-l w-auto-l w-100 tc fl dib-l db f6 ba ba-red red link bg-animate hover-bg-red hover-white pointer mb3" target='blank' href= <%= data["Ficha Técnica"][0]['url'] %> > ⤓ Baixar ficha técnica </a>
             <% } %> 
         </div>
         
@@ -80,11 +80,9 @@
                     <% } %>
 
                     <% if (colors) { %>
-                    <% console.log(colors) %>
                     <tr>
                         <td class="v-top w-10 b pt1 pb3 pr3 bt b--black-20"> Cores Disponíveis </td> 
                         <td class="v-top w-10  pt1 pb3 pr3 bt b--black-20"> 
-                        <% console.log(colors) %>
                         <% colors.forEach(function(color, index){ %>
                             <div class="db fl w-third-l w-50 f6 mt2">
                             <div class='dtc h1 w1 dib br-100 ba b--light-gray mr2'  style=  <%= style = "background-color:" + color["fields"]["Webcode"] + ";min-width:1rem;"  %> ></div>
@@ -94,6 +92,22 @@
                         </td>
                     </tr>
                     <% } %>
+                    
+                    <% if (variations) { %>
+                        <% console.log( variations) %>
+                        <tr>
+                            <td class="v-top w-10 b pt1 pb3 pr3 bt b--black-20"> Variações </td> 
+                            <td class="v-top w-10  pt1 pb3 pr3 bt b--black-20"> 
+                            <% variations.forEach(function(item, index){ %>
+                                <div class="db fl w-third-l w-50 f6 mt2">
+                                    <% console.log('lucas') %>
+                                    <%= item['fields']['Código'] %>
+                                </div>
+                            <% }); %>
+                            </td>
+                        </tr>
+                    <% } %>
+                    
                 </tbody>
             </table>
 
@@ -101,6 +115,4 @@
         </div>
     </div>
 </div>    
-        
-
         

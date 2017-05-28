@@ -1,0 +1,13 @@
+<% if (variations) { %>
+    <tr>
+        <td class="v-top w-10 b pt1 pb3 pr3 bt b--black-20"> Variações </td> 
+        <td class="v-top w-10  pt1 pb3 pr3 bt b--black-20"> 
+        <% variations.forEach(function(item, index){ %>
+            <div class="db fl w-third-l w-50 f6 mt2">
+                console.log(item);
+                <%= item['fields']['Código'] %>
+            </div>
+        <% }); %>
+        </td>
+    </tr>
+<% } %>

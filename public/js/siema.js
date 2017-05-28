@@ -7,7 +7,13 @@ function ready(fn) {
 }
 
 var loadCarousel = function(){
-  new Siema(); /*global Siema*/
+  
+  var mySiema = new Siema(); /*global Siema*/
+  const prev = document.querySelector('.prev');
+  const next = document.querySelector('.next');
+  
+  prev.addEventListener('click', () => mySiema.prev());
+  next.addEventListener('click', () => mySiema.next());
 };
 
 ready(loadCarousel);

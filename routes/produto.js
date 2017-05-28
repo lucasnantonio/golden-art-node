@@ -38,21 +38,25 @@ function findColorMatches(req, res, next){
   
   var itemsProcessed = 0;
   res.locals.colors = [];
+  console.log(res.locals.data['Cores Pintura']);
+  
+  if (res.locals.data['Cores Pintura']){
   res.locals.data['Cores Pintura'].forEach(function(colorId, index, arr){
     
       base('Cores').find(colorId, function(err, record) {
         if (err) { console.error(err); return; }
         itemsProcessed++;
         res.locals.colors.push(record);
-        console.log("element inserted");
+
         if(itemsProcessed === arr.length) {
           next();
         };
     });
     });
+} else {
+  next()}
 }
 
-  // console.log(res.locals.colors); 
 
 
 

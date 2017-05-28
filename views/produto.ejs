@@ -1,22 +1,27 @@
 <%- include('./includes/header', {title: "GA - " + data["Código"] }); %>
 
+
 <div id="page-wrapper" class="ph5-ns ph4 pt5 mt5">
     
     <div id="product-image" class="fl w-50-ns w-100 mb4">
-        
-        <div class="aspect-ratio aspect-ratio--1x1">
-            <img style= <%= "background-image:url(" +  data['Fotos'][0]['url'] + ")"%> class="db bg-center cover aspect-ratio--object">
+        <div class="siema">
+          <div><img src= <%= data['Fotos'][0]['url'] %> alt="Siema image" /></div>
+          <div><img src= <%= data['Fotos'][0]['url'] %> alt="Siema image" /></div>
+          <div><img src= <%= data['Fotos'][0]['url'] %> alt="Siema image" /></div>
+          <div><img src= <%= data['Fotos'][0]['url'] %> alt="Siema image" /></div>
         </div>
-        
-         <% if (data["Desenho Técnico"]) { %>
+        <% if (data["Desenho Técnico"]) { %>
             <div class="w-100 fl db mt3">
                 <div class="aspect-ratio aspect-ratio--1x1">
                     <img style= <%= "background-image:url(" +  data['Desenho Técnico'][0]['url'] + ")"%> class="db bg-center cover aspect-ratio--object">
                 </div>
             </div>
         <% } %>
-        
+            
     </div>
+    
+        
+
     
     <div id="product-content" class="fl w-50-ns w-100 mb4 pl4-ns center">
         

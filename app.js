@@ -41,6 +41,15 @@ app.get('/', function(req, res){
   
 });
 
+// SOBRE
+app.get('/sobre/sobre', function(req, res){
+res.render('sobre')
+});
+
+// CONTATO
+app.get('/sobre/contato', function(req, res){
+res.render('contato')
+});
 
 // LINHAS/LINHA ROUTE
 

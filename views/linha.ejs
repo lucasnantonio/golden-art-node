@@ -15,13 +15,13 @@
         
     <main class="cf w-100 mt5">
         <h1><%= categoria %></h1>
-        <% data.forEach(function(product) { %>
-            <% if (product['fields']['Categoria'] == categoria && product['fields']['Fotos'] != undefined) { %>
+        <% thisLineProducts.forEach(function(product) { %>
+            <% if (product['Categoria'] == categoria && product['Fotos'] != undefined) { %>
     
             <div class="fl w-50 w-third-m w-25-ns">
-                <a class="" href= <%= "/produtos/" + product['fields']['Código'] %> >        
+                <a class="" href= <%= "/produtos/" + product['Código'] %> >        
                     <div class="aspect-ratio aspect-ratio--1x1 dim">
-                        <img style= <%= "background-image:url(" +  product['fields']['Fotos'][0]['thumbnails']['large']['url'] + ")"%> class="db bg-center cover aspect-ratio--object">
+                        <img style= <%= "background-image:url(" +  product['Fotos'][0]['thumbnails']['large']['url'] + ")"%> class="db bg-center cover aspect-ratio--object">
                     </div>
                 </a>
             </div>

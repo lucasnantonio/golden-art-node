@@ -4,44 +4,12 @@
 <div id="page-wrapper" class="ph5-ns ph4 pt5 mt5">
     
     <div id="product-image" class="fl w-50-l w-100 mb4">
-        <div class="relative">
-        <div class="siema">
-            <% for (i in data['Fotos']){ %>
-          <div><img src= <%= data['Fotos'][i]['url'] %> alt="Siema image" /></div>
-            <% }%>
-        </div>
-        <%if (data['Fotos'].length > 1) {%>
-        <div class="prev absolute w2 h2 pointer" style="top:calc(40% + 20px); left:50px">
-            <%-include includes/arrowleft.svg %>
-        </div>
-        <div class="next absolute w2 h2 pointer" style="top:calc(40% + 20px); right:50px">
-            <%-include includes/arrowright.svg %>
-        </div>
-        <% } %>
-        
-        </div>
-        <% if (data["Desenho Técnico"]) { %>
-            <div class="w-100 fl db mt3">
-                <div class="aspect-ratio aspect-ratio--1x1">
-                    <img style= <%= "background-image:url(" +  data['Desenho Técnico'][0]['url'] + ")"%> class="db bg-center cover aspect-ratio--object">
-                </div>
-            </div>
-        <% } %>
-            
+        <%- include ./includes/produto/slider %>
+        <%- include ./includes/produto/technical %>
     </div>
     
-        
-
-    
-    <div id="product-content" class="fl w-50-l w-100 mb4 pl4-ns center">
-        
-        <div id="product-content-header" class="w-100 db cf">
-            <h1 class="fl mt0"> <%= data["Tipo"] + " " + data["Código"] %> </h1>
-            <% if (data["Ficha Técnica"]) {  %>
-                <a class="pa2 fr dib-ns db f6 ba ba-red red link bg-animate hover-bg-red hover-white pointer mb3" target='blank' href= <%= data["Ficha Técnica"][0]['url'] %> > ⤓ <span class="dib-ns dn"> Baixar ficha técnica </span> </a>
-            <% } %> 
-        </div>
-        
+    <div id="product-content" class="fl w-50-l w-100 mb4 pl4-l center">
+        <%- include ./includes/produto/title %>
         <div id="product-content-table" class="w-100 db">
             
             <% if (data["Descrição"]) { %>
@@ -49,51 +17,16 @@
             <% } %>
             
             <table class="fl w-100 mt5 v-top" cellspacing="0">
-                
                 <colgroup>
                    <col class="w-30">
                    <col class="w-70">
                 </colgroup>
                 
                 <tbody class="w-100">
-                    
-                    <% if (data["Medidas"]) { %>
-                    <tr>
-                        <td class="v-top w-10 b pt1 pb3 pr3 bt b--black-20"> Medidas </td> 
-                        <td class="v-top w-10  pt1 pb3 pr3 bt b--black-20"> <%= data["Medidas"] %> </td>
-                    </tr>
-                    <% } %>
-                    
-                    <% if (data["Material"]) { %>
-                    <tr>
-                        <td class="v-top w-10 b pt1 pb3 pr3 bt b--black-20"> Materiais </td> 
-                        <td class="v-top w-10  pt1 pb3 pr3 bt b--black-20"> 
-                        <% data["Material"].forEach(function(item, index){ %>
-                                <% if(index == data["Material"].length - 1) { %>
-                                <%= item %>
-                                <% } else { %>
-                                <%= item + "," %>
-                                <% } %>
-                        <% }); %>
-                        </td>
-                    </tr>
-                    <% } %>
-
-                    <% if (colors) { %>
-                    <% console.log(colors) %>
-                    <tr>
-                        <td class="v-top w-10 b pt1 pb3 pr3 bt b--black-20"> Cores Disponíveis </td> 
-                        <td class="v-top w-10  pt1 pb3 pr3 bt b--black-20"> 
-                        <% console.log(colors) %>
-                        <% colors.forEach(function(color, index){ %>
-                            <div class="db fl w-third-l w-50 f6 mt2">
-                            <div class='dtc h1 w1 dib br-100 ba b--light-gray mr2'  style=  <%= style = "background-color:" + color["fields"]["Webcode"] + ";min-width:1rem;"  %> ></div>
-                            <div class="dtc pl2 nowrap"><%= color["fields"]["Nome"] %></div>
-                            </div>
-                        <% }); %>
-                        </td>
-                    </tr>
-                    <% } %>
+                    <%- include ./includes/produto/medidas %>
+                    <%- include ./includes/produto/materials %>
+                    <%- include ./includes/produto/colors %>
+                    <%- include ./includes/produto/variations %>
                 </tbody>
             </table>
 
@@ -101,6 +34,4 @@
         </div>
     </div>
 </div>    
-        
-
         

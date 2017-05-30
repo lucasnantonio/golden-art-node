@@ -1,0 +1,15 @@
+<div class="relative">
+    <div class="siema">
+        <% for (i in data['Fotos']){ %>
+      <div><img src= <%= data['Fotos'][i]['url'] %> alt="Siema image" /></div>
+        <% }%>
+    </div>
+    <%if (data['Fotos'].length > 1) {%>
+    <div class="prev absolute w2 h2 pointer" style="top:calc(40% + 20px); left:50px">
+        <%-include ../arrowleft.svg %>
+    </div>
+    <div class="next absolute w2 h2 pointer" style="top:calc(40% + 20px); right:50px">
+        <%-include ../arrowright.svg %>
+    </div>
+    <% } %>
+</div>

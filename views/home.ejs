@@ -13,10 +13,9 @@
 <div class="ph5-ns ph4">
     
     <% linhas.forEach(function(linha){ %>
-            
         <main class="cf w-100 mt5">
             <h1><%= linha %></h1>
-            <% data.forEach(function(product) { %>
+            <% productsData.forEach(function(product) { %>
                 <% if ((product['fields']['Linha'] == linha && product['fields']['Fotos'] != undefined) && (product['fields']['Destaque?'])) { %>
         
                 <div class="fl w-50 w-third-m w-25-ns">

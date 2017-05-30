@@ -7,21 +7,23 @@ var nakedString = require("naked-string");
 
 // CATEGORIAS/CATEGORIA ROUTE
 
-router.get('/categorias/:categoria', function(req, res) {
-  var categoria = nakedString(req.params.categoria);
-  var data;
+function getByCategory(req, res, next){
   
-  base('Produtos').select({
-    filterByFormula: "{Categoria} = '" +  categoria + "'"
-    }).eachPage(function page(records, fetchNextPage) {
-      data = records;
-      fetchNextPage();
+  res.locals.categoria = nakedString(req.params.categoria);
+  res.locals.thisCategoryProducts = [];
   
-    }, function done(err) {
-        if (err) { res.render('404'); return; }
-        res.render('categoria', {categoria: categoria, data: data});
-  });
-  
+  res.locals.productsData.forEach(function(product){
+    if (product['fields']['Categoria'] == res.locals.categoria){
+      res.locals.thisCategoryProducts.push(product['fields']);
+    }
+    });
+    next();
+}
+
+router.get('/categorias/:categoria', 
+getByCategory,
+function(req, res) {
+  res.render('categoria', {categoria: req.params.categoria, product: res.locals.thisCategoryProducts, data: res.locals.productsData});
 });
 
 module.exports = router

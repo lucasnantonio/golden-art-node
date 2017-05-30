@@ -19,6 +19,30 @@ var categoria = require("./routes/categoria")
 var produto = require("./routes/produto")
 
 
+
+var getData = function(req, res, next){
+  
+  var productsData = [];
+  
+  base('Produtos').select({}).eachPage(function page(records, fetchNextPage) {
+    records.forEach(function(item){
+      productsData.push(item);
+    })
+    
+    fetchNextPage();
+    
+  }, function done(err) {
+    if (err) {res.render('404'); return; }
+    
+    res.locals.productsData = productsData;
+    
+    next();
+
+  });
+  
+}
+
+app.use(getData)
 app.use(home)
 app.use(categoria)
 app.use(linha)

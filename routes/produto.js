@@ -23,6 +23,7 @@ function getProductInfo(req, res, next){
     filterByFormula: "{Código} = '" +  produto + "'"
   }).firstPage(function(err, records) {
       if (err || !records[0]) { res.render('404'); return; }
+      console.log(records)
       res.locals.data = records[0]["fields"];
       next();
       });
@@ -51,7 +52,7 @@ function findColorMatches(req, res, next){
   next()}
 }
 
-//TODO: variations
+//variations
 function findVariations(req, res, next){
   
   var itemsProcessed = 0;

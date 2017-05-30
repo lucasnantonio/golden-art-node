@@ -19,7 +19,6 @@ router.get('/produtos/:produto',
 
 
 function getColorsData(req, res, next){
-  console.log("hi");
   var colorsData = [];
   
   base('Cores').select({}).eachPage(function page(records, fetchNextPage) {
@@ -75,7 +74,6 @@ function findVariations(req, res, next){
   
   if(res.locals.thisProductData['fields']['Varições']){
   res.locals.variations = [];
-  console.log(res.locals.thisProductData['fields']['Variações']);
 
   res.locals.productsData.forEach(function(product, index, arr){
       for (var i=0; i < res.locals.thisProductData['fields']['Variações'].length; i++){

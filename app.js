@@ -19,7 +19,6 @@ var categoria = require("./routes/categoria")
 var produto = require("./routes/produto")
 
 
-
 var getData = function(req, res, next){
   
   var productsData = [];

@@ -6,22 +6,23 @@ var nakedString = require("naked-string");
 
 // LINHAS/LINHA ROUTE
 
-router.get('/linhas/:linha', function(req, res) {
+function getByLinha(req, res, next){
+  
+  res.locals.linha = nakedString(req.params.linha);
+  res.locals.thisLineProducts = [];
+  
+  res.locals.productsData.forEach(function(product){
+    if (product['fields']['Linha'] == res.locals.linha){
+      res.locals.thisLineProducts.push(product['fields']);
+    }
+    });
+    next();
+}
 
-  var linha = nakedString(req.params.linha);
-  var data;
-  
-  base('Produtos').select({
-    filterByFormula: "{Linha} = '" +  linha + "'"
-  }).eachPage(function page(records, fetchNextPage) {
-      data = records;
-      fetchNextPage();
-  
-  }, function done(err) {
-      if (err) { res.render('404'); return; }
-      res.render('linha', {linha: linha, data: data});
-  });
-  
-})
+router.get('/linhas/:linha', 
+getByLinha,
+function(req, res) {
+  res.render('linha', {linha: req.params.linha, product: res.locals.thisLineProducts, data: res.locals.productsData});
+});
 
-module.exports = router;
+module.exports = router

@@ -10,9 +10,16 @@ router.get('/produtos/:produto',
   getProductInfo,
   getColorsData,
   findColorMatches,
+  getCupulasData,
+  findCupulasMatches,
   findVariations,
   function(req, res) {
-  res.render('produto', {data: res.locals.thisProductData['fields'], colors: res.locals.thisProductColors, variations: res.locals.thisProductVariations});
+  res.render('produto', {data: res.locals.thisProductData['fields'], 
+                         colors: res.locals.thisProductColors,
+                         specialcolors: res.locals.thisProductSpecialColors,
+                         variations: res.locals.thisProductVariations,
+                         cupulas: res.locals.thisProductCupulas
+  });
   res.end();
 });
 
@@ -38,6 +45,42 @@ function getColorsData(req, res, next){
   
 }
 
+function getCupulasData(req, res, next){
+  var cupulasData = [];
+  
+  base('Cúpulas').select({}).eachPage(function page(records, fetchNextPage) {
+    records.forEach(function(item){
+      cupulasData.push(item);
+    });
+    
+    fetchNextPage();
+    
+  }, function done(err) {
+    if (err) {res.render('404'); return; }
+    
+    res.locals.cupulasData = cupulasData;
+    next();
+
+  });
+  
+}
+
+function findCupulasMatches(req, res, next){
+  res.locals.thisProductCupulas = [];
+  if(res.locals.thisProductData['fields']['Cúpulas']){
+  res.locals.cupulasData.forEach(function(cupula, index, arr){
+      for (var i=0; i < res.locals.thisProductData['fields']['Cúpulas'].length; i++){
+      if(res.locals.thisProductData['fields']['Cúpulas'][i] == cupula['id']){
+      res.locals.thisProductCupulas.push(cupula);
+      }
+      }
+  });
+  next();
+  } else {
+next();
+}
+}
+
 
 function getProductInfo(req, res, next){
   var produto = req.params.produto
@@ -54,7 +97,9 @@ function getProductInfo(req, res, next){
 
 function findColorMatches(req, res, next){
   res.locals.thisProductColors = [];
-  if(res.locals.thisProductData['fields']['Cores Pintura']){
+  res.locals.thisProductSpecialColors = [];
+  
+  if(res.locals.thisProductData['fields']['Cores Pintura'] || res.locals.thisProductData['fields']['Cores Especiais']){
 
   res.locals.colorsData.forEach(function(color, index, arr){
       for (var i=0; i < res.locals.thisProductData['fields']['Cores Pintura'].length; i++){
@@ -62,23 +107,29 @@ function findColorMatches(req, res, next){
       res.locals.thisProductColors.push(color)
       }
       }
+      for (var i=0; i < res.locals.thisProductData['fields']['Cores Especiais'].length; i++){
+      if(res.locals.thisProductData['fields']['Cores Pintura'][i] == color['id']){
+      res.locals.thisProductSpecialColors.push(color)
+      }
+      }
   });
   next();
-  } else {
+  }
+  else {
 next();
 }
 }
 
-function findVariations(req, res, next){
-  res.locals.thisProductVariations = [];
-  
-  if(res.locals.thisProductData['fields']['Varições']){
-  res.locals.variations = [];
 
+function findVariations(req, res, next){
+  
+  res.locals.thisProductVariations = [];
+  if(res.locals.thisProductData['fields']['Variações']){
+  res.locals.thisProductVariationIds = res.locals.thisProductData['fields']['Variações'];
   res.locals.productsData.forEach(function(product, index, arr){
-      for (var i=0; i < res.locals.thisProductData['fields']['Variações'].length; i++){
-      if(res.locals.thisProductData['fields']['Varições'][i] == res.locals.productsData['id']){
-      res.locals.variations.push(product)
+      for (var i=0; i < res.locals.thisProductVariationIds.length; i++){
+      if(res.locals.thisProductVariationIds[i] == product['id']){
+      res.locals.thisProductVariations.push(product)
       }
       }
   });

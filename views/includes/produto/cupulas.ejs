@@ -1,0 +1,13 @@
+<% if(cupulas.length > 0){ %>
+    <tr>
+        <td class="v-top w-10 b pt1 pb3 pr3 bt b--black-20"> Cúpulas </td> 
+        <td class="v-top w-10  pt1 pb3 pr3 bt b--black-20"> 
+        <% cupulas.forEach(function(item, index){ %>
+            <div class="pr2 db fl w-third-l w-50 f6 mt2">
+                <img src= <%= item['fields']['Desenho técnico'][0]["thumbnails"]["large"]['url'] %> alt="Siema image" />
+                <%= item['fields']['Código'] %>
+            </div>
+        <% }); %>
+        </td>
+    </tr>
+<% } %>

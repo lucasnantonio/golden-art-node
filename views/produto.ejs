@@ -23,12 +23,21 @@
                 </colgroup>
                 
                 <tbody class="w-100">
-                    <%- include ./includes/produto/medidas %>
-                    <%- include ./includes/produto/materials %>
-                    <%- include ./includes/produto/colors %>
-                    <%- include ./includes/produto/specialcolors %>
-                    <%- include ./includes/produto/cupulas %>
-                    <%- include ./includes/produto/variations %>
+                    <% if(data['Medidas']) {%>
+                        <%- include ./includes/produto/medidas %>
+                    <% } %>
+                    <% if(data['Materiais']) {%>
+                        <%- include ./includes/produto/materials %>
+                    <% } %>
+                    <% if(data['Cores Pintura']) {%>
+                        <%- include ./includes/produto/colors %>
+                    <% } %>
+                    <% if(data['Cúpulas']) {%>
+                        <%- include ./includes/produto/cupulas %>
+                    <% } %>
+                    <% if(data['Varições']) {%>
+                        <%- include ./includes/produto/variations %>
+                    <% } %>
                 </tbody>
             </table>
 

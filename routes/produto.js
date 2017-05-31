@@ -96,21 +96,28 @@ function getProductInfo(req, res, next){
 
 
 function findColorMatches(req, res, next){
+  
+  
+  
   res.locals.thisProductColors = [];
   res.locals.thisProductSpecialColors = [];
   
   if(res.locals.thisProductData['fields']['Cores Pintura'] || res.locals.thisProductData['fields']['Cores Especiais']){
 
   res.locals.colorsData.forEach(function(color, index, arr){
-      for (var i=0; i < res.locals.thisProductData['fields']['Cores Pintura'].length; i++){
-      if(res.locals.thisProductData['fields']['Cores Pintura'][i] == color['id']){
-      res.locals.thisProductColors.push(color)
+      if (res.locals.thisProductData['fields']['Cores Pintura']) {
+        for (var i=0; i < res.locals.thisProductData['fields']['Cores Pintura'].length; i++){
+          if(res.locals.thisProductData['fields']['Cores Pintura'][i] == color['id']){
+            res.locals.thisProductColors.push(color)
+          }
+        }
       }
-      }
-      for (var i=0; i < res.locals.thisProductData['fields']['Cores Especiais'].length; i++){
-      if(res.locals.thisProductData['fields']['Cores Pintura'][i] == color['id']){
-      res.locals.thisProductSpecialColors.push(color)
-      }
+      if (res.locals.thisProductData['fields']['Cores Especiais']) {
+          for (var i=0; i < res.locals.thisProductData['fields']['Cores Especiais'].length; i++){
+          if(res.locals.thisProductData['fields']['Cores Especiais'][i] == color['id']){
+            res.locals.thisProductSpecialColors.push(color)
+          }
+        }
       }
   });
   next();

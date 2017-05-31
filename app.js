@@ -58,6 +58,11 @@ app.get('/sobre/contato', function(req, res){
 res.render('contato')
 });
 
+// CORES
+app.get('/cores', function(req, res){
+res.render('colors')
+});
+
 
 app.get('*', function(req, res) {
   res.render('404');

@@ -23,6 +23,16 @@ router.get('/produtos/:produto',
   res.end();
 });
 
+// CORES ROUTE
+router.get("/cores",
+  getColorsData,
+    function(req, res) {
+  res.render('colors', {
+                         colors: res.locals.colorsData
+                        
+  });
+  res.end();
+});
 
 
 function getColorsData(req, res, next){

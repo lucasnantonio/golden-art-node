@@ -21,25 +21,25 @@ var representantes = require("./routes/representantes")
 
 
 var getData = function(req, res, next){
-  
+
   var productsData = [];
-  
+
   base('Produtos').select({}).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(item){
       productsData.push(item);
     })
-    
+
     fetchNextPage();
-    
+
   }, function done(err) {
     if (err) {res.render('404'); return; }
-    
+
     res.locals.productsData = productsData;
-    
+
     next();
 
   });
-  
+
 }
 
 app.use(getData)
@@ -50,7 +50,7 @@ app.use(produto)
 app.use(representantes)
 
 
-// // REPRESENTANTES 
+// // REPRESENTANTES
 // app.get('/sobre/representantes', function(req, res){
 // res.render('representantes')
 // });
@@ -76,6 +76,6 @@ app.get('*', function(req, res) {
 })
 
 
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(process.env.PORT || 3000, process.env.IP, function(){
   console.log("Golden-art has started!!!");
 });

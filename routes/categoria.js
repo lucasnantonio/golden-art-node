@@ -7,23 +7,26 @@ var nakedString = require("naked-string");
 
 // CATEGORIAS/CATEGORIA ROUTE
 
-function getByCategory(req, res, next){
-  
-  res.locals.categoria = nakedString(req.params.categoria);
-  res.locals.thisCategoryProducts = [];
-  
-  res.locals.productsData.forEach(function(product){
-    if (product['fields']['Categoria'] == res.locals.categoria){
-      res.locals.thisCategoryProducts.push(product['fields']);
-    }
-    });
-    next();
+
+function listProductsInCategory(req, res, next){
+
+	res.locals.categoria = nakedString(req.params.categoria);
+	res.locals.thisCategoryProducts = []
+
+	function checkCategory(item){
+		return item['fields']['Categoria'] == res.locals.categoria
+	}
+
+	res.locals.thisCategoryProducts = res.locals.productsData.filter(checkCategory);
+
+	next();
+
 }
 
-router.get('/categorias/:categoria', 
-getByCategory,
+router.get('/categorias/:categoria',
+listProductsInCategory,
 function(req, res) {
-  res.render('categoria', {categoria: req.params.categoria, product: res.locals.thisCategoryProducts, data: res.locals.productsData});
+  res.render('categoria', {categoria: req.params.categoria, thisCategoryProducts: res.locals.thisCategoryProducts, data: res.locals.productsData});
 });
 
 module.exports = router

@@ -15,10 +15,27 @@ function listProductsInSearch(req, res, next){
 			return item['fields']['Nome'].toLowerCase() == req.query.search.toLowerCase() || item['fields']['Nome'].toLowerCase() == (" " + req.query.search.toLowerCase())
 		}
 	}
+	function checkCategory(item){
+		if (item['fields']['Categoria']){
+			return item['fields']['Categoria'].toLowerCase() == req.query.search.toLowerCase()
+		}
+	}
 	function checkType(item){
 		if(item['fields']['Tipo']){
 			return item['fields']['Tipo'].toLowerCase() == req.query.search.toLowerCase()
 		}
+	}
+	function checkMaterial(item){
+		result = false;
+		if(item['fields']['Material']){
+			 item['fields']['Material'].forEach(function(material){
+				if(material.toLowerCase() == req.query.search.toLowerCase()){
+					result = true;
+				}
+			});
+
+		}
+		return result;
 	}
 
 	//TODO: BUSCA POR MATERIAL
@@ -27,9 +44,11 @@ function listProductsInSearch(req, res, next){
 	//TODO: BUSCA POR LINHA
 
 	function checkAll(item){
-			return checkCode(item) ||
-						 checkName(item) ||
-						 checkType(item)
+			return checkCode(item)      ||
+						 checkName(item)      ||
+						 checkType(item)      ||
+						 checkMaterial(item)  ||
+						 checkCategory(item)
 	}
 
 	res.locals.searchResults = res.locals.productsData.filter(checkAll);

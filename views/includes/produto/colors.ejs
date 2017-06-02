@@ -1,7 +1,7 @@
 <% if(data['Cores Pintura']) {%>
 <tr>
-    <td class="v-top w-10 b pt2 pb3 pr3 bt b--black-20"> Cores Disponíveis </td> 
-    <td class="v-top w-10  pt1 pb3 pr3 bt b--black-20"> 
+    <td class="v-top w-10 b pt2 pb3 pr3 bt b--light-gray"> Cores Disponíveis </td> 
+    <td class="v-top w-10  pt1 pb3 pr3 bt b--light-gray"> 
     <% colors.forEach(function(color, index){ %>
         <div class="db fl w-third-l w-50 f6 mt2">
         <div class='dtc h1 w1 dib br-100 ba b--light-gray mr2'  style=  <%= style = "background-color:" + color["fields"]["Webcode"] + ";min-width:1rem;"  %> ></div>
@@ -13,8 +13,8 @@
 <% } %>
 <% if(data['Cores Especiais']) {%>
 <tr>
-    <td class="v-top w-10 b pt2 pb3 pr3 bt b--black-20"> Acabamentos especiais </td> 
-    <td class="v-top w-10  pt1 pb3 pr3 bt b--black-20"> 
+    <td class="v-top w-10 b pt2 pb3 pr3 bt b--light-gray"> Acabamentos especiais </td> 
+    <td class="v-top w-10  pt1 pb3 pr3 bt b--light-gray"> 
     <% specialcolors.forEach(function(color, index){ %>
         <div class="db fl w-third-l w-50 f6 mt2">
         <div class='dtc h1 w1 dib br-100 ba b--near-white mr2'  style=  <%= style = "background-color:" + color["fields"]["Webcode"] + ";min-width:1rem;"  %> ></div>

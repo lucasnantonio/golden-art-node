@@ -76,8 +76,15 @@
     <!--//MENU ITEMS-->
     <div id="mobileMenuItems" class="db w-100 fl v-mid center tl pt">
         <div id="spacer" class="h3"></div>
+				<!--SEARCH-->
+				<form class="dib w-100 pt2 black" action="/busca" method="GET">
+					<div class="measure">
+						<input class="input-reset black pa3 fl tc ba b--near-white bg-near-white mb2 db w-100 f5" type="text input" placeholder="Busca" name="search" style="font-family:inherit">
+						<input class="dn" type="submit">
+					</div>
+				</form>
         <% for (i in menuItems) { %>
-          <div class="db v-top pb4 pt1 bt bt-gray">
+          <div class="db v-top pb4 pt1 bb">
             <span class="link dark-gray f4 b db pv1 mb2">
               <%= menuItems[i]['path'] %>
             </span>

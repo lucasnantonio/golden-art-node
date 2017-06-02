@@ -17,6 +17,7 @@ var home = require("./routes/home")
 var linha = require("./routes/linha")
 var categoria = require("./routes/categoria")
 var produto = require("./routes/produto")
+var representantes = require("./routes/representantes")
 
 
 var getData = function(req, res, next){
@@ -46,7 +47,13 @@ app.use(home)
 app.use(categoria)
 app.use(linha)
 app.use(produto)
+app.use(representantes)
 
+
+// // REPRESENTANTES 
+// app.get('/sobre/representantes', function(req, res){
+// res.render('representantes')
+// });
 
 // SOBRE
 app.get('/sobre/sobre', function(req, res){

@@ -1,0 +1,62 @@
+<%- include('./includes/header', {title: "Golden-Art"}); %>
+
+%>
+<!--<div class="w-100 vh-50 cover pa5" style="background-image: url(/images/sobre-torno.jpg)">-->
+    
+<!--</div>-->
+<div class="w-100 pa5-l pa4 bg-dark-red mt5 mb5">
+        <p class='f2-l f3 white measure-narrow lh-solid  lh-display '>Representantes</p>
+    </div>
+
+<div class="ph5-ns ph4">
+    
+    <!--contato-->
+    
+    <div id="representantes" class="cf db w-100 ">
+         <% states.forEach(function(state){%>
+                <style>.hover-z:hover{z-index:2}</style>
+            <div class="w-25-l w-50-m w-100 ba b--near-white pa4 dib fl h5 bg-white grow hover-z" style="height: 30rem">
+                
+                <h3 class='f4 bt0 red'> <%= state %> </h3>
+                
+                <% representantes.forEach(function(item){ %>
+                    <% item['fields']['Estado'].forEach(function(estado){ %>
+                        <% if (estado == state){ %>
+                            <h4 class='f5 bt0'> <%= item['fields']['Empresa'] %> </h4>
+                            <div class="f6 lh-copy">
+                                <% if(item['fields']['Observação']){ %>
+                                    <div class="mb2"> <%= item['fields']['Observação'] %> </div>
+                                <% } %>
+                                <div> <%= item['fields']['Nome'] %> </div>
+                                <div> <%= item['fields']['Email'] %> </div>
+    
+                                <% if(item['fields']['Telefone 1']){ %>
+                                    <div> <%= item['fields']['Telefone 1'] %> </div>
+                                <% } %>
+                                <% if(item['fields']['Telefone 2']){ %>
+                                    <div> <%= item['fields']['Telefone 2'] %> </div>
+                                <% } %>
+                                <% if(item['fields']['Telefone 3']){ %>
+                                    <div> <%= item['fields']['Telefone 3'] %> </div>
+                                <% } %>
+                                <% if(item['fields']['Telefone 4']){ %>
+                                    <div> <%= item['fields']['Telefone 4'] %> </div>
+                                <% } %>
+                                <% if(item['fields']['Telefone 5']){ %>
+                                    <div> <%= item['fields']['Telefone 5'] %> </div>
+                                <% } %>
+                            </div>
+                            
+                        <% } %>
+                       <%  }) %>
+                  <% }) %>
+               
+                
+            </div>
+            
+        <% }) %>
+        
+    </div>
+
+    
+</div>

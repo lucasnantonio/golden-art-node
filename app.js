@@ -14,6 +14,7 @@ app.use(express.static('public'))
 app.use(compression({level: 9}))
 
 var home = require("./routes/home")
+var busca = require("./routes/search")
 var linha = require("./routes/linha")
 var categoria = require("./routes/categoria")
 var produto = require("./routes/produto")
@@ -48,6 +49,7 @@ app.use(categoria)
 app.use(linha)
 app.use(produto)
 app.use(representantes)
+app.use(busca)
 
 
 // // REPRESENTANTES

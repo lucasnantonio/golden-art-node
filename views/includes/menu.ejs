@@ -36,8 +36,10 @@
     <a href="/" id="logo" class="w4 dib v-top mid-gray link dim">
     <img src="/images/logotipo_golden.svg" class="dib" alt="golden art logotype">
     </a>
-    
-    <!--//MENU ITEMS-->
+
+
+
+		<!--//MENU ITEMS-->
     <div id="desktopMenuItems" class="dib fr v-mid center tl pl5">
         <% for (i in menuItems) { %>
           <div class="w4 dib v-top pt2">
@@ -49,26 +51,40 @@
             <% } %>
           </div>
         <% } %>
+				<!--SEARCH-->
+				<form class="dib w4 pt2 black" action="/busca" method="GET">
+					<div class="measure">
+						<input class="input-reset bb b--black black pa1 mb2 db w-100 f5" type="text input" placeholder="Busca" name="search" style="border-top: 0px solid white; border-top: 0px solid white; border-left: 0px solid white; border-right: 0px solid white; font-family:inherit ">
+						<input class="dn" type="submit">
+					</div>
+				</form>
     </div>
-    
+
 </nav>
 
 
 <!--MOBILE MENU-->
 <nav id="mobileMenuWrapper" class="absolute top-0 z-max dn-l db db dt w-100 border-box pv3 ph4 bg-white">
-    
+
     <!--LOGO-->
     <a href="/" id="logo" class="fl w4 dib-ns db v-top mid-gray link dim">
     <img src="/images/logotipo_golden.svg" class="" alt="golden art logotype">
     </a>
-    
+
     <div id="mobileMenuButton" class='fr w-10 gray pt2 f5'>MENU</div>
-    
+
     <!--//MENU ITEMS-->
     <div id="mobileMenuItems" class="db w-100 fl v-mid center tl pt">
         <div id="spacer" class="h3"></div>
+				<!--SEARCH-->
+				<form class="dib w-100 pt2 black" action="/busca" method="GET">
+					<div class="measure">
+						<input class="input-reset black pa3 fl tc ba b--near-white bg-near-white mb2 db w-100 f5" type="text input" placeholder="Busca" name="search" style="font-family:inherit">
+						<input class="dn" type="submit">
+					</div>
+				</form>
         <% for (i in menuItems) { %>
-          <div class="db v-top pb4 pt1 bt bt-gray">
+          <div class="db v-top pb4 pt1 bb">
             <span class="link dark-gray f4 b db pv1 mb2">
               <%= menuItems[i]['path'] %>
             </span>
@@ -78,5 +94,5 @@
           </div>
         <% } %>
     </div>
- 
+
 </nav>

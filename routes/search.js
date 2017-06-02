@@ -5,17 +5,34 @@ var base = new Airtable({apiKey: process.env.AIRTABLE_KEY}).base('appswoobu90Djf
 var nakedString = require("naked-string");
 
 function listProductsInSearch(req, res, next){
+	res.locals.searchResults = [];
 
 	function checkCode(item){
-		res.locals.searchResults = [];
-
-		return item['fields']['Código'] == req.query.search.toUpperCase() || //TODO; toLowerCase
-					 item['fields']['Nome'] == req.query.search.toLowerCase() || //TODO; toLowerCase
-					 item['fields']['Tipo'] == req.query.search //TODO; toLowerCase
-
+		return item['fields']['Código'] == req.query.search.toUpperCase()
+	}
+	function checkName(item){
+		if (item['fields']['Nome']){
+			return item['fields']['Nome'].toLowerCase() == req.query.search.toLowerCase() || item['fields']['Nome'].toLowerCase() == (" " + req.query.search.toLowerCase())
+		}
+	}
+	function checkType(item){
+		if(item['fields']['Tipo']){
+			return item['fields']['Tipo'].toLowerCase() == req.query.search.toLowerCase()
+		}
 	}
 
-	res.locals.searchResults = res.locals.productsData.filter(checkCode);
+	//TODO: BUSCA POR MATERIAL
+	//TODO: BUSCA POR PALAVRA-CHAVE
+	//TODO: BUSCA POR DESCRIÇÃO
+	//TODO: BUSCA POR LINHA
+
+	function checkAll(item){
+			return checkCode(item) ||
+						 checkName(item) ||
+						 checkType(item)
+	}
+
+	res.locals.searchResults = res.locals.productsData.filter(checkAll);
 
 	next();
 

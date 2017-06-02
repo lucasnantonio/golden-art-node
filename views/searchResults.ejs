@@ -1,0 +1,24 @@
+<%- include('./includes/header', {title: "Resultados da busca" }); %>
+
+
+<div class="w-100 pa5-l pa4 mt5">
+<h1>Resultados da busca por <%= query %></h1>
+    <main class="cf w-100 mt5">
+				<% if(data.length > 0) { %>
+        <% data.forEach(function(product) { %>
+						<% if(product['fields']['Fotos']){ %>
+            <div class="fl w-50 w-third-m w-25-ns">
+                <a class="" href= <%= "/produtos/" + product['fields']['Código'] %> >
+                    <div class="aspect-ratio aspect-ratio--1x1 dim">
+                        <img style= <%= "background-image:url(" +  product['fields']['Fotos'][0]['thumbnails']['large']['url'] + ")"%> class="db bg-center cover aspect-ratio--object">
+                    </div>
+                </a>
+            </div>
+						<% } %>
+        <% }); %>
+				<% } else { %>
+					<p class="f3" > Nenhum resultado encontrado.</p>
+					<% } %>
+    </main>
+
+</div>

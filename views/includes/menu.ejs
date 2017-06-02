@@ -37,11 +37,7 @@
     <img src="/images/logotipo_golden.svg" class="dib" alt="golden art logotype">
     </a>
 
-    <!--SEARCH-->
-		<form action="/busca" method="GET">
-			<input type="text" placeholder="busque" name="search">
-			<input type="submit">
-		</form>
+
 
 		<!--//MENU ITEMS-->
     <div id="desktopMenuItems" class="dib fr v-mid center tl pl5">
@@ -55,6 +51,13 @@
             <% } %>
           </div>
         <% } %>
+				<!--SEARCH-->
+				<form class="dib w4 pt2 black" action="/busca" method="GET">
+					<div class="measure">
+						<input class="input-reset bb b--black black pa1 mb2 db w-100 f5" type="text input" placeholder="Busca" name="search" style="border-top: 0px solid white; border-top: 0px solid white; border-left: 0px solid white; border-right: 0px solid white; font-family:inherit ">
+						<input class="dn" type="submit">
+					</div>
+				</form>
     </div>
 
 </nav>

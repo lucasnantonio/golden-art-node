@@ -16,3 +16,14 @@ body{
 #mc_embed_signup form{
 padding: 0px 0px 0px 0px !important;
 }
+
+input:focus {
+    outline: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+		border-bottom: 1px solid red;
+}
+input::placeholder{
+	color: #ccc;
+}

@@ -27,3 +27,19 @@ input:focus {
 input::placeholder{
 	color: #ccc;
 }
+
+#flexbox {
+    display: flex;
+    flex-flow: row;
+}
+
+.flexed {
+    height: 100%;
+    flex-grow: 1;
+    transition: flex-grow .3s ease-in-out ;
+}
+
+.flexGrow {
+	flex-grow: 4;
+	transition: flex-grow .3s ease-in-out ;
+}

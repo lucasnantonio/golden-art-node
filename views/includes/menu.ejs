@@ -36,8 +36,14 @@
     <a href="/" id="logo" class="w4 dib v-top mid-gray link dim">
     <img src="/images/logotipo_golden.svg" class="dib" alt="golden art logotype">
     </a>
-    
-    <!--//MENU ITEMS-->
+
+    <!--SEARCH-->
+		<form action="/busca" method="GET">
+			<input type="text" placeholder="busque" name="search">
+			<input type="submit">
+		</form>
+
+		<!--//MENU ITEMS-->
     <div id="desktopMenuItems" class="dib fr v-mid center tl pl5">
         <% for (i in menuItems) { %>
           <div class="w4 dib v-top pt2">
@@ -50,20 +56,20 @@
           </div>
         <% } %>
     </div>
-    
+
 </nav>
 
 
 <!--MOBILE MENU-->
 <nav id="mobileMenuWrapper" class="absolute top-0 z-max dn-l db db dt w-100 border-box pv3 ph4 bg-white">
-    
+
     <!--LOGO-->
     <a href="/" id="logo" class="fl w4 dib-ns db v-top mid-gray link dim">
     <img src="/images/logotipo_golden.svg" class="" alt="golden art logotype">
     </a>
-    
+
     <div id="mobileMenuButton" class='fr w-10 gray pt2 f5'>MENU</div>
-    
+
     <!--//MENU ITEMS-->
     <div id="mobileMenuItems" class="db w-100 fl v-mid center tl pt">
         <div id="spacer" class="h3"></div>
@@ -78,5 +84,5 @@
           </div>
         <% } %>
     </div>
- 
+
 </nav>

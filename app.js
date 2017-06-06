@@ -52,6 +52,10 @@ app.use(representantes)
 app.use(busca)
 
 
+app.get('/filtro', function(req, res) {
+	res.send("hahahahahhaha");
+});
+
 // // REPRESENTANTES
 // app.get('/sobre/representantes', function(req, res){
 // res.render('representantes')

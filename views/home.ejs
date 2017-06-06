@@ -1,6 +1,10 @@
 <%- include('./includes/header', {title: "Golden-Art"}); %>
 <%- include('./includes/banner') %>
 
+<div id="filter" class="filter pa5 tc bg-yellow w-100">
+	Essencial
+</div>
+
 <% var linhas = [
     "design",
     "basic",
@@ -11,30 +15,30 @@
 %>
 
 <div class="ph5-ns ph4">
-    
+
     <% linhas.forEach(function(linha){ %>
         <main class="cf w-100 mt5">
             <h1><%= linha %></h1>
             <% productsData.forEach(function(product) { %>
                 <% if ((product['fields']['Linha'] == linha && product['fields']['Fotos'] != undefined) && (product['fields']['Destaque?'])) { %>
-        
+
                 <div class="fl w-50 w-third-m w-25-ns">
-                    <a class="" href= <%= "produtos/" + product['fields']['Código'] %> >        
+                    <a class="" href= <%= "produtos/" + product['fields']['Código'] %> >
                         <div class="aspect-ratio aspect-ratio--1x1 dim">
                             <img style= <%= "background-image:url(" +  product['fields']['Fotos'][0]['thumbnails']['large']['url'] + ")"%> class="db bg-center cover aspect-ratio--object">
                         </div>
                     </a>
                 </div>
-                
+
                 <% }; %>
             <% }); %>
-    
+
         </main>
-        
+
         <div class="">
             <a class="dib f5 link mb5 dim br1 pa3 white bg-black center tc mt4" href= <%="/linhas/" + linha %>> Conheça a linha completa →</a>
         </div>
-    <% }); %>    
+    <% }); %>
 
-    
+
 </div>

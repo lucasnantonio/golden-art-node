@@ -21,4 +21,4 @@ var bannerAnimations = function(){
 	}
 }
 
-ready(bannerAnimations);
+// ready(bannerAnimations);

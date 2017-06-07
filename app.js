@@ -79,11 +79,9 @@ app.get('/cores', function(req, res){
 res.render('colors')
 });
 
-
 app.get('*', function(req, res) {
   res.render('404');
 })
-
 
 app.listen(process.env.PORT || 4321, process.env.IP, function(){
   console.log("Golden-art has started!!!");

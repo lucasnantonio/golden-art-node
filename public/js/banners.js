@@ -22,3 +22,20 @@
 // }
 
 // ready(bannerAnimations);
+var Siema = require('siema')
+
+// New siema instance
+const mySiema = new Siema();
+
+// Add a function that generates pagination to prototype
+Siema.prototype.addPagination = function() {
+  for (let i = 0; i < this.innerElements.length; i++) {
+    const btn = document.createElement('button');
+    btn.textContent = i;
+    btn.addEventListener('click', () => this.goTo(i));
+    this.selector.appendChild(btn);
+  }
+}
+
+// Trigger pagination creator
+mySiema.addPagination();

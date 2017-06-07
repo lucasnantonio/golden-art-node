@@ -1,6 +1,4 @@
-var isAnimating = false;
-
-function ready(fn) {
+function ready (fn) {
   if (document.readyState != 'loading'){
     fn();
   } else {
@@ -8,22 +6,18 @@ function ready(fn) {
   }
 }
 
-function loadContent(res){
-
+function renderContent (res) {
 	let wrapper = document.getElementById('main')
-
 	wrapper.innerHTML = res;
-
 }
 
-function request(id) {
+function request (id) {
 	let xhr = new XMLHttpRequest();
 	let url = window.location.href + 'filtro?linha=' + id
-	console.log(url)
 	xhr.open('GET', url);
 	xhr.onreadystatechange = function() {
     if (xhr.readyState == XMLHttpRequest.DONE) {
-        loadContent(xhr.response);
+        renderContent(xhr.response);
     }
 	}
 	xhr.send();

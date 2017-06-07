@@ -1,3 +1,5 @@
+var isAnimating = false;
+
 function ready(fn) {
   if (document.readyState != 'loading'){
     fn();
@@ -6,24 +8,41 @@ function ready(fn) {
   }
 }
 
-let filter;
+function loadContent(res){
 
-let init = function(){
-	filter = document.getElementById('filter')
-	filter.addEventListener('click', filterRequest)
+	let wrapper = document.getElementById('main')
+
+	wrapper.innerHTML = res;
+
 }
 
-let filterRequest = function(){
+function request(id) {
 	let xhr = new XMLHttpRequest();
-	url = "/filter?linha=linha";
+	let url = window.location.href + 'filtro?linha=' + id
+	console.log(url)
 	xhr.open('GET', url);
-	xhr.onload = function() {
-		console.log(xhr.response);
-	};
-
-xhr.send();
-
+	xhr.onreadystatechange = function() {
+    if (xhr.readyState == XMLHttpRequest.DONE) {
+        loadContent(xhr.response);
+    }
+	}
+	xhr.send();
 }
 
+function onMenuClick (e) {
+	e.preventDefault();
+	request(e.target.id);
+}
+
+function redefineMenuLinks() {
+	let filters = document.querySelectorAll('.filter')
+	filters.forEach (function (filter) {
+		filter.addEventListener('click', onMenuClick)
+	});
+}
+
+function init(){
+	redefineMenuLinks();
+}
 
 ready(init);

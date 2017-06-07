@@ -53,13 +53,16 @@ app.use(busca)
 
 
 app.get('/filtro', function(req, res) {
-	res.send("hahahahahhaha");
-});
 
-// // REPRESENTANTES
-// app.get('/sobre/representantes', function(req, res){
-// res.render('representantes')
-// });
+	function filterLinha(item){
+		if (item['fields']['Linha']){
+			return item['fields']['Linha'].toLowerCase() == req.query.linha.toLowerCase()
+		}
+	}
+
+	var filteredResults = res.locals.productsData.filter(filterLinha);
+	res.render('gallery', {products: filteredResults});
+});
 
 // SOBRE
 app.get('/sobre/sobre', function(req, res){
@@ -82,6 +85,6 @@ app.get('*', function(req, res) {
 })
 
 
-app.listen(process.env.PORT || 3000, process.env.IP, function(){
+app.listen(process.env.PORT || 4321, process.env.IP, function(){
   console.log("Golden-art has started!!!");
 });

@@ -35,10 +35,10 @@ function changeSlider(e){
 		homeSlider.goTo(1);
 	}
 	else if (e.target.id == "vintage"){
-		homeSlider.goTo(2);
+		homeSlider.goTo(3);
 	}
 	else if (e.target.id == "cristal"){
-		homeSlider.goTo(3);
+		homeSlider.goTo(2);
 	}
 }
 

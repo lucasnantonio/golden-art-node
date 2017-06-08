@@ -1,4 +1,7 @@
-var homeSlider;
+let homeSlider;
+let filters;
+
+
 
 function ready (fn) {
   if (document.readyState != 'loading'){
@@ -6,6 +9,14 @@ function ready (fn) {
   } else {
     document.addEventListener('DOMContentLoaded', fn);
   }
+}
+
+function showLoading(){
+	document.getElementById('main').classList.add('ajaxLoader');
+}
+
+function removeLoading(){
+	document.getElementById('main').classList.remove('ajaxLoader');
 }
 
 function renderContent (res) {
@@ -28,35 +39,49 @@ function changeSlider(e){
 	}
 }
 
-function request (e) {
-	console.log(e.target.sliderindex);
+function request (id) {
 	let xhr = new XMLHttpRequest();
-	let url = window.location.href + 'filtro?linha=' + e.target.id
+	let url = window.location.href + 'filtro?linha=' + id
+	showLoading();
 	xhr.open('GET', url);
 	xhr.onreadystatechange = function() {
-    if (xhr.readyState == XMLHttpRequest.DONE) {
-        renderContent(xhr.response);
+		console.log(xhr.readyState)
+		if (xhr.readyState == XMLHttpRequest.DONE) {
+				removeLoading();
+				renderContent(xhr.response);
     }
 	}
 	xhr.send();
 }
 
+function assignClasses(e) {
+	filters.forEach(function(item){
+		item.classList.remove('current');
+	})
+	e.target.classList.add('current');
+}
+
 function onMenuClick (e) {
 	e.preventDefault();
-	request(e);
-	changeSlider(e)
+	request(e.target.id);
+	changeSlider(e);
+	assignClasses(e);
 }
 
 function redefineMenuLinks() {
-	let filters = document.querySelectorAll('.filter')
+	filters = document.querySelectorAll('.filter')
 	filters.forEach (function (filter) {
 		filter.addEventListener('click', onMenuClick)
 	});
 }
 
 function init(){
+	request('designlab')
 	homeSlider = new Siema();
+	homeSlider.goTo(0);
 	redefineMenuLinks();
+
+
 }
 
 ready(init);

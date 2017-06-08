@@ -1,6 +1,6 @@
 <% products.forEach(function(product) { %>
 	<% if (product['fields']['Fotos']){ %>
-    <div class="fl w-third pa2">
+    <div class="fl w-25-ns w-third-m w-50">
         <a class="" href= <%= "/produtos/" + product['fields']['Código'] %> >
             <div class="aspect-ratio aspect-ratio--1x1 dim">
                 <img style= <%= "background-image:url(" +  product['fields']['Fotos'][0]['thumbnails']['large']['url'] + ")"%> class="db bg-center cover aspect-ratio--object">

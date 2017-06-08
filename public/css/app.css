@@ -43,3 +43,17 @@ input::placeholder{
 	flex-grow: 4;
 	transition: flex-grow .3s ease-in-out ;
 }
+
+.current{
+	border-bottom: 3px solid white;
+	color:white;
+	font-weight: bold;
+}
+
+a:hover, a:active, a:focus {
+  outline: 0;
+}
+.ajaxLoader{
+	/*background: url(ajax-loader.gif) center center no-repeat;*/
+	border: 3px solid red;
+}

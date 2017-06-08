@@ -1,3 +1,5 @@
+var homeSlider;
+
 function ready (fn) {
   if (document.readyState != 'loading'){
     fn();
@@ -11,9 +13,25 @@ function renderContent (res) {
 	wrapper.innerHTML = res;
 }
 
-function request (id) {
+function changeSlider(e){
+	if (e.target.id == "designlab"){
+		homeSlider.goTo(0);
+	}
+	else if (e.target.id == "essencial"){
+		homeSlider.goTo(1);
+	}
+	else if (e.target.id == "vintage"){
+		homeSlider.goTo(2);
+	}
+	else if (e.target.id == "cristal"){
+		homeSlider.goTo(3);
+	}
+}
+
+function request (e) {
+	console.log(e.target.sliderindex);
 	let xhr = new XMLHttpRequest();
-	let url = window.location.href + 'filtro?linha=' + id
+	let url = window.location.href + 'filtro?linha=' + e.target.id
 	xhr.open('GET', url);
 	xhr.onreadystatechange = function() {
     if (xhr.readyState == XMLHttpRequest.DONE) {
@@ -25,7 +43,8 @@ function request (id) {
 
 function onMenuClick (e) {
 	e.preventDefault();
-	request(e.target.id);
+	request(e);
+	changeSlider(e)
 }
 
 function redefineMenuLinks() {
@@ -36,6 +55,7 @@ function redefineMenuLinks() {
 }
 
 function init(){
+	homeSlider = new Siema();
 	redefineMenuLinks();
 }
 

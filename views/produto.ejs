@@ -1,27 +1,27 @@
 <%- include('./includes/header', {title: "GA - " + data["Código"] }); %>
-
+<script type="text/javascript" src="/js/siemaProduto.js"></script>
 
 <div id="page-wrapper" class="ph5-ns ph4 pt5 mt5">
-    
+
     <div id="product-image" class="fl w-50-l w-100 mb4">
         <%- include ./includes/produto/slider %>
         <%- include ./includes/produto/technical %>
     </div>
-    
+
     <div id="product-content" class="fl w-50-l w-100 mb4 ph5-l center">
         <%- include ./includes/produto/title %>
         <div id="product-content-table" class="w-100 db">
-            
+
             <% if (data["Descrição"]) { %>
                 <p class="pt1 mt1 db fl"><%= data["Descrição"] %> </p>
             <% } %>
-            
+
             <table class="fl w-100 mt5 v-top" cellspacing="0">
                 <colgroup>
                    <col class="w-30">
                    <col class="w-70">
                 </colgroup>
-                
+
                 <tbody class="w-100">
                     <% if(data['Medidas']) {%>
                         <%- include ./includes/produto/medidas %>
@@ -41,8 +41,7 @@
                 </tbody>
             </table>
 
-            
+
         </div>
     </div>
-</div>    
-        
+</div>

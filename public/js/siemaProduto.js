@@ -8,14 +8,13 @@ function ready(fn) {
 
 var loadCarousel = function(){
 
-  var mySiema = new Siema(); /*global Siema*/
-
+  var productSlider = new Siema();
 	if (document.querySelector('.prev') != null){
   const prev = document.querySelector('.prev');
   const next = document.querySelector('.next');
 
-  prev.addEventListener('click', () => mySiema.prev());
-  next.addEventListener('click', () => mySiema.next());
+  prev.addEventListener('click', () => productSlider.prev());
+  next.addEventListener('click', () => productSlider.next());
 	}
 
 };

@@ -12,11 +12,14 @@ function ready (fn) {
 }
 
 function showLoading(){
-	document.getElementById('main').classList.add('ajaxLoader');
+	document.getElementById('main').innerHTML = '';
+	document.getElementById('loader').classList.add('db');
+	document.getElementById('loader').classList.remove('dn');
 }
 
 function removeLoading(){
-	document.getElementById('main').classList.remove('ajaxLoader');
+	document.getElementById('loader').classList.remove('db');
+	document.getElementById('loader').classList.add('dn');
 }
 
 function renderContent (res) {
@@ -47,8 +50,8 @@ function request (id) {
 	xhr.onreadystatechange = function() {
 		console.log(xhr.readyState)
 		if (xhr.readyState == XMLHttpRequest.DONE) {
-				removeLoading();
 				renderContent(xhr.response);
+				removeLoading();
     }
 	}
 	xhr.send();

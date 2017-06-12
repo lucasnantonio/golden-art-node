@@ -52,10 +52,17 @@ app.use(representantes)
 app.use(busca)
 
 
-// // REPRESENTANTES
-// app.get('/sobre/representantes', function(req, res){
-// res.render('representantes')
-// });
+app.get('/filtro', function(req, res) {
+
+	function filterLinha(item){
+		if (item['fields']['Linha']){
+			return item['fields']['Linha'].toLowerCase() == req.query.linha.toLowerCase()
+		}
+	}
+
+	var filteredResults = res.locals.productsData.filter(filterLinha);
+	res.render('gallery', {products: filteredResults});
+});
 
 // SOBRE
 app.get('/sobre/sobre', function(req, res){
@@ -72,12 +79,10 @@ app.get('/cores', function(req, res){
 res.render('colors')
 });
 
-
 app.get('*', function(req, res) {
   res.render('404');
 })
 
-
-app.listen(process.env.PORT || 3000, process.env.IP, function(){
+app.listen(process.env.PORT || 4321, process.env.IP, function(){
   console.log("Golden-art has started!!!");
 });

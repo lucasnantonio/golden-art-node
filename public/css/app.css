@@ -1,6 +1,7 @@
 body{
     background-color: white;
-    font-family: 'Work Sans', sans-serif;
+    /*font-family: 'Work Sans', sans-serif;*/
+		font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     /*font-family: 'Karla', sans-serif;*/
     /*font-family: 'Didact Gothic', sans-serif;*/
@@ -45,9 +46,9 @@ input::placeholder{
 }
 
 .current{
-	border-bottom: 3px solid white;
-	color:white;
-	font-weight: bold;
+	/*border-bottom: 3px solid white;*/
+	color:black;
+	font-weight: 400;
 }
 
 a:hover, a:active, a:focus {

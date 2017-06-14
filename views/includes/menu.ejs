@@ -1,63 +1,22 @@
-<% var menuItems = {
-  categorias: {
-    "path": "Categorias",
-    "subitens": [
-      "Teto",
-      "Piso",
-      "Mesa",
-      "Parede"
-    ]
-  },
-  linhas: {
-    "path": "Linhas",
-    "subitens": [
-      "Design Lab",
-      "Basic",
-      "Vintage",
-      "Cristal"
-    ]
-  },
-  sobre: {
-    "path": "Sobre",
-    "subitens": [
-      "Sobre",
-      "Contato",
-      "News",
-      "Representantes"
-    ]
-  }
-}
-
- %>
-
 <!--DESKTOP MENU-->
-<nav id="desktopMenuWrapper" class="absolute top-0 z-max db-l dn w-100 border-box pv3 ph5 bg-white">
+<nav id="desktopMenuWrapper" class="absolute top-0 z-max db-l dn w-100 border-box pv5 ph5 bg-transparent">
     <!--LOGO-->
-    <a href="/" id="logo" class="w4 dib v-top mid-gray link dim">
-    <img src="/images/logotipo_golden.svg" class="dib" alt="golden art logotype">
+    <a href="/" id="logo" class="w3 dib v-top mid-gray link">
+    	<img src="/images/logotipo_golden.svg" class="dib" alt="golden art logotype">
     </a>
 
 
 
 		<!--//MENU ITEMS-->
-    <div id="desktopMenuItems" class="dib fr v-mid center tl pl5">
-        <% for (i in menuItems) { %>
-          <div class="w4 dib v-top pt2">
-            <span class="dark-gray f5 dib pv1 mb3">
-              <%= menuItems[i]['path'] %>
-            </span>
-            <% for (j in menuItems[i]['subitens']) { %>
-              <a class="link gray f5 mr3 db hover-red pv2 pointer" href=<%= "/" + menuItems[i]['path'] + "/" + menuItems[i]['subitens'][j] %>><%= menuItems[i]['subitens'][j] %> </a>
-            <% } %>
-          </div>
-        <% } %>
-				<!--SEARCH-->
-				<form class="dib w4 pt2 black" action="/busca" method="GET">
-					<div class="measure">
-						<input class="input-reset bb b--black black pa1 mb2 db w-100 f5" type="text input" placeholder="Busca" name="search" style="border-top: 0px solid white; border-top: 0px solid white; border-left: 0px solid white; border-right: 0px solid white; font-family:inherit ">
-						<input class="dn" type="submit">
-					</div>
-				</form>
+    <div id="desktopMenuItems" class="fr cf">
+			<!--SEARCH-->
+			<form class="db w4 mr3" action="/busca" method="GET">
+					<input class="input-reset ba b--white white pa2 mb2 db w-100 f5 tr" type="text input" placeholder="Busca" name="search" style=" background-color: transparent; font-family:inherit ">
+					<input class="dn" type="submit">
+			</form>
+      <a class="link white f5 db hover-red tr pv1 pointer mt3" href='/sobre/sobre'> Sobre nós </a>
+			<a class="link white f5 db hover-red tr pv1 pointer" href='/sobre/news'> News </a>
+			<a class="link white f5 db hover-red tr pv1 pointer" href='sobre/contato'> Contato </a>
     </div>
 
 </nav>
@@ -83,16 +42,11 @@
 						<input class="dn" type="submit">
 					</div>
 				</form>
-        <% for (i in menuItems) { %>
           <div class="db v-top pb4 pt1 bb">
             <span class="link dark-gray f4 b db pv1 mb2">
-              <%= menuItems[i]['path'] %>
             </span>
-            <% for (j in menuItems[i]['subitens']) { %>
-              <a class="link gray f5 mr3 db hover-red pv2 pointer" href=<%= "/" + menuItems[i]['path'] + "/" + menuItems[i]['subitens'][j] %>><%= menuItems[i]['subitens'][j] %> </a>
-            <% } %>
+              <a class="link gray f5 mr3 db hover-red pv2 pointer" href='#'> asdasd </a>
           </div>
-        <% } %>
     </div>
 
 </nav>

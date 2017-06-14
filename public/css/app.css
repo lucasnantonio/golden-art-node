@@ -1,6 +1,7 @@
 body{
     background-color: white;
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+		letter-spacing: .05rem;
     font-weight: 300;
     /*font-family: 'Karla', sans-serif;*/
     /*font-family: 'Didact Gothic', sans-serif;*/
@@ -22,10 +23,10 @@ input:focus {
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
-		border-bottom: 1px solid red;
+		border: 1px solid red;
 }
 input::placeholder{
-	color: #ccc;
+	color: rgba(255,255,255,.5);
 }
 
 #flexbox {
@@ -45,8 +46,7 @@ input::placeholder{
 }
 
 .current{
-	border-bottom: 3px solid white;
-	color:white;
+	color:#222;
 	font-weight: bold;
 }
 

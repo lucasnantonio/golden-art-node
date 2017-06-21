@@ -8,34 +8,39 @@ function ready(fn) {
 
 var loadMenu = function(){
 
-    var desktopMenuWrapper = document.getElementById('desktopMenuWrapper');
-    var desktopMenuItems = document.getElementById('desktopMenuItems');
+    var logo = document.getElementById('logo');
+    var logoSmall = document.getElementById('logo-small');
+    var logoExpanded = document.getElementById('logo-expanded');
+
     var mobileMenuWrapper = document.getElementById('mobileMenuWrapper');
     var mobileMenuItems = document.getElementById('mobileMenuItems');
     var mobileMenuButton = document.getElementById('mobileMenuButton');
 
     mobileMenuItems.style.height = "0px";
+    logoExpanded.style.left = '-10rem';
+    logoExpanded.style.opacity = 0;
 
     mobileMenuButton.addEventListener("click", function( event ) {
-    
+
       if (mobileMenuItems.style.height == "0px"){
-        mobileMenuItems.style.height = "auto";
+        mobileMenuWrapper.style.backgroundColor = 'white';
+        mobileMenuButton.style.color = 'gray';
+        mobileMenuItems.style.height = "100vh";
       } else {
+        mobileMenuWrapper.style.backgroundColor = 'transparent';
         mobileMenuItems.style.height = "0px";
+        mobileMenuButton.style.color = 'white';
       }
-      
+
     });
-    
-    desktopMenuWrapper.style.height = '4.5rem';
-    desktopMenuItems.addEventListener("mouseenter", function( event ) {   
-      desktopMenuWrapper.style.height = '15rem';
-      desktopMenuWrapper.style.boxShadow = "0px 0px 65px rgba(0,0,0,.2)";
-    	desktopMenuWrapper.addEventListener("mouseleave", function(event){
-        setTimeout(function() {
-      		desktopMenuWrapper.style.height = '4.5rem';
-      		desktopMenuWrapper.style.boxShadow = "0px 0px 0px black";
-          }, 500);
-        })
+
+    logo.addEventListener("mouseenter", function( event ) {
+      logoExpanded.style.left = '0';
+      logoExpanded.style.opacity = 1;
+    });
+    logo.addEventListener("mouseleave", function( event ) {
+      logoExpanded.style.left = '-10rem'
+      logoExpanded.style.opacity = 0;
     });
 }
 

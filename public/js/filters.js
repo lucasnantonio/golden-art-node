@@ -80,7 +80,10 @@ function redefineMenuLinks() {
 
 function init(){
 	request('designlab')
-	homeSlider = new Siema();
+	homeSlider = new Siema({
+    draggable: false,
+  }
+  );
 	homeSlider.goTo(0);
 	redefineMenuLinks();
 

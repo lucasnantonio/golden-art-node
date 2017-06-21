@@ -1,12 +1,28 @@
 body{
     background-color: white;
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+		letter-spacing: .05rem;
     font-weight: 300;
     /*font-family: 'Karla', sans-serif;*/
     /*font-family: 'Didact Gothic', sans-serif;*/
     /*font-family: 'Space Mono', serif;*/
     /*font-family: 'Inconsolata', serif;*/
     /*font-family: 'Chivo', serif;*/
+}
+#logo{
+  width:10rem;
+  transition: all .2s;
+}
+#logo-small, #logo-expanded{
+  height:4rem;
+  position: absolute;
+  top:0;
+  left: 0;
+  transition: all .2s;
+}
+#logo-small{
+  width:4rem;
+  transition: all .2s;
 }
 #desktopMenuWrapper,
 #mobileMenuItems{
@@ -22,10 +38,10 @@ input:focus {
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
-		border-bottom: 1px solid red;
+		border: 1px solid red;
 }
 input::placeholder{
-	color: #ccc;
+	color: lightGray;
 }
 
 #flexbox {
@@ -45,8 +61,7 @@ input::placeholder{
 }
 
 .current{
-	border-bottom: 3px solid white;
-	color:white;
+	color:#222;
 	font-weight: bold;
 }
 

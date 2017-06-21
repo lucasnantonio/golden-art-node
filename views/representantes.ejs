@@ -1,23 +1,24 @@
 <%- include('./includes/header', {title: "Golden-Art"}); %>
+<%- include('./includes/menu-dark') %>
 
 %>
 <!--<div class="w-100 vh-50 cover pa5" style="background-image: url(/images/sobre-torno.jpg)">-->
-    
+
 <!--</div>-->
 <div class="w-100 pa5-l pa4 bg-dark-red mt5 mb5">
         <p class='f2-l f3 white measure-narrow lh-solid  lh-display '>Representantes</p>
     </div>
 
 <div class="ph5-ns ph4">
-    
+
     <!--contato-->
-    
+
     <div id="representantes" class="cf db w-100 ">
          <% states.forEach(function(state){%>
             <div class="w-25-l w-50-m w-100 ba b--near-white pa4 dib fl h5 hover-bg-near-black hover-white hover-z" style="height: 30rem; transition: all .2s">
-                
+
                 <h3 class='f4 bt0 red'> <%= state %> </h3>
-                
+
                 <% representantes.forEach(function(item){ %>
                     <% item['fields']['Estado'].forEach(function(estado){ %>
                         <% if (estado == state){ %>
@@ -28,7 +29,7 @@
                                 <% } %>
                                 <div> <%= item['fields']['Nome'] %> </div>
                                 <div> <%= item['fields']['Email'] %> </div>
-    
+
                                 <% if(item['fields']['Telefone 1']){ %>
                                     <div> <%= item['fields']['Telefone 1'] %> </div>
                                 <% } %>
@@ -45,17 +46,17 @@
                                     <div> <%= item['fields']['Telefone 5'] %> </div>
                                 <% } %>
                             </div>
-                            
+
                         <% } %>
                        <%  }) %>
                   <% }) %>
-               
-                
+
+
             </div>
-            
+
         <% }) %>
-        
+
     </div>
 
-    
+
 </div>

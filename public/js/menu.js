@@ -17,6 +17,7 @@ var loadMenu = function(){
     var mobileMenuButton = document.getElementById('mobileMenuButton');
 
     mobileMenuItems.style.height = "0px";
+    logoExpanded.style.left = '-10rem';
     logoExpanded.style.opacity = 0;
 
     mobileMenuButton.addEventListener("click", function( event ) {
@@ -34,9 +35,11 @@ var loadMenu = function(){
     });
 
     logo.addEventListener("mouseenter", function( event ) {
+      logoExpanded.style.left = '0';
       logoExpanded.style.opacity = 1;
     });
     logo.addEventListener("mouseleave", function( event ) {
+      logoExpanded.style.left = '-10rem'
       logoExpanded.style.opacity = 0;
     });
 }

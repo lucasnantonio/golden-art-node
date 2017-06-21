@@ -10,7 +10,19 @@ body{
     /*font-family: 'Chivo', serif;*/
 }
 #logo{
+  width:10rem;
+  transition: all .2s;
+}
+#logo-small, #logo-expanded{
+  height:4rem;
+  position: absolute;
+  top:0;
+  left: 0;
+  transition: all .2s;
+}
+#logo-small{
   width:4rem;
+  transition: all .2s;
 }
 #desktopMenuWrapper,
 #mobileMenuItems{

@@ -42,9 +42,10 @@ function changeSlider(e){
 	}
 }
 
-function request (id) {
+function request (linha, categoria) {
 	let xhr = new XMLHttpRequest();
-	let url = window.location.href + 'filtro?linha=' + id
+	let url = window.location.href + 'filtro?linha=' + linha + '&categoria=' + categoria
+  console.log(url);
 	showLoading();
 	xhr.open('GET', url);
 	xhr.onreadystatechange = function() {
@@ -57,18 +58,36 @@ function request (id) {
 	xhr.send();
 }
 
+function getUrlParams(param) {
+  var query = window.location.search.substring(1);
+  var parts = query.split("&");
+  for (var i=0;i<parts.length;i++) {
+    var seg = parts[i].split("=");
+    if (seg[0] == param) {
+      return seg[1];
+    }
+  }
+}
+
+function onCategoryChange(){
+  var selectedCategoryFilter = categoryFilters.options[categoryFilters.selectedIndex].value;
+  var currentLinha = document.querySelectorAll('.current')[0].getAttribute('id')
+  request(currentLinha, selectedCategoryFilter);
+}
+function onMenuClick (e) {
+  var categoryFilters = document.getElementById("categoryFilters");
+  var selectedCategoryFilter = categoryFilters.options[categoryFilters.selectedIndex].value;
+	e.preventDefault();
+	request(e.target.id, selectedCategoryFilter);
+	changeSlider(e);
+	assignClasses(e);
+}
+
 function assignClasses(e) {
 	filters.forEach(function(item){
 		item.classList.remove('current');
 	})
 	e.target.classList.add('current');
-}
-
-function onMenuClick (e) {
-	e.preventDefault();
-	request(e.target.id);
-	changeSlider(e);
-	assignClasses(e);
 }
 
 function redefineMenuLinks() {
@@ -79,7 +98,7 @@ function redefineMenuLinks() {
 }
 
 function init(){
-	request('designlab')
+	request('designlab', 'todos')
 	homeSlider = new Siema({
     draggable: false,
   }

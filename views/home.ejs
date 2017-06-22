@@ -11,6 +11,15 @@
 	</div>
 </div>
 
+<form method="GET" action='/filtro'>
+<select name='categoria' onchange='onCategoryChange()' id='categoryFilters'>
+  <option value='todos' selected>Todos</option>
+  <option value='mesa'>Mesa</option>
+  <option value='teto'>Teto</option>
+  <option value='piso'>Piso</option>
+  <option value='parede'>Parede</option>
+</select>
+</form>
 
 <div class="ph5-ns ph4 cf mt5">
 	<div id="loader" class="w-100 h3 fl db relative mt2 showbox">

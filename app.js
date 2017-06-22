@@ -25,14 +25,22 @@ app.use(representantes)
 app.use(busca)
 
 app.get('/filtro', middleware.getData, function(req, res) {
+  console.log(req.query);
 
-	function filterLinha(item){
-		if (item['fields']['Linha']){
-			return item['fields']['Linha'].toLowerCase() == req.query.linha.toLowerCase()
-		}
-	}
+  function filterAll(item){
+    if (req.query.categoria.toLowerCase() == 'todos'){
+      return item['fields']['Linha'] &&
+             item['fields']['Linha'].toLowerCase() == req.query.linha.toLowerCase()
+    }else{
+    return item['fields']['Linha'] &&
+           item['fields']['Linha'].toLowerCase() == req.query.linha.toLowerCase() &&
+           item['fields']['Categoria'] &&
+           item['fields']['Categoria'].toLowerCase() == req.query.categoria.toLowerCase()
+         }
+  }
 
-	var filteredResults = res.locals.productsData.filter(filterLinha);
+	var filteredResults = res.locals.productsData.filter(filterAll);
+  console.log(filteredResults);
 	res.render('gallery', {products: filteredResults});
 });
 

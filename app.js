@@ -28,10 +28,15 @@ app.get('/filtro', middleware.getData, function(req, res) {
   console.log(req.query);
 
   function filterAll(item){
+    if (req.query.categoria.toLowerCase() == 'todos'){
+      return item['fields']['Linha'] &&
+             item['fields']['Linha'].toLowerCase() == req.query.linha.toLowerCase()
+    }else{
     return item['fields']['Linha'] &&
            item['fields']['Linha'].toLowerCase() == req.query.linha.toLowerCase() &&
            item['fields']['Categoria'] &&
            item['fields']['Categoria'].toLowerCase() == req.query.categoria.toLowerCase()
+         }
   }
 
 	var filteredResults = res.locals.productsData.filter(filterAll);

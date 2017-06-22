@@ -3,10 +3,12 @@ var router  = new express.Router();
 var Airtable = require('airtable');
 var base = new Airtable({apiKey: process.env.AIRTABLE_KEY}).base('appswoobu90DjfHdO');
 var nakedString = require("naked-string");
+var middleware = require('../middleware/middleware');
 
 
 // PRODUTOS/PRODUTO ROUTE
-router.get('/produtos/:produto', 
+router.get('/produtos/:produto',
+  middleware.getData,
   getProductInfo,
   getColorsData,
   findColorMatches,
@@ -14,7 +16,7 @@ router.get('/produtos/:produto',
   findCupulasMatches,
   findVariations,
   function(req, res) {
-  res.render('produto', {data: res.locals.thisProductData['fields'], 
+  res.render('produto', {data: res.locals.thisProductData['fields'],
                          colors: res.locals.thisProductColors,
                          specialcolors: res.locals.thisProductSpecialColors,
                          variations: res.locals.thisProductVariations,
@@ -29,7 +31,7 @@ router.get("/cores",
     function(req, res) {
   res.render('colors', {
                          colors: res.locals.colorsData
-                        
+
   });
   res.end();
 });
@@ -37,42 +39,42 @@ router.get("/cores",
 
 function getColorsData(req, res, next){
   var colorsData = [];
-  
+
   base('Cores').select({}).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(item){
       colorsData.push(item);
     });
-    
+
     fetchNextPage();
-    
+
   }, function done(err) {
     if (err) {res.render('404'); return; }
-    
+
     res.locals.colorsData = colorsData;
     next();
 
   });
-  
+
 }
 
 function getCupulasData(req, res, next){
   var cupulasData = [];
-  
+
   base('Cúpulas').select({}).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(item){
       cupulasData.push(item);
     });
-    
+
     fetchNextPage();
-    
+
   }, function done(err) {
     if (err) {res.render('404'); return; }
-    
+
     res.locals.cupulasData = cupulasData;
     next();
 
   });
-  
+
 }
 
 function findCupulasMatches(req, res, next){
@@ -94,7 +96,7 @@ next();
 
 function getProductInfo(req, res, next){
   var produto = req.params.produto
-  
+
   res.locals.productsData.forEach(function(product){
     if (product['fields']['Código'] == produto){
 
@@ -106,12 +108,12 @@ function getProductInfo(req, res, next){
 
 
 function findColorMatches(req, res, next){
-  
-  
-  
+
+
+
   res.locals.thisProductColors = [];
   res.locals.thisProductSpecialColors = [];
-  
+
   if(res.locals.thisProductData['fields']['Cores Pintura'] || res.locals.thisProductData['fields']['Cores Especiais']){
 
   res.locals.colorsData.forEach(function(color, index, arr){
@@ -139,7 +141,7 @@ next();
 
 
 function findVariations(req, res, next){
-  
+
   res.locals.thisProductVariations = [];
   if(res.locals.thisProductData['fields']['Variações']){
   res.locals.thisProductVariationIds = res.locals.thisProductData['fields']['Variações'];
@@ -151,9 +153,9 @@ function findVariations(req, res, next){
       }
   });
   next();
-  
+
   }else{
-    
+
 next();
 }
 }

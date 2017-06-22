@@ -4,11 +4,6 @@ var request           = require('request');
 const nakedString     = require('naked-string');
 var app               = express();
 
-var airtableKey = process.env.AIRTABLE_KEY;
-
-var Airtable = require('airtable');
-var base = new Airtable({apiKey: process.env.AIRTABLE_KEY}).base('appswoobu90DjfHdO');
-
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(compression({level: 9}))
@@ -19,31 +14,9 @@ var linha = require("./routes/linha")
 var categoria = require("./routes/categoria")
 var produto = require("./routes/produto")
 var representantes = require("./routes/representantes")
+var middleware = require('./middleware/middleware');
 
-
-var getData = function(req, res, next){
-
-  var productsData = [];
-
-  base('Produtos').select({}).eachPage(function page(records, fetchNextPage) {
-    records.forEach(function(item){
-      productsData.push(item);
-    })
-
-    fetchNextPage();
-
-  }, function done(err) {
-    if (err) {res.render('404'); return; }
-
-    res.locals.productsData = productsData;
-
-    next();
-
-  });
-
-}
-
-app.use(getData)
+// app.use(getData)
 app.use(home)
 app.use(categoria)
 app.use(linha)
@@ -51,8 +24,7 @@ app.use(produto)
 app.use(representantes)
 app.use(busca)
 
-
-app.get('/filtro', function(req, res) {
+app.get('/filtro', middleware.getData, function(req, res) {
 
 	function filterLinha(item){
 		if (item['fields']['Linha']){

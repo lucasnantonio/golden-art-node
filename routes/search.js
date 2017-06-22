@@ -3,6 +3,7 @@ var router  = new express.Router();
 var Airtable = require('airtable');
 var base = new Airtable({apiKey: process.env.AIRTABLE_KEY}).base('appswoobu90DjfHdO');
 var nakedString = require("naked-string");
+var middleware = require('../middleware/middleware');
 
 function listProductsInSearch(req, res, next){
 	res.locals.searchResults = [];
@@ -58,6 +59,7 @@ function listProductsInSearch(req, res, next){
 }
 
 router.get('/busca',
+middleware.getData,
 listProductsInSearch,
 function(req, res) {
   // res.render('categoria', {categoria: req.params.categoria, thisCategoryProducts: res.locals.thisCategoryProducts, data: res.locals.productsData});

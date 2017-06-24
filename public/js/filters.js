@@ -106,7 +106,7 @@ function onCategoryChange(e){
   request(currentLine, e.target.id);
   console.log('request sent')
   assignCategoryClasses(e);
-  document.getElementById('categoryFilterList').style.opacity = 0;
+  document.getElementById('categoryFilterList').style.display = 'none';
   changeSelectedFilter(e.target.id)
 }
 

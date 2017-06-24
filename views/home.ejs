@@ -13,26 +13,28 @@
 
 <div id='pageContent' class="ph5-ns ph4 cf mt5">
 
-  <div id="filterWrapper" class="pb3 relative">
-    <div class="db cf">
-      <div class="f5 b pr3 di">
+  <div id="categoryFilterWrapper" class="pb3 relative">
+    <div id="categoryFilterHandle" class="dib cf">
+      <div id='filterLabel' class="f5 b pr3 di pointer">
         Filtros
       </div>
-      <div id='selectedFilter' class="f5 pr3 di pb1 bb b--light-gray">
+      <div id='selectedFilter' class="f5 pr3 di pb1 bb b--light-gray pointer">
         Todos
       </div>
     </div>
 
-    <div class="db w4 pa3 pv1 ml5 absolute z-max" style='box-shadow: 0 25px 58px 0 rgba(0,0,0,0.10);'>
+    <div id="categoryFilterList" class="dn w4 pa3 pv1 ml5 absolute z-max bg-white" style='box-shadow: 0 25px 58px 0 rgba(0,0,0,0.10);'>
       <ul class='mt3 list pl0'>
-        <li id='todos'class='categoryFilter hover-red f5 db pa2 pointer currentCategory'>Todos</li>
-        <li id='mesa'class='categoryFilter hover-red f5 db pa2 pointer'>Mesa</li>
-        <li id='teto' class='categoryFilter hover-red f5 db pa2 pointer'>Teto</li>
-        <li id='piso' class='categoryFilter hover-red f5 db pa2 pointer'>Piso</li>
-        <li id='parede' class='categoryFilter hover-red f5 db pa2 pb0 pointer'>Parede</li>
+        <li id='Todos'class='categoryFilter hover-red f5 db pa2 currentCategory'>Todos</li>
+        <li id='Mesa'class='categoryFilter hover-red f5 db pa2 pointer'>Mesa</li>
+        <li id='Teto' class='categoryFilter hover-red f5 db pa2 pointer'>Teto</li>
+        <li id='Piso' class='categoryFilter hover-red f5 db pa2 pointer'>Piso</li>
+        <li id='Parede' class='categoryFilter hover-red f5 db pa2 pb0 pointer'>Parede</li>
       </ul>
     </div>
+    <span>▾</span>
   </div>
+
   <!-- <form method="GET" action='/filtro' class='pb3'>
     <div class="f5 b fl pr3">
       Filtros
@@ -53,7 +55,7 @@
 		</div>
 	</div>
 
-  <main id="main" class="cf fl dib w-100 mt3 mb5 relative h3">
+  <main id="main" class="cf fl dib w-100 mt3 mb5 relative h6">
 
 	</main>
 

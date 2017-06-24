@@ -3,7 +3,13 @@ body{
   font-family: 'Montserrat', sans-serif;
   letter-spacing: .05rem;
   font-weight: 300;
-} /
+}
+
+.main{
+  min-height: 100vh;
+}
+
+/
 .loader {
   position: relative;
   margin: 0 auto;
@@ -115,6 +121,10 @@ input::placeholder{
 .currentLine{
 	color:#222;
 	font-weight: bold;
+}
+
+#categoryFilterList{
+  transition: opacity .2s;
 }
 
 a:hover, a:active, a:focus {

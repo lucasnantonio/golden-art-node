@@ -68,12 +68,45 @@ function getUrlParams(param) {
   }
 }
 
+function initFilters(){
+  var isFilterOn = false;
+  categoryFilterWrapper = document.getElementById("categoryFilterWrapper");
+  categoryFilterHandle = document.getElementById("categoryFilterHandle");
+  categoryFilterList = document.getElementById('categoryFilterList')
+  categoryFilterHandle.addEventListener('mouseenter', filtersOn);
+  categoryFilterHandle.addEventListener('click', filtersOn);
+  categoryFilterWrapper.addEventListener('mouseleave', filtersOff);
+  window.addEventListener('click', function(e){
+    if (e.target != categoryFilterWrapper && e.target != selectedFilter && e.target != filterLabel){
+      filtersOff(e);
+    }
+  })
+  function filtersOn(e){
+    categoryFilterList.style.display = 'block'
+  }
+  function filtersOff(e){
+    categoryFilterList.style.display = 'none'  }
+  function toggleFilters(){
+    if (categoryFilterList.style.display =='none'){
+      categoryFilterList.style.display = 'block'
+    } else {
+    categoryFilterList.style.display = 'none'  }
+  }
+}
+
+function changeSelectedFilter(filter){
+  selectedFilter = document.getElementById("selectedFilter");
+  selectedFilter.innerHTML = filter;
+}
+
 function onCategoryChange(e){
   var categoryFilters = document.getElementById("categoryFilters");
   var currentLine = document.querySelectorAll('.currentLine')[0].getAttribute('id');
   e.preventDefault();
   request(currentLine, e.target.id);
   assignCategoryClasses(e);
+  document.getElementById('categoryFilterList').style.opacity = 0;
+  changeSelectedFilter(e.target.id)
 }
 
 function onLineChange (e) {
@@ -116,8 +149,17 @@ function init(){
     draggable: false,
   }
   );
+  document.addEventListener('click', toggleFiltersOut)
+  function toggleFiltersOut(){
+    if (document.getElementById('categoryFilterList').style.display == 'none'){
+      document.getElementById('categoryFilterList').style.display = 'block';
+    } else {
+      return
+    }
+  }
 	homeSlider.goTo(0);
 	redefineMenuLinks();
+  initFilters();
 }
 
 ready(init);

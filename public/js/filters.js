@@ -49,7 +49,6 @@ function request (linha, categoria) {
 	showLoading();
 	xhr.open('GET', url);
 	xhr.onreadystatechange = function() {
-		console.log(xhr.readyState)
 		if (xhr.readyState == XMLHttpRequest.DONE) {
 				renderContent(xhr.response);
 				removeLoading();
@@ -69,31 +68,45 @@ function getUrlParams(param) {
   }
 }
 
-function onCategoryChange(){
-  var selectedCategoryFilter = categoryFilters.options[categoryFilters.selectedIndex].value;
-  var currentLinha = document.querySelectorAll('.current')[0].getAttribute('id')
-  request(currentLinha, selectedCategoryFilter);
-}
-function onMenuClick (e) {
+function onCategoryChange(e){
   var categoryFilters = document.getElementById("categoryFilters");
-  var selectedCategoryFilter = categoryFilters.options[categoryFilters.selectedIndex].value;
-	e.preventDefault();
-	request(e.target.id, selectedCategoryFilter);
-	changeSlider(e);
-	assignClasses(e);
+  var currentLine = document.querySelectorAll('.currentLine')[0].getAttribute('id');
+  e.preventDefault();
+  request(currentLine, e.target.id);
+  assignCategoryClasses(e);
 }
 
-function assignClasses(e) {
-	filters.forEach(function(item){
-		item.classList.remove('current');
+function onLineChange (e) {
+  var lineFilters = document.getElementById("lineFilters");
+  var currentCategory = document.querySelectorAll('.currentCategory')[0].getAttribute('id')
+	e.preventDefault();
+	request(e.target.id, currentCategory);
+	changeSlider(e);
+	assignLineClasses(e);
+}
+
+function assignLineClasses(e) {
+	lineFilters.forEach(function(item){
+		item.classList.remove('currentLine');
 	})
-	e.target.classList.add('current');
+	e.target.classList.add('currentLine');
+}
+
+function assignCategoryClasses(e) {
+	categoryFilters.forEach(function(item){
+		item.classList.remove('currentCategory');
+	})
+	e.target.classList.add('currentCategory');
 }
 
 function redefineMenuLinks() {
-	filters = document.querySelectorAll('.filter')
-	filters.forEach (function (filter) {
-		filter.addEventListener('click', onMenuClick)
+	lineFilters = document.querySelectorAll('.lineFilter')
+  categoryFilters = document.querySelectorAll('.categoryFilter')
+	lineFilters.forEach (function (filter) {
+		filter.addEventListener('click', onLineChange)
+	});
+  categoryFilters.forEach (function (filter) {
+		filter.addEventListener('click', onCategoryChange)
 	});
 }
 
@@ -105,8 +118,6 @@ function init(){
   );
 	homeSlider.goTo(0);
 	redefineMenuLinks();
-
-
 }
 
 ready(init);

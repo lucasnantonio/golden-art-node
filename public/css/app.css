@@ -3,11 +3,6 @@ body{
     font-family: 'Montserrat', sans-serif;
 		letter-spacing: .05rem;
     font-weight: 300;
-    /*font-family: 'Karla', sans-serif;*/
-    /*font-family: 'Didact Gothic', sans-serif;*/
-    /*font-family: 'Space Mono', serif;*/
-    /*font-family: 'Inconsolata', serif;*/
-    /*font-family: 'Chivo', serif;*/
 }
 #logo{
   width:10rem;
@@ -69,6 +64,13 @@ a:hover, a:active, a:focus {
   outline: 0;
 }
 
+.link:hover, .link:active, .link:focus {
+  outline: 0;
+}
+
+.f7{
+  
+}
 
 /*LOADER*/
 

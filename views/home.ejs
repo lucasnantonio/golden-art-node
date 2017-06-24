@@ -3,25 +3,50 @@
 <%- include('./includes/banner') %>
 
 <div class="w-100 ph5-l">
-	<div class="filters w-100 center flex justify-around relative bg-white pa3" style="margin-top:-3rem; box-shadow: 0 25px 58px 0 rgba(0,0,0,0.10);">
-			<a class=" dim f6 ttu filter link gray tc w-25 mh3-ns pa3-ns current " style="min-width: 6rem" id="designlab"  href="/design-lab/">Linha Design.lab</a>
-			<a class=" dim f6 ttu filter link gray tc w-25 mh3-ns pa3-ns" style="min-width: 6rem" id="essencial"  href="/essencial/">Linha Essencial</a>
-			<a class=" dim f6 ttu filter link gray tc w-25 mh3-ns pa3-ns" style="min-width: 6rem" id="cristal"  href="/cristal/">Linha Cristal</a>
-			<a class=" dim f6 ttu filter link gray tc w-25 mh3-ns pa3-ns" style="min-width: 6rem" id="vintage"  href="/vintage/">Linha Vintage</a>
+	<div class="lineFilters w-100 center flex justify-around relative bg-white pa3" style="margin-top:-3rem; box-shadow: 0 25px 58px 0 rgba(0,0,0,0.10);">
+			<a class="f5-ns f7 ttu lineFilter link gray tc w-25 mh3-ns pa3-ns currentLine " style="min-width: 6rem" id="designlab"  href="/design-lab/">Linha Design.lab</a>
+			<a class="f5-ns f7 ttu lineFilter link gray tc w-25 mh3-ns pa3-ns" style="min-width: 6rem" id="essencial"  href="/essencial/">Linha Essencial</a>
+			<a class="f5-ns f7 ttu lineFilter link gray tc w-25 mh3-ns pa3-ns" style="min-width: 6rem" id="cristal"  href="/cristal/">Linha Cristal</a>
+			<a class="f5-ns f7 ttu lineFilter link gray tc w-25 mh3-ns pa3-ns" style="min-width: 6rem" id="vintage"  href="/vintage/">Linha Vintage</a>
 	</div>
 </div>
 
-<form method="GET" action='/filtro'>
-<select name='categoria' onchange='onCategoryChange()' id='categoryFilters'>
-  <option value='todos' selected>Todos</option>
-  <option value='mesa'>Mesa</option>
-  <option value='teto'>Teto</option>
-  <option value='piso'>Piso</option>
-  <option value='parede'>Parede</option>
-</select>
-</form>
+<div id='pageContent' class="ph5-ns ph4 cf mt5">
 
-<div class="ph5-ns ph4 cf mt5">
+  <div id="categoryFilterWrapper" class="pb3 relative">
+    <div id="categoryFilterHandle" class="dib cf">
+      <div id='filterLabel' class="f5 b pr3 di pointer">
+        Filtros
+      </div>
+      <div id='selectedFilter' class="f5 pr3 di pb1 bb b--light-gray pointer">
+        Todos
+      </div>
+    </div>
+
+    <div id="categoryFilterList" class="dn w4 pa3 pv1 ml5 absolute z-max bg-white pointer" style='box-shadow: 0 25px 58px 0 rgba(0,0,0,0.10);'>
+      <ul class='mt3 list pl0 pointer'>
+        <li id='Todos'class='categoryFilter hover-red f5 db pa2 currentCategory'>Todos</li>
+        <li id='Mesa'class='categoryFilter hover-red f5 db pa2 pointer'>Mesa</li>
+        <li id='Teto' class='categoryFilter hover-red f5 db pa2 pointer'>Teto</li>
+        <li id='Piso' class='categoryFilter hover-red f5 db pa2 pointer'>Piso</li>
+        <li id='Parede' class='categoryFilter hover-red f5 db pa2 pb0 pointer'>Parede</li>
+      </ul>
+    </div>
+    <span class='pointer'>▾</span>
+  </div>
+
+  <!-- <form method="GET" action='/filtro' class='pb3'>
+    <div class="f5 b fl pr3">
+      Filtros
+    </div>
+  <select name='categoria' onchange='onCategoryChange()' id='categoryFilters'>
+    <option value='todos' selected>Todos</option>
+    <option value='mesa'>Mesa</option>
+    <option value='teto'>Teto</option>
+    <option value='piso'>Piso</option>
+    <option value='parede'>Parede</option>
+  </select>
+  </form> -->
 	<div id="loader" class="w-100 h3 fl db relative mt2 showbox">
 		<div class="loader">
 			<svg class="circular" viewBox="25 25 50 50">
@@ -30,7 +55,7 @@
 		</div>
 	</div>
 
-  <main id="main" class="cf fl dib w-100 mt3 mb5 relative h3">
+  <main id="main" class="cf fl dib w-100 mt3 mb5 relative h6">
 
 	</main>
 

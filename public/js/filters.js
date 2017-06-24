@@ -49,7 +49,6 @@ function request (linha, categoria) {
 	showLoading();
 	xhr.open('GET', url);
 	xhr.onreadystatechange = function() {
-		console.log(xhr.readyState)
 		if (xhr.readyState == XMLHttpRequest.DONE) {
 				renderContent(xhr.response);
 				removeLoading();
@@ -69,31 +68,80 @@ function getUrlParams(param) {
   }
 }
 
-function onCategoryChange(){
-  var selectedCategoryFilter = categoryFilters.options[categoryFilters.selectedIndex].value;
-  var currentLinha = document.querySelectorAll('.current')[0].getAttribute('id')
-  request(currentLinha, selectedCategoryFilter);
-}
-function onMenuClick (e) {
-  var categoryFilters = document.getElementById("categoryFilters");
-  var selectedCategoryFilter = categoryFilters.options[categoryFilters.selectedIndex].value;
-	e.preventDefault();
-	request(e.target.id, selectedCategoryFilter);
-	changeSlider(e);
-	assignClasses(e);
+function initFilters(){
+  var isFilterOn = false;
+  categoryFilterWrapper = document.getElementById("categoryFilterWrapper");
+  categoryFilterHandle = document.getElementById("categoryFilterHandle");
+  categoryFilterList = document.getElementById('categoryFilterList')
+  categoryFilterHandle.addEventListener('mouseenter', filtersOn);
+  categoryFilterHandle.addEventListener('click', filtersOn);
+  categoryFilterWrapper.addEventListener('mouseleave', filtersOff);
+  window.addEventListener('click', function(e){
+    if (e.target != categoryFilterWrapper && e.target != selectedFilter && e.target != filterLabel){
+      filtersOff(e);
+    }
+  })
+  function filtersOn(e){
+    categoryFilterList.style.display = 'block'
+  }
+  function filtersOff(e){
+    categoryFilterList.style.display = 'none'  }
+  function toggleFilters(){
+    if (categoryFilterList.style.display =='none'){
+      categoryFilterList.style.display = 'block'
+    } else {
+    categoryFilterList.style.display = 'none'  }
+  }
 }
 
-function assignClasses(e) {
-	filters.forEach(function(item){
-		item.classList.remove('current');
+function changeSelectedFilter(filter){
+  selectedFilter = document.getElementById("selectedFilter");
+  selectedFilter.innerHTML = filter;
+}
+
+function onCategoryChange(e){
+  var categoryFilters = document.getElementById("categoryFilters");
+  var currentLine = document.querySelectorAll('.currentLine')[0].getAttribute('id');
+  e.preventDefault();
+  request(currentLine, e.target.id);
+  console.log('request sent')
+  assignCategoryClasses(e);
+  document.getElementById('categoryFilterList').style.opacity = 0;
+  changeSelectedFilter(e.target.id)
+}
+
+function onLineChange (e) {
+  var lineFilters = document.getElementById("lineFilters");
+  var currentCategory = document.querySelectorAll('.currentCategory')[0].getAttribute('id')
+	e.preventDefault();
+	request(e.target.id, currentCategory);
+  console.log('request sent')
+	changeSlider(e);
+	assignLineClasses(e);
+}
+
+function assignLineClasses(e) {
+	lineFilters.forEach(function(item){
+		item.classList.remove('currentLine');
 	})
-	e.target.classList.add('current');
+	e.target.classList.add('currentLine');
+}
+
+function assignCategoryClasses(e) {
+	categoryFilters.forEach(function(item){
+		item.classList.remove('currentCategory');
+	})
+	e.target.classList.add('currentCategory');
 }
 
 function redefineMenuLinks() {
-	filters = document.querySelectorAll('.filter')
-	filters.forEach (function (filter) {
-		filter.addEventListener('click', onMenuClick)
+	lineFilters = document.querySelectorAll('.lineFilter')
+  categoryFilters = document.querySelectorAll('.categoryFilter')
+	lineFilters.forEach (function (filter) {
+		filter.addEventListener('click', onLineChange)
+	});
+  categoryFilters.forEach (function (filter) {
+		filter.addEventListener('click', onCategoryChange)
 	});
 }
 
@@ -103,10 +151,17 @@ function init(){
     draggable: false,
   }
   );
+  document.addEventListener('click', toggleFiltersOut)
+  function toggleFiltersOut(){
+    if (document.getElementById('categoryFilterList').style.display == 'none'){
+      document.getElementById('categoryFilterList').style.display = 'block';
+    } else {
+      return
+    }
+  }
 	homeSlider.goTo(0);
 	redefineMenuLinks();
-
-
+  initFilters();
 }
 
 ready(init);

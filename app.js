@@ -3,6 +3,7 @@ var express           = require('express');
 var request           = require('request');
 const nakedString     = require('naked-string');
 var app               = express();
+require('dotenv').config()
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
@@ -25,7 +26,6 @@ app.use(representantes)
 app.use(busca)
 
 app.get('/filtro', middleware.getData, function(req, res) {
-  console.log(req.query);
 
   function filterAll(item){
     if (req.query.categoria.toLowerCase() == 'todos'){
@@ -40,7 +40,6 @@ app.get('/filtro', middleware.getData, function(req, res) {
   }
 
 	var filteredResults = res.locals.productsData.filter(filterAll);
-  console.log(filteredResults);
 	res.render('gallery', {products: filteredResults});
 });
 

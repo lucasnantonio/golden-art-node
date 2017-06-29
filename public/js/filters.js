@@ -73,7 +73,7 @@ function initFilters(){
   categoryFilterWrapper = document.getElementById("categoryFilterWrapper");
   categoryFilterHandle = document.getElementById("categoryFilterHandle");
   categoryFilterList = document.getElementById('categoryFilterList')
-  categoryFilterHandle.addEventListener('mouseenter', filtersOn);
+  categoryFilterWrapper.addEventListener('mouseenter', filtersOn);
   categoryFilterHandle.addEventListener('click', filtersOn);
   categoryFilterWrapper.addEventListener('mouseleave', filtersOff);
   window.addEventListener('click', function(e){

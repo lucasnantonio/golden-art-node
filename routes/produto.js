@@ -13,8 +13,8 @@ router.get('/produtos/:produto',
   getColorsData,
   findColorMatches,
   getCupulasData,
-  findCupulasMatches,
   findVariations,
+  findCupulasMatches,
   function(req, res) {
   res.render('produto', {data: res.locals.thisProductData['fields'],
                          colors: res.locals.thisProductColors,
@@ -22,7 +22,6 @@ router.get('/produtos/:produto',
                          variations: res.locals.thisProductVariations,
                          cupulas: res.locals.thisProductCupulas
   });
-  res.end();
 });
 
 // CORES ROUTE
@@ -37,6 +36,7 @@ router.get("/cores",
 
 
 function getColorsData(req, res, next){
+  // console.log('getColorsData');
   var colorsData = [];
   base('Cores').select({}).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(item){
@@ -47,12 +47,14 @@ function getColorsData(req, res, next){
   }, function done(err) {
     if (err) {res.render('404'); return; }
     res.locals.colorsData = colorsData;
+    // console.log('getColorsDataEnd');
     next();
   });
 
 }
 
 function getCupulasData(req, res, next){
+  // console.log('getCupulasData');
   var cupulasData = [];
   base('Cúpulas').select({}).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(item){
@@ -64,12 +66,14 @@ function getCupulasData(req, res, next){
     if (err) {res.render('404'); return; }
 
     res.locals.cupulasData = cupulasData;
+    // console.log('getCupulasDataEnd');
     next();
   });
 
 }
 
 function findCupulasMatches(req, res, next){
+  // console.log('findCupulasMatches');
   res.locals.thisProductCupulas = [];
   if(res.locals.thisProductData['fields']['Cúpulas']){
   res.locals.cupulasData.forEach(function(cupula, index, arr){
@@ -79,18 +83,23 @@ function findCupulasMatches(req, res, next){
       }
       }
   });
+  // console.log('findCupulasMatchesEnd');
   next();
-  } else {
-next();
-}
-}
 
+  } else {
+// console.log('findCupulasMatchesEndNext');
+next();
+
+}
+}
 
 function getProductInfo(req, res, next){
+  // console.log('getProductInfo');
   var produto = req.params.produto
   res.locals.productsData.forEach(function(product){
     if (product['fields']['Código'] == produto){
       res.locals.thisProductData = product;
+      // console.log('getProductInfoEnd');
       next();
     }
   })
@@ -98,7 +107,7 @@ function getProductInfo(req, res, next){
 
 
 function findColorMatches(req, res, next){
-
+  // console.log('findColorMatches');
   res.locals.thisProductColors = [];
   res.locals.thisProductSpecialColors = [];
 
@@ -107,38 +116,43 @@ function findColorMatches(req, res, next){
   res.locals.colorsData.forEach(function(color, index, arr){
       if (res.locals.thisProductData['fields']['Cores Pintura']) {
         for (var i=0; i < res.locals.thisProductData['fields']['Cores Pintura'].length; i++){
-          if(res.locals.thisProductData['fields']['Cores Pintura'][i] == color['id']){
+          if(res.locals.thisProductData['fields']['Cores Pintura'][i] == color['Nome']){
             res.locals.thisProductColors.push(color)
           }
         }
       }
       if (res.locals.thisProductData['fields']['Cores Especiais']) {
           for (var i=0; i < res.locals.thisProductData['fields']['Cores Especiais'].length; i++){
-          if(res.locals.thisProductData['fields']['Cores Especiais'][i] == color['id']){
+          if(res.locals.thisProductData['fields']['Cores Especiais'][i] == color['Nome']){
             res.locals.thisProductSpecialColors.push(color)
           }
         }
       }
   });
+  // console.log('findColorMatchesEnd');
   next();
+
   }
   else {
+    // console.log('findColorMatchesEnd');
 next();
 }
 }
 
 
 function findVariations(req, res, next){
+  // console.log('findVariations');
   res.locals.thisProductVariations = [];
   if(res.locals.thisProductData['fields']['Variações']){
   res.locals.thisProductVariationIds = res.locals.thisProductData['fields']['Variações'];
   res.locals.productsData.forEach(function(product, index, arr){
       for (var i=0; i < res.locals.thisProductVariationIds.length; i++){
-      if(res.locals.thisProductVariationIds[i] == product['id']){
+      if(res.locals.thisProductVariationIds[i] == product['Código']){
       res.locals.thisProductVariations.push(product)
       }
       }
   });
+  // console.log('findVariationsEnd');
   next();
 
   }else{

@@ -30,6 +30,7 @@ function listProductsInSearch(req, res, next){
 		result = false;
 		if(item['fields']['Material']){
 			 item['fields']['Material'].forEach(function(material){
+         console.log(material + " " + req.query.search);
 				if(material.toLowerCase() == req.query.search.toLowerCase()){
 					result = true;
 				}

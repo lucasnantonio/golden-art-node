@@ -30,8 +30,7 @@ router.get("/cores",
   getColorsData,
     function(req, res) {
   res.render('colors', {
-                         colors: res.locals.colorsData
-
+    colors: res.locals.colorsData
   });
   res.end();
 });
@@ -39,32 +38,26 @@ router.get("/cores",
 
 function getColorsData(req, res, next){
   var colorsData = [];
-
   base('Cores').select({}).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(item){
       colorsData.push(item);
     });
 
     fetchNextPage();
-
   }, function done(err) {
     if (err) {res.render('404'); return; }
-
     res.locals.colorsData = colorsData;
     next();
-
   });
 
 }
 
 function getCupulasData(req, res, next){
   var cupulasData = [];
-
   base('Cúpulas').select({}).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(item){
       cupulasData.push(item);
     });
-
     fetchNextPage();
 
   }, function done(err) {
@@ -72,7 +65,6 @@ function getCupulasData(req, res, next){
 
     res.locals.cupulasData = cupulasData;
     next();
-
   });
 
 }
@@ -82,7 +74,7 @@ function findCupulasMatches(req, res, next){
   if(res.locals.thisProductData['fields']['Cúpulas']){
   res.locals.cupulasData.forEach(function(cupula, index, arr){
       for (var i=0; i < res.locals.thisProductData['fields']['Cúpulas'].length; i++){
-      if(res.locals.thisProductData['fields']['Cúpulas'][i] == cupula['id']){
+      if(res.locals.thisProductData['fields']['Cúpulas'][i] == cupula['Código']){
       res.locals.thisProductCupulas.push(cupula);
       }
       }
@@ -96,10 +88,8 @@ next();
 
 function getProductInfo(req, res, next){
   var produto = req.params.produto
-
   res.locals.productsData.forEach(function(product){
     if (product['fields']['Código'] == produto){
-
       res.locals.thisProductData = product;
       next();
     }
@@ -108,8 +98,6 @@ function getProductInfo(req, res, next){
 
 
 function findColorMatches(req, res, next){
-
-
 
   res.locals.thisProductColors = [];
   res.locals.thisProductSpecialColors = [];
@@ -141,7 +129,6 @@ next();
 
 
 function findVariations(req, res, next){
-
   res.locals.thisProductVariations = [];
   if(res.locals.thisProductData['fields']['Variações']){
   res.locals.thisProductVariationIds = res.locals.thisProductData['fields']['Variações'];

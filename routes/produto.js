@@ -116,14 +116,14 @@ function findColorMatches(req, res, next){
   res.locals.colorsData.forEach(function(color, index, arr){
       if (res.locals.thisProductData['fields']['Cores Pintura']) {
         for (var i=0; i < res.locals.thisProductData['fields']['Cores Pintura'].length; i++){
-          if(res.locals.thisProductData['fields']['Cores Pintura'][i] == color['Nome']){
+          if(res.locals.thisProductData['fields']['Cores Pintura'][i] == color['id']){
             res.locals.thisProductColors.push(color)
           }
         }
       }
       if (res.locals.thisProductData['fields']['Cores Especiais']) {
           for (var i=0; i < res.locals.thisProductData['fields']['Cores Especiais'].length; i++){
-          if(res.locals.thisProductData['fields']['Cores Especiais'][i] == color['Nome']){
+          if(res.locals.thisProductData['fields']['Cores Especiais'][i] == color['id']){
             res.locals.thisProductSpecialColors.push(color)
           }
         }

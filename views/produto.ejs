@@ -24,6 +24,9 @@
                 </colgroup>
 
                 <tbody class="w-100">
+                  <% if(data['Código']) {%>
+                      <%- include ./includes/produto/codigo %>
+                  <% } %>
                     <% if(data['Medidas']) {%>
                         <%- include ./includes/produto/medidas %>
                     <% } %>

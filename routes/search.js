@@ -13,25 +13,24 @@ function listProductsInSearch(req, res, next){
 	}
 	function checkName(item){
 		if (item['fields']['Nome']){
-			return item['fields']['Nome'].toLowerCase() == req.query.search.toLowerCase() || item['fields']['Nome'].toLowerCase() == (" " + req.query.search.toLowerCase())
+			return nakedString(item['fields']['Nome']) == nakedString(req.query.search) || nakedString(item['fields']['Nome']) == (" " + nakedString(req.query.search.toLowerCase));
 		}
 	}
 	function checkCategory(item){
 		if (item['fields']['Categoria']){
-			return item['fields']['Categoria'].toLowerCase() == req.query.search.toLowerCase()
+			return nakedString(item['fields']['Categoria']) == nakedString(req.query.search);
 		}
 	}
 	function checkType(item){
 		if(item['fields']['Tipo']){
-			return item['fields']['Tipo'].toLowerCase() == req.query.search.toLowerCase()
+			return nakedString(item['fields']['Tipo']) == nakedString(req.query.search);
 		}
 	}
 	function checkMaterial(item){
 		result = false;
 		if(item['fields']['Material']){
 			 item['fields']['Material'].forEach(function(material){
-         console.log(material + " " + req.query.search);
-				if(material.toLowerCase() == req.query.search.toLowerCase()){
+				if(nakedString(material) == nakedString(req.query.search)){
 					result = true;
 				}
 			});
@@ -40,7 +39,6 @@ function listProductsInSearch(req, res, next){
 		return result;
 	}
 
-	//TODO: BUSCA POR MATERIAL
 	//TODO: BUSCA POR PALAVRA-CHAVE
 	//TODO: BUSCA POR DESCRIÇÃO
 	//TODO: BUSCA POR LINHA

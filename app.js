@@ -1,7 +1,6 @@
 var compression       = require('compression')
 var express           = require('express');
 var request           = require('request');
-const nakedString     = require('naked-string');
 var app               = express();
 require('dotenv').config()
 

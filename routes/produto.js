@@ -9,8 +9,8 @@ var middleware = require('../middleware/middleware');
 // PRODUTOS/PRODUTO ROUTE
 router.get('/produtos/:produto',
   middleware.getData,
+  middleware.getColorsData,
   getProductInfo,
-  getColorsData,
   findColorMatches,
   getCupulasData,
   findVariations,
@@ -24,34 +24,17 @@ router.get('/produtos/:produto',
   });
 });
 
-// CORES ROUTE
-router.get("/cores",
-  getColorsData,
-    function(req, res) {
-  res.render('colors', {
-    colors: res.locals.colorsData
-  });
-  res.end();
-});
-
-
-function getColorsData(req, res, next){
-  // console.log('getColorsData');
-  var colorsData = [];
-  base('Cores').select({}).eachPage(function page(records, fetchNextPage) {
-    records.forEach(function(item){
-      colorsData.push(item);
-    });
-
-    fetchNextPage();
-  }, function done(err) {
-    if (err) {res.render('404'); return; }
-    res.locals.colorsData = colorsData;
-    // console.log('getColorsDataEnd');
-    next();
-  });
-
-}
+function getProductInfo(req, res, next){
+  // console.log('getProductInfo');
+  var produto = req.params.produto
+  res.locals.productsData.forEach(function(product){
+    if (product['fields']['Código'] == produto){
+      res.locals.thisProductData = product;
+      // console.log('getProductInfoEnd');
+      next();
+    }
+  })
+};
 
 function getCupulasData(req, res, next){
   // console.log('getCupulasData');
@@ -92,18 +75,6 @@ next();
 
 }
 }
-
-function getProductInfo(req, res, next){
-  // console.log('getProductInfo');
-  var produto = req.params.produto
-  res.locals.productsData.forEach(function(product){
-    if (product['fields']['Código'] == produto){
-      res.locals.thisProductData = product;
-      // console.log('getProductInfoEnd');
-      next();
-    }
-  })
-};
 
 
 function findColorMatches(req, res, next){

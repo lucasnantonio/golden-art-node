@@ -10,6 +10,7 @@ app.use(compression({level: 9}))
 
 var home = require("./routes/home")
 var busca = require("./routes/search")
+var cores = require("./routes/cores")
 var linha = require("./routes/linha")
 var categoria = require("./routes/categoria")
 var produto = require("./routes/produto")
@@ -23,6 +24,7 @@ app.use(linha)
 app.use(produto)
 app.use(representantes)
 app.use(busca)
+app.use(cores)
 
 app.get('/filtro', middleware.getData, function(req, res) {
 
@@ -50,11 +52,6 @@ res.render('sobre')
 // CONTATO
 app.get('/sobre/contato', function(req, res){
 res.render('contato')
-});
-
-// CORES
-app.get('/cores', function(req, res){
-res.render('colors')
 });
 
 app.get('*', function(req, res) {

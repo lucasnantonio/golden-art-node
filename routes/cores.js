@@ -15,5 +15,4 @@ router.get("/cores",
   res.end();
 });
 
-
 module.exports = router

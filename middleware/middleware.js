@@ -24,17 +24,30 @@ function getColorsData(req, res, next){
     records.forEach(function(item){
       colorsData.push(item);
     });
-
     fetchNextPage();
   }, function done(err) {
     if (err) {res.render('404'); return; }
     res.locals.colorsData = colorsData;
     next();
   });
+}
 
+function getCupulasData(req, res, next){
+  var cupulasData = [];
+  base('Cúpulas').select({}).eachPage(function page(records, fetchNextPage) {
+    records.forEach(function(item){
+      cupulasData.push(item);
+    });
+    fetchNextPage();
+  }, function done(err) {
+    if (err) {res.render('404'); return; }
+    res.locals.cupulasData = cupulasData;
+    next();
+  });
 }
 
 module.exports = {
     getData : getData,
     getColorsData : getColorsData,
+    getCupulasData : getCupulasData,
 }

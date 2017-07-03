@@ -7,21 +7,34 @@ var middleware = require('../middleware/middleware');
 
 let thisProductData = [],
     thisProductCupulas = [],
-    thisProductVariations = [];
+    thisProductVariations = [],
+    thisProductColors = [],
+    thisProductSpecialColors = [];
+
+function restartVariables(req, res, next){
+    thisProductData = [],
+    thisProductCupulas = [],
+    thisProductVariations = [],
+    thisProductColors = [],
+    thisProductSpecialColors = [];
+    next();
+}
 
 // PRODUTOS/PRODUTO ROUTE
 router.get('/produtos/:produto',
   middleware.getData,
   middleware.getColorsData,
   middleware.getCupulasData,
+  restartVariables,
   getProductInfo,
   filterThisProductColors,
+  filterThisProductSpecialColors,
   filterThisProductVariations,
   filterThisProductCupulas,
   function(req, res) {
   res.render('produto', {data: thisProductData[0]['fields'],
-                         colors: res.locals.thisProductColors,
-                         specialcolors: res.locals.thisProductSpecialColors,
+                         colors: thisProductColors,
+                         specialcolors: thisProductSpecialColors,
                          variations: thisProductVariations,
                          cupulas: thisProductCupulas
   });
@@ -37,62 +50,60 @@ function getProductInfo(req, res, next){
 
 function filterThisProductCupulas(req, res, next){
   if(thisProductData[0]['fields']['Cúpulas']){
-    thisProductCupulas = res.locals.cupulasData.filter(
-      function filterCupulas(item){
-        for (var i=0; i < thisProductData[0]['fields']['Cúpulas'].length; i++){
-        return item['id'] == thisProductData[0]['fields']['Cúpulas'][i];
+  res.locals.cupulasData.forEach(function(cupula, index, arr){
+      for (var i=0; i < thisProductData[0]['fields']['Cúpulas'].length; i++){
+      if(thisProductData[0]['fields']['Cúpulas'][i] == cupula['id']){
+      thisProductCupulas.push(cupula);
       }
       }
-    );
-    next();
+  });
+  next();
   } else {
-    next();
-  }
+next();
+}
 }
 
 function filterThisProductVariations(req, res, next){
   if(thisProductData[0]['fields']['Variações']){
-    thisProductVariations = res.locals.productsData.filter(
-      function filterVariations(item){
-        for (var i=0; i < thisProductData[0]['fields']['Variações'].length; i++){
-        return item['id'] == thisProductData[0]['fields']['Variações'][i];
+  res.locals.productsData.forEach(function(variation, index, arr){
+      for (var i=0; i < thisProductData[0]['fields']['Variações'].length; i++){
+      if(thisProductData[0]['fields']['Variações'][i] == variation['id']){
+      thisProductVariations.push(variation)
       }
       }
-    );
-    next();
-  } else {
-    next();
-  }
+  });
+  next();
+  }else{
+next();
+}
 }
 
 function filterThisProductColors(req, res, next){
-  // console.log('findColorMatches');
-  res.locals.thisProductColors = [];
-  res.locals.thisProductSpecialColors = [];
-  if(thisProductData[0]['fields']['Cores Pintura'] || thisProductData[0]['fields']['Cores Especiais']){
-
+  if(thisProductData[0]['fields']['Cores Pintura']){
   res.locals.colorsData.forEach(function(color, index, arr){
-      if (thisProductData[0]['fields']['Cores Pintura']) {
-        for (var i=0; i < thisProductData[0]['fields']['Cores Pintura'].length; i++){
-          if(thisProductData[0]['fields']['Cores Pintura'][i] == color['id']){
-            res.locals.thisProductColors.push(color)
-          }
-        }
+      for (var i=0; i < thisProductData[0]['fields']['Cores Pintura'].length; i++){
+      if(thisProductData[0]['fields']['Cores Pintura'][i] == color['id']){
+      thisProductColors.push(color);
       }
-      if (thisProductData[0]['fields']['Cores Especiais']) {
-          for (var i=0; i < thisProductData[0]['fields']['Cores Especiais'].length; i++){
-          if(thisProductData[0]['fields']['Cores Especiais'][i] == color['id']){
-            res.locals.thisProductSpecialColors.push(color)
-          }
-        }
       }
   });
-  // console.log('findColorMatchesEnd');
   next();
+  } else {
+next();
+}
+}
 
-  }
-  else {
-    // console.log('findColorMatchesEnd');
+function filterThisProductSpecialColors(req, res, next){
+  if(thisProductData[0]['fields']['Cores Especiais']){
+  res.locals.colorsData.forEach(function(color, index, arr){
+      for (var i=0; i < thisProductData[0]['fields']['Cores Especiais'].length; i++){
+      if(thisProductData[0]['fields']['Cores Especiais'][i] == color['id']){
+      thisProductSpecialColors.push(color);
+      }
+      }
+  });
+  next();
+  } else {
 next();
 }
 }

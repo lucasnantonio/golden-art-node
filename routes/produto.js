@@ -12,12 +12,12 @@ let thisProductData = [],
 // PRODUTOS/PRODUTO ROUTE
 router.get('/produtos/:produto',
   middleware.getData,
-  getProductInfo,
   middleware.getColorsData,
   middleware.getCupulasData,
-  findColorMatches,
-  findVariations,
-  findCupulasMatches,
+  getProductInfo,
+  filterThisProductColors,
+  filterThisProductVariations,
+  filterThisProductCupulas,
   function(req, res) {
   res.render('produto', {data: thisProductData[0]['fields'],
                          colors: res.locals.thisProductColors,
@@ -35,7 +35,7 @@ function getProductInfo(req, res, next){
   next();
 };
 
-function findCupulasMatches(req, res, next){
+function filterThisProductCupulas(req, res, next){
   if(thisProductData[0]['fields']['Cúpulas']){
     thisProductCupulas = res.locals.cupulasData.filter(
       function filterCupulas(item){
@@ -50,7 +50,22 @@ function findCupulasMatches(req, res, next){
   }
 }
 
-function findColorMatches(req, res, next){
+function filterThisProductVariations(req, res, next){
+  if(thisProductData[0]['fields']['Variações']){
+    thisProductVariations = res.locals.productsData.filter(
+      function filterVariations(item){
+        for (var i=0; i < thisProductData[0]['fields']['Variações'].length; i++){
+        return item['id'] == thisProductData[0]['fields']['Variações'][i];
+      }
+      }
+    );
+    next();
+  } else {
+    next();
+  }
+}
+
+function filterThisProductColors(req, res, next){
   // console.log('findColorMatches');
   res.locals.thisProductColors = [];
   res.locals.thisProductSpecialColors = [];
@@ -80,21 +95,6 @@ function findColorMatches(req, res, next){
     // console.log('findColorMatchesEnd');
 next();
 }
-}
-
-function findVariations(req, res, next){
-  if(thisProductData[0]['fields']['Variações']){
-    thisProductVariations = res.locals.productsData.filter(
-      function filterVariations(item){
-        for (var i=0; i < thisProductData[0]['fields']['Variações'].length; i++){
-        return item['id'] == thisProductData[0]['fields']['Variações'][i];
-      }
-      }
-    );
-    next();
-  } else {
-    next();
-  }
 }
 
 //TODO: special colors

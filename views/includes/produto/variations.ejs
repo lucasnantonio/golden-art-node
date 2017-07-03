@@ -1,13 +1,18 @@
+<% if (variations[0]) { %>
 <tr>
-    <td class="v-top w-10 b pt2 pb3 pr3 bt b--light-gray"> Variações </td> 
-    <td class="v-top w-10  pt2 pb3 pr3 bt b--light-gray"> 
+    <td class="v-top w-10 b pt2 pb3 pr3 bt b--light-gray"> Variações </td>
+    <td class="v-top w-10  pt2 pb3 pr3 bt b--light-gray">
     <% variations.forEach(function(item, index){ %>
         <a class="link black" href= <%= "/produtos/" + item['fields']['Código'] %> >
         <div class="pr2 db fl w-third-l w-50 f6 mt2">
+          <% if (item['fields']['Fotos']) { %>
             <img src= <%= item['fields']['Fotos'][0]["thumbnails"]["large"]['url'] %> alt="Siema image" />
+          <% } %>
             <%= item['fields']['Código'] %>
         </div>
         </a>
+
     <% }); %>
     </td>
 </tr>
+<% } %>

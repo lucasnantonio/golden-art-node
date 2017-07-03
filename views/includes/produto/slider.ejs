@@ -1,3 +1,4 @@
+<% if (data['Fotos']) {%>
 <div class="relative">
     <div class="siema">
         <% for (i in data['Fotos']){ %>
@@ -19,3 +20,8 @@
     </div>
     <% } %>
 </div>
+<% } else {%>
+  <div class="relative">
+    <h1 class="tc light-gray pa4 ">Não há fotos para este produto</h1>
+  </div>
+  <% } %>

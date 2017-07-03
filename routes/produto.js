@@ -5,43 +5,42 @@ var base = new Airtable({apiKey: process.env.AIRTABLE_KEY}).base('appswoobu90Djf
 var nakedString = require("naked-string");
 var middleware = require('../middleware/middleware');
 
-let thisproductData = [],
+let thisProductData = [],
     thisProductCupulas = [],
-    thisproductVariations = [];
-
+    thisProductVariations = [];
 
 // PRODUTOS/PRODUTO ROUTE
 router.get('/produtos/:produto',
   middleware.getData,
+  getProductInfo,
   middleware.getColorsData,
   middleware.getCupulasData,
-  getProductInfo,
   findColorMatches,
   findVariations,
   findCupulasMatches,
   function(req, res) {
-  res.render('produto', {data: thisproductData[0]['fields'],
+  res.render('produto', {data: thisProductData[0]['fields'],
                          colors: res.locals.thisProductColors,
                          specialcolors: res.locals.thisProductSpecialColors,
-                         variations: res.locals.thisProductVariations,
+                         variations: thisProductVariations,
                          cupulas: thisProductCupulas
   });
 });
 
 function getProductInfo(req, res, next){
-  thisproductData = res.locals.productsData.filter(
+  thisProductData = res.locals.productsData.filter(
     function filterProducts(item){
-      return item['fields']['Código'] == req.params.produto
+      return nakedString(item['fields']['Código']) == nakedString(req.params.produto);
     })
   next();
 };
 
 function findCupulasMatches(req, res, next){
-  if(thisproductData[0]['fields']['Cúpulas']){
+  if(thisProductData[0]['fields']['Cúpulas']){
     thisProductCupulas = res.locals.cupulasData.filter(
       function filterCupulas(item){
-        for (var i=0; i < thisproductData[0]['fields']['Cúpulas'].length; i++){
-        return item['id'] == thisproductData[0]['fields']['Cúpulas'][i];
+        for (var i=0; i < thisProductData[0]['fields']['Cúpulas'].length; i++){
+        return item['id'] == thisProductData[0]['fields']['Cúpulas'][i];
       }
       }
     );
@@ -55,19 +54,19 @@ function findColorMatches(req, res, next){
   // console.log('findColorMatches');
   res.locals.thisProductColors = [];
   res.locals.thisProductSpecialColors = [];
-  if(thisproductData[0]['fields']['Cores Pintura'] || thisproductData[0]['fields']['Cores Especiais']){
+  if(thisProductData[0]['fields']['Cores Pintura'] || thisProductData[0]['fields']['Cores Especiais']){
 
   res.locals.colorsData.forEach(function(color, index, arr){
-      if (thisproductData[0]['fields']['Cores Pintura']) {
-        for (var i=0; i < thisproductData[0]['fields']['Cores Pintura'].length; i++){
-          if(thisproductData[0]['fields']['Cores Pintura'][i] == color['id']){
+      if (thisProductData[0]['fields']['Cores Pintura']) {
+        for (var i=0; i < thisProductData[0]['fields']['Cores Pintura'].length; i++){
+          if(thisProductData[0]['fields']['Cores Pintura'][i] == color['id']){
             res.locals.thisProductColors.push(color)
           }
         }
       }
-      if (thisproductData[0]['fields']['Cores Especiais']) {
-          for (var i=0; i < thisproductData[0]['fields']['Cores Especiais'].length; i++){
-          if(thisproductData[0]['fields']['Cores Especiais'][i] == color['id']){
+      if (thisProductData[0]['fields']['Cores Especiais']) {
+          for (var i=0; i < thisProductData[0]['fields']['Cores Especiais'].length; i++){
+          if(thisProductData[0]['fields']['Cores Especiais'][i] == color['id']){
             res.locals.thisProductSpecialColors.push(color)
           }
         }
@@ -84,19 +83,18 @@ next();
 }
 
 function findVariations(req, res, next){
-  if(thisproductData[0]['fields']['Variações']){
-  let thisProductVariationIds = thisproductData[0]['fields']['Variações'];
-  res.locals.productsData.forEach(function(product, index, arr){
-      for (var i=0; i < thisProductVariationIds.length; i++){
-      if(thisProductVariationIds[i] == product['Código']){
-      thisProductVariations.push(product)
+  if(thisProductData[0]['fields']['Variações']){
+    thisProductVariations = res.locals.productsData.filter(
+      function filterVariations(item){
+        for (var i=0; i < thisProductData[0]['fields']['Variações'].length; i++){
+        return item['id'] == thisProductData[0]['fields']['Variações'][i];
       }
       }
-  });
-  next();
-  }else{
-next();
-}
+    );
+    next();
+  } else {
+    next();
+  }
 }
 
 //TODO: special colors

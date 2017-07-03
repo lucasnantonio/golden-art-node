@@ -6,7 +6,9 @@ var nakedString = require("naked-string");
 var middleware = require('../middleware/middleware');
 
 let thisproductData = [],
-    thisProductCupulas = [];
+    thisProductCupulas = [],
+    thisproductVariations = [];
+
 
 // PRODUTOS/PRODUTO ROUTE
 router.get('/produtos/:produto',
@@ -81,24 +83,18 @@ next();
 }
 }
 
-
 function findVariations(req, res, next){
-  // console.log('findVariations');
-  res.locals.thisProductVariations = [];
   if(thisproductData[0]['fields']['Variações']){
-  res.locals.thisProductVariationIds = thisproductData[0]['fields']['Variações'];
+  let thisProductVariationIds = thisproductData[0]['fields']['Variações'];
   res.locals.productsData.forEach(function(product, index, arr){
-      for (var i=0; i < res.locals.thisProductVariationIds.length; i++){
-      if(res.locals.thisProductVariationIds[i] == product['Código']){
-      res.locals.thisProductVariations.push(product)
+      for (var i=0; i < thisProductVariationIds.length; i++){
+      if(thisProductVariationIds[i] == product['Código']){
+      thisProductVariations.push(product)
       }
       }
   });
-  // console.log('findVariationsEnd');
   next();
-
   }else{
-
 next();
 }
 }

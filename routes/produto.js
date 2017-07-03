@@ -5,6 +5,8 @@ var base = new Airtable({apiKey: process.env.AIRTABLE_KEY}).base('appswoobu90Djf
 var nakedString = require("naked-string");
 var middleware = require('../middleware/middleware');
 
+let thisproductData = [],
+    thisProductCupulas = [];
 
 // PRODUTOS/PRODUTO ROUTE
 router.get('/produtos/:produto',
@@ -20,11 +22,9 @@ router.get('/produtos/:produto',
                          colors: res.locals.thisProductColors,
                          specialcolors: res.locals.thisProductSpecialColors,
                          variations: res.locals.thisProductVariations,
-                         cupulas: res.locals.thisProductCupulas
+                         cupulas: thisProductCupulas
   });
 });
-
-let thisproductData;
 
 function getProductInfo(req, res, next){
   thisproductData = res.locals.productsData.filter(
@@ -35,26 +35,19 @@ function getProductInfo(req, res, next){
 };
 
 function findCupulasMatches(req, res, next){
-  // console.log('findCupulasMatches');
-  res.locals.thisProductCupulas = [];
   if(thisproductData[0]['fields']['Cúpulas']){
-  res.locals.cupulasData.forEach(function(cupula, index, arr){
-      for (var i=0; i < thisproductData[0]['fields']['Cúpulas'].length; i++){
-      if(thisproductData[0]['fields']['Cúpulas'][i] == cupula['Código']){
-      res.locals.thisProductCupulas.push(cupula);
+    thisProductCupulas = res.locals.cupulasData.filter(
+      function filterCupulas(item){
+        for (var i=0; i < thisproductData[0]['fields']['Cúpulas'].length; i++){
+        return item['id'] == thisproductData[0]['fields']['Cúpulas'][i];
       }
       }
-  });
-  // console.log('findCupulasMatchesEnd');
-  next();
-
+    );
+    next();
   } else {
-// console.log('findCupulasMatchesEndNext');
-next();
-
+    next();
+  }
 }
-}
-
 
 function findColorMatches(req, res, next){
   // console.log('findColorMatches');
@@ -110,13 +103,9 @@ next();
 }
 }
 
-
 //TODO: special colors
 //TODO: cúpulas
 //TODO: acessórios
 //TODO: related products
-
-
-
 
 module.exports = router;

@@ -43,7 +43,9 @@ router.get('/produtos/:produto',
 function getProductInfo(req, res, next){
   thisProductData = res.locals.productsData.filter(
     function filterProducts(item){
+      if(item['fields']['Código']){
       return nakedString(item['fields']['Código']) == nakedString(req.params.produto);
+      }
     })
   next();
 };

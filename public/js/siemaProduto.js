@@ -10,13 +10,20 @@ var loadCarousel = function(){
 
   var productSlider = new Siema();
 	if (document.querySelector('.prev') != null){
-  const prev = document.querySelector('.prev');
-  const next = document.querySelector('.next');
+  const prev = document.querySelectorAll('.prev');
+  const next = document.querySelectorAll('.next');
+  console.log(prev)
+  console.log(next)
 
-  prev.addEventListener('click', () => productSlider.prev());
-  next.addEventListener('click', () => productSlider.next());
-	}
+  prev.forEach(function(item){
+    item.addEventListener('click', () => productSlider.prev());
+  })
+  next.forEach(function(item){
+    item.addEventListener('click', () => productSlider.next());
+  })
 
 };
+
+}
 
 ready(loadCarousel);

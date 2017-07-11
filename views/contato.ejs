@@ -1,40 +1,55 @@
 <%- include('./includes/header', {title: "Golden-Art"}); %>
-
+<script type="text/javascript" src="/js/contact.js"></script>
 <%- include('./includes/menu-dark') %>
 
-<div class="ph5-ns ph4 cf">
+  <div class="w-100 ph5-l">
+    <h1 class='w-100 pb5 pt5 tc f1'>Fale conosco</h1>
 
-    <!--contato-->
-<p class='f2-l f3 measure-narrow lh-solid b lh-display '>Fale com a gente</p>
-    <div id="contato" class="db w-100 pv5">
-        <div class="fl w-50-l w-100">
-            <div class="db b f5-l f6 mt0-l mt4 ttu tracked">Canais de atendimento</div>
-            <div class="measure pv3 mt5 bt b--light-gray">
-                Rua Vergueiro, 8500  - Ipiranga
-                04272-300  - São Paulo-SP
-            </div>
-            <div class="db measure pv3 bt b--light-gray">
-                Fone: (11) 2069-9700
-            </div>
-            <div class="db measure pv3 bt b--light-gray">
-                oi@golden-art.com.br
-            </div>
-            <div class="db measure pv3 bt b--light-gray">
-                facebook.com/goldeniluminacao
-            </div>
-            <div class="db measure pv3 bt b--light-gray">
-                instagram.com/goldeniluminacao
-            </div>
-            <div class="db measure pv3 bt b--light-gray">
-                Para orçamentos ou dúvidas, preencha o formulário ou envie um e-mail para vendas@golden-art.com.br
-            </div>
-        </div>
+  	<div class="contactFilters w-100 center flex justify-around relative bg-white">
+  			<a class="f6-ns bb b--light-gray bb b--light-gray f7 contactFilter ttu link gray tc w-25 mh3-ns pa3-ns" style="min-width: 6rem" id="arquiteto"  href="/sobre/contato/arquiteto/">Arquitetos</a>
+  			<a class="f6-ns bb b--light-gray f7 contactFilter ttu link gray tc w-25 ml3-ns pa3-ns" style="min-width: 6rem" id="empresa"  href="/sobre/contato/empresa/">Empresas</a>
+        <a class="f6-ns bb b--light-gray f7 contactFilter ttu link gray tc w-25 mr3-ns pa3-ns  " style="min-width: 6rem" id="pessoaFisica"  href="/sobre/contato/pessoaFisica/">Pessoa Física</a>
+  			<a class="f6-ns bb b--light-gray bb b--light-gray f7 contactFilter ttu link gray tc w-25 mh3-ns pa3-ns" style="min-width: 6rem" id="lojista"  href="/sobre/contato/lojista/">Lojistas</a>
+  	</div>
 
-        <div id="formulario" class="fl w-50-l w-100">
-            <p class="b f5-l f6 mt0-l mt4 ttu tracked">Orçamentos, parcerias e dúvidas</p>
-            <%- include includes/formulario %>
+  <div id='pageContent' class="cf mt5 mb5">
+
+      <div class="w-100 db dn contactPage" id="pessoaFisicaContent">
+        <div class="fl w-50-ns w-100 dib-ns db pr5-ns">
+          <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script><iframe class="airtable-embed airtable-dynamic-height" src="https://airtable.com/embed/shrAnukeVBlL7YrBZ?backgroundColor=red" frameborder="0" onmousewheel="" width="100%" height="1088" style="background: transparent; border: 1px solid #ccc;"></iframe>
         </div>
-    </div>
-</div>
+        <div class="fl measure w-50-ns w-100 dib-ns db mt0-ns mt2 lh-copy">
+          <p>Os produtos Golden Art estão presentes em diversas lojas de decoração e iluminação do Brasil. Nos conte qual produto você tem interesse, e deixe-nos ajudar a conseguí-lo :)</p>
+        </div>
+      </div>
+
+      <div class="w-100 db dn contactPage" id="lojistaContent">
+        <div class="fl w-50-ns w-100 dib-ns db pr5-ns">
+          <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script><iframe class="airtable-embed airtable-dynamic-height" src="https://airtable.com/embed/shrPNLdak1NambOZY?backgroundColor=red" frameborder="0" onmousewheel="" width="100%" height="1136" style="background: transparent; border: 1px solid #ccc;"></iframe>
+        </div>
+        <div class="fl measure w-50-ns w-100 dib-ns db mt0-ns mt2 lh-copy">
+          <p>Você é lojista? Venda os produtos Golden Art em sua loja!O primeiro passo é preencher o formulário abaixo :)</p>
+        </div>
+      </div>
+
+      <div class="w-100 db dn contactPage" id="arquitetoContent">
+        <div class="fl w-50-ns w-100 dib-ns db pr5-ns">
+          <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script><iframe class="airtable-embed airtable-dynamic-height" src="https://airtable.com/embed/shr3zoc2RjitXm81m?backgroundColor=red" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+        </div>
+        <div class="fl measure w-50-ns w-100 dib-ns db mt0-ns mt2 lh-copy">
+          <p>Temos uma equipe para analisar propostas de projetos de produto ou de especificação de nossos produtos! Atendemos projetos especiais: de grandes obras como hotéis e escritórios até residenciais. Preencha o formulário abaixo que em breve nossa equipe entrará em contato :)</p>
+        </div>
+      </div>
+
+      <div class="w-100 db dn contactPage" id="empresaContent">
+        <div class="fl w-50-ns w-100 dib-ns db pr5-ns">
+          <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script><iframe class="airtable-embed airtable-dynamic-height" src="https://airtable.com/embed/shrCBdgGGZKoeRd13?backgroundColor=red" frameborder="0" onmousewheel="" width="100%" height="1256" style="background: transparent; border: 1px solid #ccc;"></iframe>
+        </div>
+        <div class="fl measure w-50-ns w-100 dib-ns db mt0-ns mt2 lh-copy">
+          <p>Empresas</p>
+        </div>
+      </div>
+  </div>
+  </div>
 
 <%- include('./includes/footer') %>

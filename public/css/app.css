@@ -61,6 +61,12 @@ input::placeholder{
 	font-weight: bold;
 }
 
+.currentContact{
+	color:#d62626;
+	font-weight: bold;
+  border-bottom: 3px solid #d62626;
+}
+
 #categoryFilterList{
   transition: opacity .2s;
 }

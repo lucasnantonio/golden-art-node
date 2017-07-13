@@ -12,8 +12,6 @@ var loadCarousel = function(){
 	if (document.querySelector('.prev') != null){
   const prev = document.querySelectorAll('.prev');
   const next = document.querySelectorAll('.next');
-  console.log(prev)
-  console.log(next)
 
   prev.forEach(function(item){
     item.addEventListener('click', () => productSlider.prev());

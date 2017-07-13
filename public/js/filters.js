@@ -104,7 +104,6 @@ function onCategoryChange(e){
   var currentLine = document.querySelectorAll('.currentLine')[0].getAttribute('id');
   e.preventDefault();
   request(currentLine, e.target.id);
-  console.log('request sent')
   assignCategoryClasses(e);
   document.getElementById('categoryFilterList').style.display = 'none';
   changeSelectedFilter(e.target.id)
@@ -115,7 +114,6 @@ function onLineChange (e) {
   var currentCategory = document.querySelectorAll('.currentCategory')[0].getAttribute('id')
 	e.preventDefault();
 	request(e.target.id, currentCategory);
-  console.log('request sent')
 	changeSlider(e);
 	assignLineClasses(e);
 }

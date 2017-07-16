@@ -27,6 +27,9 @@
                   <% if(data['Código']) {%>
                       <%- include ./includes/produto/codigo %>
                   <% } %>
+                  <% if(data['Soquete']) {%>
+                      <%- include ./includes/produto/soquete %>
+                  <% } %>
                     <% if(data['Medidas']) {%>
                         <%- include ./includes/produto/medidas %>
                     <% } %>

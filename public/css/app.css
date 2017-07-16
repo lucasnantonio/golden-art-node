@@ -9,6 +9,10 @@ body{
   min-height: 100vh;
 }
 
+#pageContent{
+  min-height:60vh;
+}
+
 #logo{
   width:10rem;
   transition: all .2s;

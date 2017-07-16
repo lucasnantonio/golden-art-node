@@ -5,7 +5,30 @@ var base = new Airtable({apiKey: process.env.AIRTABLE_KEY}).base('appswoobu90Djf
 function getData(req, res, next){
   // console.log('getdata');
   var productsData = [];
-  base('Produtos').select({}).eachPage(function page(records, fetchNextPage) {
+  base('Produtos').select({
+    view: "Ordem do site",
+    fields: [
+      "Código",
+      "Variações",
+      "Nome",
+      "Descrição",
+      "Categoria",
+      "Linha",
+      "Tipo",
+      "Soquete",
+      "Cores Pintura",
+      "Cores Especiais",
+      "Fotos",
+      "Acessórios",
+      "Cúpulas",
+      "Vidros",
+      "Ficha Técnica",
+      "Relacionados",
+      "Lançamento?",
+      "Desenho Técnico",
+      "Material",
+    ]
+  }).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(item){
       productsData.push(item);
     })

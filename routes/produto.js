@@ -1,6 +1,7 @@
 var express = require('express');
 var router  = new express.Router();
 var Airtable = require('airtable');
+var async = require('async');
 var base = new Airtable({apiKey: process.env.AIRTABLE_KEY}).base('appswoobu90DjfHdO');
 var nakedString = require("naked-string");
 var middleware = require('../middleware/middleware');
@@ -20,17 +21,29 @@ function restartVariables(req, res, next){
     next();
 }
 
+function parallel(middlewares) {
+  return function (req, res, next) {
+    async.each(middlewares, function (mw, cb) {
+      mw(req, res, cb);
+    }, next);
+  };
+}
+
 // PRODUTOS/PRODUTO ROUTE
 router.get('/produtos/:produto',
-  middleware.getData,
-  middleware.getColorsData,
-  middleware.getCupulasData,
+  parallel([
+    middleware.getData,
+    middleware.getColorsData,
+    middleware.getCupulasData,
+  ]),
   restartVariables,
   getProductInfo,
-  filterThisProductColors,
-  filterThisProductSpecialColors,
-  filterThisProductVariations,
-  filterThisProductCupulas,
+  parallel([
+    filterThisProductColors,
+    filterThisProductSpecialColors,
+    filterThisProductVariations,
+    filterThisProductCupulas,
+  ]),
   function(req, res) {
   res.render('produto', {data: thisProductData[0]['fields'],
                          colors: thisProductColors,

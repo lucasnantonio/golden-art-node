@@ -41,6 +41,31 @@ function getData(req, res, next){
   });
 }
 
+function getGalleryData(req, res, next){
+  var productsData = [];
+  base('Produtos').select({
+    view: "Ordem do site",
+    fields: [
+      "Código",
+      "Categoria",
+      "Linha",
+      "Fotos",
+      "Lançamento?",
+      "Esconder na Galeria?"
+    ]
+  }).eachPage(function page(records, fetchNextPage) {
+    records.forEach(function(item){
+      productsData.push(item);
+    })
+    fetchNextPage();
+  }, function done(err) {
+    if (err) {res.render('404'); return; }
+    res.locals.productsData = productsData;
+    // console.log('getdataEnd');
+    next();
+  });
+}
+
 function getColorsData(req, res, next){
   var colorsData = [];
   base('Cores').select({}).eachPage(function page(records, fetchNextPage) {
@@ -71,6 +96,7 @@ function getCupulasData(req, res, next){
 
 module.exports = {
     getData : getData,
+    getGalleryData : getGalleryData,
     getColorsData : getColorsData,
     getCupulasData : getCupulasData,
 }

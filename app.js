@@ -22,7 +22,7 @@ app.use(representantes)
 app.use(busca)
 app.use(cores)
 
-app.get('/filtro', middleware.getData, function(req, res) {
+app.get('/filtro', middleware.getGalleryData, function(req, res) {
 
   function filterAll(item){
     if (req.query.categoria.toLowerCase() == 'todos'){

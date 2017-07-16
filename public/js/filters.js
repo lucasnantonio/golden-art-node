@@ -45,7 +45,6 @@ function changeSlider(e){
 function request (linha, categoria) {
 	let xhr = new XMLHttpRequest();
 	let url = window.location.href + 'filtro?linha=' + linha + '&categoria=' + categoria
-  console.log(url);
 	showLoading();
 	xhr.open('GET', url);
 	xhr.onreadystatechange = function() {

@@ -47,7 +47,10 @@ function getProductInfo(req, res, next){
       return nakedString(item['fields']['Código']) == nakedString(req.params.produto);
       }
     })
-  next();
+  if(thisProductData[0]){
+    next();
+  }else{
+  res.render('404')}
 };
 
 function filterThisProductCupulas(req, res, next){

@@ -6,8 +6,6 @@ var nakedString = require("naked-string");
 var middleware = require('../middleware/middleware');
 
 function listProductsInSearch(req, res, next){
-	res.locals.searchResults = [];
-
 	function checkCode(item){
 		return item['fields']['Código'] == req.query.search.toUpperCase()
 	}

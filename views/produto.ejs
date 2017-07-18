@@ -11,7 +11,7 @@
 
     <div id="product-content" class="fl w-50-l w-100 mb4 pl5-l center">
         <%- include ./includes/produto/title %>
-        <div id="product-content-table" class="w-100 db">
+        <div id="product-content-table" class="w-100 db cf">
 
             <% if (data["Descrição"]) { %>
                 <p class="pt1 mt1 db fl"><%= data["Descrição"] %> </p>
@@ -39,17 +39,15 @@
                     <% if(data['Cores Pintura']) {%>
                         <%- include ./includes/produto/colors %>
                     <% } %>
-                    <% if(data['Cúpulas']) {%>
-                        <%- include ./includes/produto/cupulas %>
-                    <% } %>
                     <% if(data['Variações']) {%>
                         <%- include ./includes/produto/variations %>
                     <% } %>
                 </tbody>
             </table>
-
-
         </div>
+        <% if(data['Cúpulas']) {%>
+            <%- include ./includes/produto/cupulas %>
+        <% } %>
     </div>
 </div>
 

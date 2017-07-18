@@ -3,7 +3,7 @@
     <td class="v-top w-10 b pt2 pb3 pr3 bt b--light-gray"> Cores Disponíveis </td>
     <td class="v-top w-10  pt1 pb3 pr3 bt b--light-gray">
     <% colors.forEach(function(color, index){ %>
-        <div class="db fl w-50 f6 mt2">
+        <div class="db fl w-50-ns w-100 f6 mt2">
         <div class='dtc h1 w1 dib br-100 ba b--light-gray mr2'  style=  <%= style = "background-color:" + color["fields"]["Webcode"] + ";min-width:1rem;"  %> ></div>
         <div class="dtc pl2 nowrap"><%= color["fields"]["Nome"] %></div>
         </div>
@@ -16,7 +16,7 @@
     <td class="v-top w-10 b pt2 pb3 pr3 bt b--light-gray"> Acabamentos especiais </td>
     <td class="v-top w-10  pt1 pb3 pr3 bt b--light-gray">
     <% specialcolors.forEach(function(color, index){ %>
-        <div class="db fl w-50 f6 mt2">
+        <div class="db fl w-50-ns w-100 f6 mt2">
         <div class='dtc h1 w1 dib br-100 ba b--near-white mr2'  style=  <%= style = "background-color:" + color["fields"]["Webcode"] + ";min-width:1rem;"  %> ></div>
         <div class="dtc pl2 nowrap"><%= color["fields"]["Nome"] %></div>
         </div>

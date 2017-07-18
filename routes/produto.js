@@ -71,79 +71,58 @@ function getProductInfo(req, res, next){
   res.render('404')}
 };
 
-
 function filterThisProductVidros(req, res, next){
   if(thisProductData[0]['fields']['Vidros']){
-  res.locals.vidrosData.forEach(function(vidro, index, arr){
-      for (var i=0; i < thisProductData[0]['fields']['Vidros'].length; i++){
-      if(thisProductData[0]['fields']['Vidros'][i] == vidro['id']){
-      thisProductVidros.push(vidro);
-      }
-      }
-  });
+    thisProductVidros = res.locals.vidrosData.filter((item) => {
+      return !(thisProductData[0]['fields']['Vidros'].indexOf(item['id']) == -1)
+    });
   next();
-  } else {
-next();
+} else {
+  next();
 }
 }
 
 function filterThisProductCupulas(req, res, next){
   if(thisProductData[0]['fields']['Cúpulas']){
-  res.locals.cupulasData.forEach(function(cupula, index, arr){
-      for (var i=0; i < thisProductData[0]['fields']['Cúpulas'].length; i++){
-      if(thisProductData[0]['fields']['Cúpulas'][i] == cupula['id']){
-      thisProductCupulas.push(cupula);
-      }
-      }
-  });
+    thisProductCupulas =  res.locals.cupulasData.filter((item) => {
+      return !(thisProductData[0]['fields']['Cúpulas'].indexOf(item['id']) == -1)
+    });
   next();
-  } else {
-next();
+} else {
+  next();
 }
 }
 
 function filterThisProductVariations(req, res, next){
   if(thisProductData[0]['fields']['Variações']){
-  res.locals.productsData.forEach(function(variation, index, arr){
-      for (var i=0; i < thisProductData[0]['fields']['Variações'].length; i++){
-      if(thisProductData[0]['fields']['Variações'][i] == variation['id']){
-      thisProductVariations.push(variation)
-      }
-      }
-  });
+    thisProductVariations =  res.locals.productsData.filter((item) => {
+      return !(thisProductData[0]['fields']['Variações'].indexOf(item['id']) == -1)
+    });
   next();
-  }else{
-next();
+} else {
+  next();
 }
 }
 
 function filterThisProductColors(req, res, next){
   if(thisProductData[0]['fields']['Cores Pintura']){
-  res.locals.colorsData.forEach(function(color, index, arr){
-      for (var i=0; i < thisProductData[0]['fields']['Cores Pintura'].length; i++){
-      if(thisProductData[0]['fields']['Cores Pintura'][i] == color['id']){
-      thisProductColors.push(color);
-      }
-      }
-  });
+    thisProductColors =  res.locals.colorsData.filter((item) => {
+      return !(thisProductData[0]['fields']['Cores Pintura'].indexOf(item['id']) == -1)
+    });
   next();
-  } else {
-next();
+} else {
+  next();
 }
 }
 
 function filterThisProductSpecialColors(req, res, next){
   if(thisProductData[0]['fields']['Cores Especiais']){
-  res.locals.colorsData.forEach(function(color, index, arr){
-      for (var i=0; i < thisProductData[0]['fields']['Cores Especiais'].length; i++){
-      if(thisProductData[0]['fields']['Cores Especiais'][i] == color['id']){
-      thisProductSpecialColors.push(color);
-      }
-      }
-  });
+    thisProductSpecialColors =  res.locals.colorsData.filter((item) => {
+      return !(thisProductData[0]['fields']['Cores Especiais'].indexOf(item['id']) == -1)
+    });
   next();
-  } else {
-next();
+} else {
+  next();
 }
 }
 

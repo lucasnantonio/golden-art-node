@@ -94,9 +94,24 @@ function getCupulasData(req, res, next){
   });
 }
 
+function getVidrosData(req, res, next){
+  var vidrosData = [];
+  base('Vidros').select({}).eachPage(function page(records, fetchNextPage) {
+    records.forEach(function(item){
+      vidrosData.push(item);
+    });
+    fetchNextPage();
+  }, function done(err) {
+    if (err) {res.render('404'); return; }
+    res.locals.vidrosData = vidrosData;
+    next();
+  });
+}
+
 module.exports = {
     getData : getData,
     getGalleryData : getGalleryData,
     getColorsData : getColorsData,
     getCupulasData : getCupulasData,
+    getVidrosData : getVidrosData,
 }

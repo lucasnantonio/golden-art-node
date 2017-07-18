@@ -8,6 +8,7 @@ var middleware = require('../middleware/middleware');
 
 let thisProductData = [],
     thisProductCupulas = [],
+    thisProductVidros = [],
     thisProductVariations = [],
     thisProductColors = [],
     thisProductSpecialColors = [];
@@ -15,6 +16,7 @@ let thisProductData = [],
 function restartVariables(req, res, next){
     thisProductData = [],
     thisProductCupulas = [],
+    thisProductVidros = [],
     thisProductVariations = [],
     thisProductColors = [],
     thisProductSpecialColors = [];
@@ -35,6 +37,7 @@ router.get('/produtos/:produto',
     middleware.getData,
     middleware.getColorsData,
     middleware.getCupulasData,
+    middleware.getVidrosData,
   ]),
   restartVariables,
   getProductInfo,
@@ -43,13 +46,15 @@ router.get('/produtos/:produto',
     filterThisProductSpecialColors,
     filterThisProductVariations,
     filterThisProductCupulas,
+    filterThisProductVidros,
   ]),
   function(req, res) {
   res.render('produto', {data: thisProductData[0]['fields'],
                          colors: thisProductColors,
                          specialcolors: thisProductSpecialColors,
                          variations: thisProductVariations,
-                         cupulas: thisProductCupulas
+                         cupulas: thisProductCupulas,
+                         vidros: thisProductVidros
   });
 });
 
@@ -65,6 +70,22 @@ function getProductInfo(req, res, next){
   }else{
   res.render('404')}
 };
+
+
+function filterThisProductVidros(req, res, next){
+  if(thisProductData[0]['fields']['Vidros']){
+  res.locals.vidrosData.forEach(function(vidro, index, arr){
+      for (var i=0; i < thisProductData[0]['fields']['Vidros'].length; i++){
+      if(thisProductData[0]['fields']['Vidros'][i] == vidro['id']){
+      thisProductVidros.push(vidro);
+      }
+      }
+  });
+  next();
+  } else {
+next();
+}
+}
 
 function filterThisProductCupulas(req, res, next){
   if(thisProductData[0]['fields']['Cúpulas']){

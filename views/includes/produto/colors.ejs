@@ -5,7 +5,7 @@
     <% colors.forEach(function(color, index){ %>
         <div class="db fl w-50-ns w-100 f6 mt2">
         <div class=' h1 w1 dib br-100 ba b--light-gray mr2 fl'  style=  <%= "background-color:" + color["fields"]["Webcode"] + ";min-width:1rem;"  %> ></div>
-        <div class="dtc pl3 pr2"><%= color["fields"]["Nome"] %></div>
+        <div class="dtc pl2 pr2"><%= color["fields"]["Nome"] %></div>
         </div>
     <% }); %>
     </td>
@@ -18,7 +18,7 @@
     <% specialcolors.forEach(function(color, index){ %>
         <div class="db fl w-50-ns w-100 f6 mt2">
         <div class='h1 w1 dib br-100 ba b--near-white mr2 fl'  style=  <%= "background-color:" + color["fields"]["Webcode"] + ";min-width:1rem;"  %> ></div>
-        <div class="dtc pl3 pr2"><%= color["fields"]["Nome"] %></div>
+        <div class="dtc pl2 pr2"><%= color["fields"]["Nome"] %></div>
         </div>
     <% }); %>
     </td>

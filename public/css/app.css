@@ -148,3 +148,43 @@ a:hover, a:active, a:focus {
   }
 
 }
+
+
+/*MAILCHIMP*/
+
+#mc_embed_signup .mc-field-group label{
+display:none;
+}
+#mc_embed_signup .mc-field-group{
+padding: 0rem 0rem 1rem 0rem;
+}
+
+#mc_embed_signup .mc-field-group{
+padding: 0rem 0rem 1rem 0rem;
+}
+
+#mc_embed_signup .mc-field-group input{
+background-color: #333333;
+border: 1px solid white;
+height:2rem;
+/*width: 17rem;*/
+color: white;
+font-family: Montserrat;
+padding-left:.5rem;
+}
+
+#mc_embed_signup .mc-field-group input::placeholder{
+font-family: Montserrat;
+padding-left:.5rem;
+}
+
+#mc_embed_signup input.button{
+font-family: Montserrat;
+padding:.8rem;
+background: red;
+border: 0px solid white;
+color: white;
+font-weight: bold;
+font-size:.8rem;
+letter-spacing: .1rem;
+}

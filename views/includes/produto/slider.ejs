@@ -2,7 +2,20 @@
 <div class="relative">
     <div class="siema">
         <% for (i in data['Fotos']){ %>
-      <div><img src= <%= data['Fotos'][i]['url'] %> alt="Siema image" /></div>
+      <div class='relative'>
+        <div class="absolute ma3">
+          <a
+            href="https://www.pinterest.com/pin/create/button/"
+            data-pin-do='buttonPin'
+            data-pin-tall='true'
+            data-pin-description=" <%= data['Descrição'] %> "
+            data-pin-media= "<%= data['Fotos'][i]['url'] %>"
+          >
+          </a>
+        </div>
+
+
+        <img src= <%= data['Fotos'][i]['url'] %> alt="Siema image" /></div>
         <% }%>
     </div>
     <%if (data['Fotos'].length > 1) {%>

@@ -6,6 +6,11 @@
 
     <div id="product-image" class="fl w-50-l w-100 mb4">
         <%- include ./includes/produto/slider %>
+        <div class="db-l dn">
+          <% if(data['Variações']) {%>
+              <%- include ./includes/produto/variations %>
+          <% } %>
+        </div>
     </div>
 
     <div id="product-content" class="fl w-50-l w-100 mb4 pl5-l center">
@@ -38,9 +43,6 @@
                     <% if(data['Cores Pintura']) {%>
                         <%- include ./includes/produto/colors %>
                     <% } %>
-                    <% if(data['Variações']) {%>
-                        <%- include ./includes/produto/variations %>
-                    <% } %>
                 </tbody>
             </table>
         </div>
@@ -51,6 +53,11 @@
         <% if(data['Vidros']) {%>
             <%- include ./includes/produto/vidros %>
         <% } %>
+        <div class="dn-l db">
+          <% if(data['Variações']) {%>
+              <%- include ./includes/produto/variations %>
+          <% } %>
+        </div>
     </div>
 </div>
 

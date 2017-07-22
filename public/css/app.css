@@ -83,6 +83,9 @@ a:hover, a:active, a:focus {
   outline: 0;
 }
 
+.f8{
+  font-size: .6rem;
+}
 /*LOADER*/
 
 // demo-specific

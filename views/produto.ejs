@@ -6,7 +6,6 @@
 
     <div id="product-image" class="fl w-50-l w-100 mb4">
         <%- include ./includes/produto/slider %>
-        <%- include ./includes/produto/technical %>
     </div>
 
     <div id="product-content" class="fl w-50-l w-100 mb4 pl5-l center">
@@ -14,10 +13,10 @@
         <div id="product-content-table" class="w-100 db cf">
 
             <% if (data["Descrição"]) { %>
-                <p class="pt1 mt1 db fl"><%= data["Descrição"] %> </p>
+                <p class="pt1 mt1 db fl lh-copy measure"><%= data["Descrição"] %> </p>
             <% } %>
 
-            <table class="fl w-100 mt5 v-top" cellspacing="0">
+            <table class="fl w-100 mt4 v-top" cellspacing="0">
                 <colgroup>
                    <col class="w-30">
                    <col class="w-70">
@@ -33,7 +32,7 @@
                     <% if(data['Medidas']) {%>
                         <%- include ./includes/produto/medidas %>
                     <% } %>
-                    <% if(data['Materiais']) {%>
+                    <% if(data['Material']) {%>
                         <%- include ./includes/produto/materials %>
                     <% } %>
                     <% if(data['Cores Pintura']) {%>
@@ -45,6 +44,7 @@
                 </tbody>
             </table>
         </div>
+        <%- include ./includes/produto/technical %>
         <% if(data['Cúpulas']) {%>
             <%- include ./includes/produto/cupulas %>
         <% } %>

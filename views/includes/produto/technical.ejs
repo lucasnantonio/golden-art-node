@@ -1,23 +1,12 @@
-
 <% if (data["Desenho Técnico"]) { %>
-  <div class="v-top w-100 b pt2 pb3 pr3 mt3 bt b--light-gray"> Medidas gerais </div>
-  <% if (data["Desenho Técnico"].length == 1) { %>
-
-    <% data["Desenho Técnico"].forEach(function(item){ %>
-      <div class="w-100 fl db">
-          <div class="aspect-ratio aspect-ratio--1x1">
-              <img style= <%= "background-image:url('" +  item['url'] + "')"%> class="db bg-center contain aspect-ratio--object">
-          </div>
-      </div>
-    <% }) %>
-  <% } %>
-  <% if (data["Desenho Técnico"].length > 1) { %>
-    <% data["Desenho Técnico"].forEach(function(item){ %>
-      <div class="w-50-ns w-100 fl db">
-          <div class="aspect-ratio aspect-ratio--1x1">
-              <img style= <%= "background-image:url('" +  item['url'] + "')"%> class="db bg-center contain aspect-ratio--object">
-          </div>
-      </div>
-    <% }) %>
-  <% } %>
+  <div class="db w-100">
+    <div class="v-top w-100 b pt2 pb3 pr3 bt b--light-gray"> Medidas Gerais </div>
+    <div class="v-top w-100 pt2 pb3 pr3">
+    <% data["Desenho Técnico"].forEach(function(item, index){ %>
+        <div class="db fl w-50 f6 mt2 mb3">
+            <img class="ba b--light-gray" src= <%= item["thumbnails"]["large"]['url'] %> />
+        </div>
+    <% }); %>
+  </div>
+</div>
 <% } %>

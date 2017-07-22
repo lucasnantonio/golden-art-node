@@ -27,6 +27,8 @@ function getData(req, res, next){
       "Lançamento?",
       "Desenho Técnico",
       "Material",
+      "Title SEO",
+      "Description SEO"
     ]
   }).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(item){

@@ -8,7 +8,7 @@
             href="https://www.pinterest.com/pin/create/button/"
             data-pin-do='buttonPin'
             data-pin-tall='true'
-            data-pin-description=" <%= data['Descrição'] %> "
+            data-pin-description=" <%= 'Golden-Art ' + data['Código'] +  ' ' + data['Tipo'] +  ' ' + data['Nome'] + ' ' +  (data['Descrição'] || '') %> "
             data-pin-media= "<%= data['Fotos'][i]['url'] %>"
             data-pin-url= "<%= 'http://www.goldenart.com.br/produtos/' + data['Código']  %>"
           >

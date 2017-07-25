@@ -1,4 +1,4 @@
-<%- include('./includes/header', {title: (data["Title SEO"] || "GA - " + data["Código"]), share_image: data['Fotos'][0]['url'], description: (data["Description SEO"] || data["Descrição"])  }); %>
+<%- include('./includes/header', {title: (data["Title SEO"] || "GA - " + data["Código"]), share_image: (data['Fotos'] && data['Fotos'][0]['url'] || '/images/sobre-torno.jpg' ), description: (data["Description SEO"] || data["Descrição"] || "Produto Golden Art")  }); %>
 <%- include('./includes/menu', {theme: 'positive'}) %>
 <script type="text/javascript" src="/js/siemaProduto.js"></script>
 

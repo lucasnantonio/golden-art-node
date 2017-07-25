@@ -3,6 +3,11 @@
     <div class="fl w-25-ns w-third-m w-50">
         <a class="" href= <%= "/produtos/" + product['fields']['Código'] %> >
             <div class="aspect-ratio aspect-ratio--1x1 dim">
+                <% if(product['fields']['Lançamento?'] ==  true){ %>
+                  <div class="db-ns dn f7 ttu white bg-dark-red pv1 ph2 absolute z-max">
+                    Lançamento
+                  </div>
+                <% } %>
                 <img style= <%= "background-image:url('" +  product['fields']['Fotos'][0]['thumbnails']['large']['url'] + "')"%> class="db bg-center cover aspect-ratio--object">
             </div>
         </a>

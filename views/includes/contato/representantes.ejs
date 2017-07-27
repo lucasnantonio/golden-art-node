@@ -1,11 +1,12 @@
-<div id="representantes" class="cf db w-100 ">
+<div id="representantes" class="cf db w-100">
+  <h2 class="f5 b black">Nossos representantes</h2>
   <% states.forEach(function(state){%>
-    <div class="w-25-l w-50-m w-100 ba b--near-white pa4 dib fl h5 hover-bg-near-black hover-white hover-z" style="height: 30rem; transition: all .2s">
-      <h3 class='f4 bt0 red'> <%= state %> </h3>
+    <div class="w-100 bt b--near-white pv3 db">
+      <h3 class='f5 red mv1'> <%= state %> </h3>
         <% representantes.forEach(function(item){ %>
             <% item['fields']['Estado'].forEach(function(estado){ %>
                 <% if (estado == state){ %>
-                    <h4 class='f5 bt0'> <%= item['fields']['Empresa'] %> </h4>
+                    <h4 class='f6 mv1'> <%= item['fields']['Empresa'] %> </h4>
                     <div class="f6 lh-copy">
                         <% if(item['fields']['Observação']){ %>
                             <div class="mb2"> <%= item['fields']['Observação'] %> </div>

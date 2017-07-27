@@ -10,19 +10,19 @@ var nakedString = require("naked-string");
 var states = [
   "Acre",
   "Alagoas",
-  "Amapá", 
+  "Amapá",
   "Amazonas",
-  "Bahia", 
+  "Bahia",
   "Ceará",
-  "Distrito Federal", 
-  "Espírito Santo", 
-  "Goiás", 
-  "Maranhão", 
-  "Mato Grosso", 
+  "Distrito Federal",
+  "Espírito Santo",
+  "Goiás",
+  "Maranhão",
+  "Mato Grosso",
   "Mato Grosso do Sul",
   "Minas Gerais",
   "Pará",
-  "Paraíba", 
+  "Paraíba",
   "Paraná",
   "Pernambuco",
   "Rio de Janeiro",
@@ -35,10 +35,10 @@ var states = [
 
 
 function getRepresentantes(req, res, next){
-  
+
   res.locals.states = states;
   res.locals.representantes = [];
-  
+
   base('Representantes').select({
     view: 'Grid view'
     }).firstPage(function(err, records) {
@@ -50,10 +50,10 @@ function getRepresentantes(req, res, next){
 });
 }
 
-router.get('/sobre/representantes', 
+router.get('/sobre/contato',
 getRepresentantes,
 function(req, res) {
-  res.render('representantes', {states: res.locals.states, representantes: res.locals.representantes});
+  res.render('contato', {states: res.locals.states, representantes: res.locals.representantes});
 });
 
 module.exports = router

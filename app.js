@@ -12,13 +12,13 @@ var home = require("./routes/home")
 var busca = require("./routes/search")
 var cores = require("./routes/cores")
 var produto = require("./routes/produto")
-var representantes = require("./routes/representantes")
+var contato = require("./routes/contato")
 var middleware = require('./middleware/middleware');
 
 // app.use(getData)
 app.use(home)
 app.use(produto)
-app.use(representantes)
+app.use(contato)
 app.use(busca)
 app.use(cores)
 
@@ -45,10 +45,6 @@ app.get('/sobre/sobre', function(req, res){
 res.render('sobre')
 });
 
-// CONTATO
-app.get('/sobre/contato', function(req, res){
-res.render('contato')
-});
 
 app.get('*', function(req, res) {
   res.render('404');

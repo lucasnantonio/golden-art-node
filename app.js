@@ -45,6 +45,10 @@ app.get('/sobre/sobre', function(req, res){
 res.render('sobre')
 });
 
+// Assinaturas
+app.get('/assinaturas', function(req, res){
+res.render('assinaturas')
+});
 
 app.get('*', function(req, res) {
   res.render('404');

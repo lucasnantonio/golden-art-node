@@ -11,22 +11,3 @@
     </td>
 </tr>
 <% } %>
-<% if(data['Cores Especiais']) {%>
-<tr>
-    <td class="v-top w-10 b pt2 pb3 pr3 bt b--light-gray"> Acabamentos Especiais </td>
-    <td class="v-top w-10  pt1 pb3 pr3 bt b--light-gray">
-    <% specialcolors.forEach(function(color, index){ %>
-        <div class="db fl w-50-ns w-100 f6 mt2">
-        <div class='h1 w1 dib br-100 ba b--near-white mr2 fl'  style=  <%= "background-color:" + color["fields"]["Webcode"] + ";min-width:1rem;"  %> ></div>
-        <div class="dtc pl2 pr2"><%= color["fields"]["Nome"] %></div>
-        </div>
-    <% }); %>
-    </td>
-</tr>
-<% } %>
-<tr>
-    <td></td>
-    <td class="v-top w-10 pt2 pb3 pr3" >
-        <a class="link black dim f6" href="/cores">Conheça o catálogo completo de cores →</a>
-    </td>
-</tr>

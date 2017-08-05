@@ -20,16 +20,16 @@
         <% }%>
     </div>
     <%if (data['Fotos'].length > 1) {%>
-    <div class="prev absolute w1 h1 pointer dn-ns" style="bottom:40px; left:25px">
+    <div class="prev absolute w1 h1 pointer dn-ns" style="bottom:40px; left:25px; mix-blend-mode: multiply;">
         <%-include ../arrowleft-small.svg %>
     </div>
-    <div class="next absolute w1 h1 pointer dn-ns" style="bottom:40px; right:25px">
+    <div class="next absolute w1 h1 pointer dn-ns" style="bottom:40px; right:25px; mix-blend-mode: multiply;">
         <%-include ../arrowright-small.svg %>
     </div>
-    <div class="prev absolute w2-ns w1 h2-ns h1 pointer dib-ns dn" style="top:calc(40% + 20px); left:50px">
+    <div class="prev absolute w2-ns w1 h2-ns h1 pointer dib-ns dn" style="top:calc(40% + 20px); left:50px; mix-blend-mode: multiply;">
         <%-include ../arrowleft.svg %>
     </div>
-    <div class="next absolute w2-ns w1 h2-ns h1 pointer dib-ns dn" style="top:calc(40% + 20px); right:50px">
+    <div class="next absolute w2-ns w1 h2-ns h1 pointer dib-ns dn" style="top:calc(40% + 20px); right:50px; mix-blend-mode: multiply;">
         <%-include ../arrowright.svg %>
     </div>
     <% } %>

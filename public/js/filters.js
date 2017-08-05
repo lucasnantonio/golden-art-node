@@ -21,7 +21,17 @@ function removeLoading(){
 	document.getElementById('loader').classList.remove('db');
 	document.getElementById('loader').classList.add('dn');
 }
-
+function setSiemaImage(){
+  var width = window.innerWidth
+              || document.documentElement.clientWidth
+              || document.body.clientWidth;
+  var images = document.querySelectorAll('.siema img');
+  if (width<500){
+     images.forEach(function(image){
+       image.src = image.src.replace('.png', '-mobile.png' );
+     })
+   }
+}
 function renderContent (res) {
 	let wrapper = document.getElementById('main')
 	wrapper.innerHTML = res;
@@ -144,6 +154,7 @@ function redefineMenuLinks() {
 
 function init(){
 	request('designlab', 'todos')
+  setSiemaImage();
 	homeSlider = new Siema({
     draggable: false,
   }

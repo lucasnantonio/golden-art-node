@@ -50,6 +50,8 @@ function getGalleryData(req, res, next){
     view: "Ordem do site",
     fields: [
       "Código",
+      "Nome",
+      "Tipo",
       "Categoria",
       "Linha",
       "Fotos",

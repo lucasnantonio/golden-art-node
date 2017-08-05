@@ -1,13 +1,26 @@
 <% products.forEach(function(product) { %>
 	<% if (product['fields']['Fotos'] && product['fields']['Fotos'][0]['thumbnails'] && product['fields']['Esconder na Galeria?'] == undefined){ %>
     <div class="fl w-25-ns w-third-m w-50">
-        <a class="" href= <%= "/produtos/" + product['fields']['Código'] %> >
-            <div class="aspect-ratio aspect-ratio--1x1 dim">
+        <a class="db productThumb" href= <%= "/produtos/" + product['fields']['Código'] %> >
+            <div class="aspect-ratio aspect-ratio--1x1">
                 <% if(product['fields']['Lançamento?'] ==  true){ %>
                   <div class="db-ns dn f7 ttu white bg-dark-red pv1 ph2 absolute z-max">
                     Lançamento
                   </div>
                 <% } %>
+                <div class="productCode db-ns dn tl w-100 white pv3 ph3 absolute z-max bottom-0">
+                  <div class="b f6 db ttu pv1">
+                    <% if (product['fields']['Código']) { %>
+                    <%= product['fields']['Código'] %>
+                    <% } %>
+                  </div>
+                  <div class="db f7 pv1">
+                    <% if (product['fields']['Tipo']  && product['fields']['Nome']) { %>
+                    <%= product['fields']['Tipo'] + " " + product['fields']['Nome'] %>
+                    <% } %>
+                  </div>
+
+                </div>
                 <div style= <%= "background-image:url('" +  product['fields']['Fotos'][0]['thumbnails']['large']['url'] + "')"%> class="db bg-center cover aspect-ratio--object ba b--white"></div>
             </div>
         </a>

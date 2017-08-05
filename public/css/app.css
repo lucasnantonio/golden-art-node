@@ -86,6 +86,21 @@ a:hover, a:active, a:focus {
 .f8{
   font-size: .6rem;
 }
+
+.productThumb{
+overflow:hidden;
+}
+
+.productCode{
+background-color: black;
+bottom: -100px;
+transition: all .2s;
+}
+.productThumb:hover .productCode{
+display: block;
+bottom: 0px;
+}
+
 /*LOADER*/
 
 // demo-specific

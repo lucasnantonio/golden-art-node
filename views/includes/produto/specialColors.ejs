@@ -2,6 +2,9 @@
 <tr>
     <td class="v-top w-10 b pt2 pb3 pr3 bt b--light-gray"> Acabamentos Especiais </td>
     <td class="v-top w-10  pt1 pb3 pr3 bt b--light-gray">
+    <% if (data["Código Acabamento Especial"]){ %>
+      <div class="pv2"><%= data["Código Acabamento Especial"] %></div>
+    <% } %>
     <% specialcolors.forEach(function(color, index){ %>
         <div class="db fl w-50-ns w-100 f6 mt2">
         <div class='h1 w1 dib br-100 ba b--near-white mr2 fl'  style=  <%= "background-color:" + color["fields"]["Webcode"] + ";min-width:1rem;"  %> ></div>

@@ -9,6 +9,7 @@ function getData(req, res, next){
     view: "Ordem do site",
     fields: [
       "Código",
+      "Código Acabamento Especial",
       "Variações",
       "Nome",
       "Descrição",

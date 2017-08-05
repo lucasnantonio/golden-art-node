@@ -21,6 +21,8 @@ function removeLoading(){
 	document.getElementById('loader').classList.remove('db');
 	document.getElementById('loader').classList.add('dn');
 }
+
+//Alert: rataria ahead. TO-DO: replace this by re-writing siema banner on home without the use of siema.
 function setSiemaImage(){
   var width = window.innerWidth
               || document.documentElement.clientWidth
@@ -32,6 +34,7 @@ function setSiemaImage(){
      })
    }
 }
+
 function renderContent (res) {
 	let wrapper = document.getElementById('main')
 	wrapper.innerHTML = res;

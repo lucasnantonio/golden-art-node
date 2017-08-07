@@ -12,8 +12,8 @@ let contactPages;
 function init(){
   initLinks();
   contactPages.forEach(function(item){item.classList.remove('db')})
-  document.getElementById('arquitetoContent').classList.add('db')
-  document.getElementById('arquiteto').classList.add('currentContact')
+  document.getElementById('lojistaContent').classList.add('db')
+  document.getElementById('lojista').classList.add('currentContact')
 }
 
 function initLinks(){

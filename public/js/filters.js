@@ -145,8 +145,8 @@ function assignCategoryClasses(e) {
 }
 
 function redefineMenuLinks() {
-	lineFilters = document.querySelectorAll('.lineFilter')
-  categoryFilters = document.querySelectorAll('.categoryFilter')
+	var lineFilters = document.querySelectorAll('.lineFilter')
+  var categoryFilters = document.querySelectorAll('.categoryFilter')
 	lineFilters.forEach(function (filter) {
 		filter.addEventListener('click', onLineChange)
 	});

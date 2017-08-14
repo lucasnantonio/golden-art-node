@@ -6,8 +6,8 @@ function ready (fn) {
   }
 }
 
-let contactFilters;
-let contactPages;
+var contactFilters;
+var contactPages;
 
 function init(){
   initLinks();

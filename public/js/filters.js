@@ -1,5 +1,5 @@
-let homeSlider;
-let filters;
+var homeSlider;
+var filters;
 
 
 
@@ -36,7 +36,7 @@ function setSiemaImage(){
 }
 
 function renderContent (res) {
-	let wrapper = document.getElementById('main')
+	var wrapper = document.getElementById('main')
 	wrapper.innerHTML = res;
 }
 
@@ -56,8 +56,8 @@ function changeSlider(e){
 }
 
 function request (linha, categoria) {
-	let xhr = new XMLHttpRequest();
-	let url = window.location.href + 'filtro?linha=' + linha + '&categoria=' + categoria
+	var xhr = new XMLHttpRequest();
+	var url = window.location.href + 'filtro?linha=' + linha + '&categoria=' + categoria
 	showLoading();
 	xhr.open('GET', url);
 	xhr.onreadystatechange = function() {

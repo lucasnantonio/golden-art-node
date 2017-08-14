@@ -14,10 +14,10 @@ var loadCarousel = function(){
   const next = document.querySelectorAll('.next');
 
   prev.forEach(function(item){
-    item.addEventListener('click', () => productSlider.prev());
+    item.addEventListener('click', function(){productSlider.prev()});
   })
   next.forEach(function(item){
-    item.addEventListener('click', () => productSlider.next());
+    item.addEventListener('click', function(){productSlider.next()});
   })
 
 };

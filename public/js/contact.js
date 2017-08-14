@@ -17,11 +17,11 @@ function init(){
 }
 
 function initLinks(){
-  contactFilters = document.querySelectorAll('.contactFilter');
+  contactFilters = [].slice.call(document.querySelectorAll('.contactFilter'));
   contactFilters.forEach (function (filter) {
     filter.addEventListener('click', onContactChange);
   });
-  contactPages = document.querySelectorAll('.contactPage');
+  contactPages = [].slice.call(document.querySelectorAll('.contactPage'));
 }
 
 function onContactChange (e) {

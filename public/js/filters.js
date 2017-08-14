@@ -1,6 +1,6 @@
 var homeSlider;
 var filters;
-
+var lineFilters = [];
 
 
 function ready (fn) {
@@ -27,7 +27,7 @@ function setSiemaImage(){
   var width = window.innerWidth
               || document.documentElement.clientWidth
               || document.body.clientWidth;
-  var images = document.querySelectorAll('.siema img');
+  var images = [].slice.call(document.querySelectorAll('.siema img'));
   if (width<500){
      images.forEach(function(image){
        image.src = image.src.replace('.png', '-mobile.png' );
@@ -113,7 +113,7 @@ function changeSelectedFilter(filter){
 
 function onCategoryChange(e){
   var categoryFilters = document.getElementById("categoryFilters");
-  var currentLine = document.querySelectorAll('.currentLine')[0].getAttribute('id');
+  var currentLine = [].slice.call(document.querySelectorAll('.currentLine'))[0].getAttribute('id');
   e.preventDefault();
   request(currentLine, e.target.id);
   assignCategoryClasses(e);
@@ -122,8 +122,7 @@ function onCategoryChange(e){
 }
 
 function onLineChange (e) {
-  var lineFilters = document.getElementById("lineFilters")
-  var currentCategory = document.querySelectorAll('.currentCategory')[0].getAttribute('id')
+  var currentCategory = [].slice.call(document.querySelectorAll('.currentCategory'))[0].getAttribute('id')
 	e.preventDefault();
 	request(e.target.id, currentCategory);
 	changeSlider(e);
@@ -145,8 +144,7 @@ function assignCategoryClasses(e) {
 }
 
 function redefineMenuLinks() {
-	lineFilters = document.querySelectorAll('.lineFilter')
-  categoryFilters = document.querySelectorAll('.categoryFilter')
+  categoryFilters = [].slice.call(document.querySelectorAll('.categoryFilter'));
 	lineFilters.forEach(function (filter) {
 		filter.addEventListener('click', onLineChange)
 	});
@@ -156,6 +154,7 @@ function redefineMenuLinks() {
 }
 
 function init(){
+  lineFilters = [].slice.call(document.querySelectorAll('.lineFilter'));
 	request('designlab', 'todos')
   setSiemaImage();
 	homeSlider = new Siema({

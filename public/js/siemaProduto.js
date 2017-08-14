@@ -10,8 +10,8 @@ var loadCarousel = function(){
 
   var productSlider = new Siema();
 	if (document.querySelector('.prev') != null){
-    var prev = document.querySelectorAll('.prev');
-    var next = document.querySelectorAll('.next');
+    var prev = [].slice.call(document.querySelectorAll('.prev'));
+    var next = [].slice.call(document.querySelectorAll('.next'));
   prev.forEach(function(item){
     item.addEventListener('click', function(){productSlider.prev()});
   })

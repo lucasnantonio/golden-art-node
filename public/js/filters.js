@@ -122,7 +122,7 @@ function onCategoryChange(e){
 }
 
 function onLineChange (e) {
-  var lineFilters = document.getElementById("lineFilters");
+  var lineFilters = document.getElementById("lineFilters")
   var currentCategory = document.querySelectorAll('.currentCategory')[0].getAttribute('id')
 	e.preventDefault();
 	request(e.target.id, currentCategory);
@@ -145,13 +145,13 @@ function assignCategoryClasses(e) {
 }
 
 function redefineMenuLinks() {
-	var lineFilters = document.querySelectorAll('.lineFilter');
-  var categoryFilters = document.querySelectorAll('.categoryFilter');
+	lineFilters = document.querySelectorAll('.lineFilter')
+  categoryFilters = document.querySelectorAll('.categoryFilter')
 	lineFilters.forEach(function (filter) {
-		filter.addEventListener('click', onLineChange);
+		filter.addEventListener('click', onLineChange)
 	});
   categoryFilters.forEach(function (filter) {
-		filter.addEventListener('click', onCategoryChange);
+		filter.addEventListener('click', onCategoryChange)
 	});
 }
 

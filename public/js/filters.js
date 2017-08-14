@@ -145,13 +145,13 @@ function assignCategoryClasses(e) {
 }
 
 function redefineMenuLinks() {
-	var lineFilters = document.querySelectorAll('.lineFilter')
-  var categoryFilters = document.querySelectorAll('.categoryFilter')
+	var lineFilters = document.querySelectorAll('.lineFilter');
+  var categoryFilters = document.querySelectorAll('.categoryFilter');
 	lineFilters.forEach(function (filter) {
-		filter.addEventListener('click', onLineChange)
+		filter.addEventListener('click', onLineChange);
 	});
   categoryFilters.forEach(function (filter) {
-		filter.addEventListener('click', onCategoryChange)
+		filter.addEventListener('click', onCategoryChange);
 	});
 }
 

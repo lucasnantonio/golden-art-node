@@ -7,7 +7,7 @@ var middleware = require('../middleware/middleware');
 
 function listProductsInSearch(req, res, next){
 	function checkCode(item){
-		return item['fields']['Código'] == req.query.search.toUpperCase()
+		return item['fields']['Código'].indexOf(req.query.search.toUpperCase()) !== -1;
 	}
 	function checkName(item){
 		if (item['fields']['Nome']){

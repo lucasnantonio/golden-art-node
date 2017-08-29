@@ -7,21 +7,21 @@ var middleware = require('../middleware/middleware');
 
 function listProductsInSearch(req, res, next){
 	function checkCode(item){
-		return item['fields']['Código'].indexOf(req.query.search.toUpperCase()) !== -1;
+		return item['fields']['Código'] && item['fields']['Código'].indexOf(req.query.search.toUpperCase()) !== -1;
 	}
 	function checkName(item){
 		if (item['fields']['Nome']){
-			return nakedString(item['fields']['Nome']) == nakedString(req.query.search) || nakedString(item['fields']['Nome']) == (" " + nakedString(req.query.search.toLowerCase));
+			return item['fields']['Nome'] && nakedString(item['fields']['Nome']) == nakedString(req.query.search) || nakedString(item['fields']['Nome']) == (" " + nakedString(req.query.search.toLowerCase));
 		}
 	}
 	function checkCategory(item){
 		if (item['fields']['Categoria']){
-			return nakedString(item['fields']['Categoria']) == nakedString(req.query.search);
+			return item['fields']['Categoria'] && nakedString(item['fields']['Categoria']) == nakedString(req.query.search);
 		}
 	}
 	function checkType(item){
 		if(item['fields']['Tipo']){
-			return nakedString(item['fields']['Tipo']) == nakedString(req.query.search);
+			return item['fields']['Tipo'] && nakedString(item['fields']['Tipo']) == nakedString(req.query.search);
 		}
 	}
 	function checkMaterial(item){

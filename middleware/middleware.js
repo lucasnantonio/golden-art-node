@@ -14,6 +14,7 @@ function getData(req, res, next){
       "Nome",
       "Descrição",
       "Categoria",
+      "Medidas",
       "Linha",
       "Tipo",
       "Soquete",

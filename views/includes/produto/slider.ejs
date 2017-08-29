@@ -14,9 +14,8 @@
           >
           </a>
         </div>
-
-
-        <img src= <%= data['Fotos'][i]['url'] %> alt="Siema image" /></div>
+        <img src= "<%= data['Fotos'][i]['url'] %>"
+             alt= "<%= data['Tipo'] +  ' ' + data['Nome'] + ' – iluminação de ' + data['Categoria'] %>" /></div>
         <% }%>
     </div>
     <%if (data['Fotos'].length > 1) {%>

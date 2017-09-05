@@ -5,7 +5,7 @@
     <% cupulas.forEach(function(item, index){ %>
         <div class="db fl w-50 f6 mt2 mb3">
           <% if (item['fields']['Desenho técnico']) { %>
-            <img class="ba b--light-gray" src= <%= item['fields']['Desenho técnico'][0]["thumbnails"] && item['fields']['Desenho técnico'][0]["thumbnails"]["large"]['url'] %> />
+            <img class="ba b--light-gray" src= <%= item['fields']['Desenho técnico'][0]["thumbnails"]["large"]['url'] %> />
           <% } %>
           <% if (item['fields']['Material']) { %>
             <div class="mt2">

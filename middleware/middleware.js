@@ -25,6 +25,8 @@ function getData(req, res, next){
       "Cúpulas",
       "Vidros",
       "Ficha Técnica",
+      "Modelo SketchUp",
+      "Modelo 3Dmax",
       "Relacionados",
       "Lançamento?",
       "Desenho Técnico",

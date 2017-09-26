@@ -51,6 +51,7 @@ res.render('assinaturas')
 });
 
 app.get('*', function(req, res) {
+  res.status(404);
   res.render('404');
 })
 

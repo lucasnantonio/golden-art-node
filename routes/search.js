@@ -4,7 +4,6 @@ var Airtable = require('airtable');
 var base = new Airtable({apiKey: process.env.AIRTABLE_KEY}).base('appswoobu90DjfHdO');
 var nakedString = require("naked-string");
 var middleware = require('../middleware/middleware');
-var fuzzy = require('fuzzy');
 
 function listProductsInSearch(req, res, next){
 	function checkCode(item){
@@ -51,16 +50,6 @@ function listProductsInSearch(req, res, next){
 	}
 
 	res.locals.searchResults = res.locals.productsData.filter(checkAll);
-  var list = res.locals.productsData;
-  var options = {
-    pre: '<'
-  , post: '>'
-  , extract: function(el) { return el['fields']['Código']; }
-};
-  var results = fuzzy.filter(req.query.search, list, options);
-  var matches = results.map(function(el) { return el.string; });
-
-  console.log(matches);
 
 	next();
 

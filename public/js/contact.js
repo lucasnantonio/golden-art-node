@@ -10,10 +10,10 @@ var contactFilters;
 var contactPages;
 
 function init(){
-  initLinks();
-  contactPages.forEach(function(item){item.classList.remove('db')})
-  document.getElementById('lojistaContent').classList.add('db')
-  document.getElementById('lojista').classList.add('currentContact')
+  // initLinks();
+  // contactPages.forEach(function(item){item.classList.remove('db')})
+  // document.getElementById('lojistaContent').classList.add('db')
+  // document.getElementById('lojista').classList.add('currentContact')
 }
 
 function initLinks(){

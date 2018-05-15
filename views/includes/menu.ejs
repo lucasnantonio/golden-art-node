@@ -9,10 +9,10 @@
 		<!--//MENU ITEMS-->
     <div id="desktopMenuItems" class="fr cf">
 			<!--SEARCH-->
-      <a class="<%= (theme==='positive' && 'gray ' || 'white ') + 'link f5 dib hover-red tl pv1 pointer mr4' %>" href='/sobre/sobre'> Sobre nós </a>
-			<a class="<%= (theme==='positive' && 'gray ' || 'white ') + 'link f5 dib hover-red tl pv1 pointer mr4' %>" href='/sobre/contato'> Contato </a>
-      <form class="dib w4 mr4" style="<%= (theme==='negative' && 'box-shadow: 0 25px 58px 0 rgba(0,0,0,0.10)') %> " action="/busca" method="GET">
-					<input class="input-reset ba b--white lightgray pa3 db w-100 f5 tl" type="text input" placeholder="Busca" name="search" style=" <%= (theme==='negative' && 'background-color: white;' || 'background-color: #f3f3f3') %> ">
+      <a class="link f5 dib tl pv1 pointer mr4 black" href='/sobre/sobre'> Sobre nós </a>
+			<a class='black link f5 dib tl pa3 pointer mr4 ba hover-white hover-bg-black' href='/sobre/contato'> Orçamentos </a>
+      <form class="dib w4 mr4" action="/busca" method="GET">
+					<input class="input-reset ba b--white black pa3 db w-100 f5 tl" type="text input" placeholder="Busca" name="search" style=" <%= (theme==='negative' && 'background-color: white;' || 'background-color: #f3f3f3') %> ">
 					<input class="dn" type="submit">
 			</form>
       <div class="mt3 db tr">

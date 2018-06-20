@@ -16,6 +16,9 @@
     "request": "^2.81.0",
     "socket.io": "~0.9.14"
   },
+  "now": {
+  "dotenv": ".env"
+  },
   "scripts": {
     "start": "node app.js"
   },

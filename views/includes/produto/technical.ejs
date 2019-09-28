@@ -2,9 +2,9 @@
   <div class="db w-100 cf">
     <div class="v-top w-100 b pt2 pb3 pr3 bt b--light-gray"> Medidas Gerais </div>
     <div class="v-top w-100 pt2 pb3 pr3">
-    <% data["Desenho Técnico"].forEach(function(item, index){ %>
+    <% data["Desenho Técnico"].forEach(function(item, index){ %>      
         <div class="db fl  f6 mt2 mb3">
-            <img class="ba b--light-gray" src= <%= item["thumbnails"]["large"]['url'] %> />
+            <img class="ba b--light-gray" src= <%= item['url'] %> />
         </div>
     <% }); %>
   </div>

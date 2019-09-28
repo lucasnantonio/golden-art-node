@@ -57,7 +57,9 @@
                 </tbody>
             </table>
         </div>
+        <% if(data['Desenho Técnico']) {%>
         <%- include ./includes/produto/technical %>
+        <% } %>
         <% if(data['Cúpulas']) {%>
             <%- include ./includes/produto/cupulas %>
         <% } %>

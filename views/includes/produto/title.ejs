@@ -4,9 +4,6 @@
   <% } else { %>
     <h1 class="fl mt0"> <%= data["Tipo"] + " " + data["Código"] %> </h1>
   <% } %>
-    <% if (data["Ficha Técnica"]) {  %>
-        <a class="pa3 fr-l w-auto-l w-100 tc fl dib-l db f6 ba ba-red red link bg-animate hover-bg-red hover-white pointer mb3" target='blank' href= <%= data["Ficha Técnica"][0]['url'] %> > ⤓ Ficha técnica </a>
-    <% } %>
     <% if (data["Modelo 3D"]) {  %>
         <a class="pa3 fr-l w-auto-l w-100 tc fl dib-l db f6 ba ba-red red link bg-animate hover-bg-red hover-white pointer mb3" target='blank' href= <%= data["Modelo 3D"][0]['url'] %> > ⤓ Modelo 3D </a>
     <% } %>

@@ -24,7 +24,6 @@ function getData(req, res, next) {
         "Cores Pintura",
         "Cores Especiais",
         "Fotos",
-        "Acessórios",
         "Cúpulas",
         "Vidros",
         "Modelo 3D",

@@ -1,125 +1,165 @@
 var airtableKey = process.env.AIRTABLE_KEY;
-var Airtable = require('airtable');
-var base = new Airtable({apiKey: process.env.AIRTABLE_KEY}).base('appswoobu90DjfHdO');
+var Airtable = require("airtable");
+var base = new Airtable({ apiKey: process.env.AIRTABLE_KEY }).base(
+  "appswoobu90DjfHdO"
+);
 
-function getData(req, res, next){
+function getData(req, res, next) {
   // console.log('getdata');
   var productsData = [];
-  base('Produtos').select({
-    view: "Ordem do site",
-    fields: [
-      "Código",
-      "Código Acabamento Especial",
-      "Variações",
-      "Nome",
-      "Descrição",
-      "Categoria",
-      "Medidas",
-      "Linha",
-      "Tipo",
-      "Soquete",
-      "Cores Pintura",
-      "Cores Especiais",
-      "Fotos",
-      "Acessórios",
-      "Cúpulas",
-      "Vidros",
-      "Ficha Técnica",
-      "Modelo SketchUp",
-      "Modelo 3Dmax",
-      "Relacionados",
-      "Lançamento?",
-      "Desenho Técnico",
-      "Material",
-      "Title SEO",
-      "Description SEO"
-    ]
-  }).eachPage(function page(records, fetchNextPage) {
-    records.forEach(function(item){
-      productsData.push(item);
+  base("Produtos")
+    .select({
+      view: "Ordem do site",
+      fields: [
+        "Código",
+        "Código Acabamento Especial",
+        "Variações",
+        "Nome",
+        "Descrição",
+        "Categoria",
+        "Medidas",
+        "Linha",
+        "Tipo",
+        "Soquete",
+        "Cores Pintura",
+        "Cores Especiais",
+        "Fotos",
+        "Acessórios",
+        "Cúpulas",
+        "Vidros",
+        "Modelo 3D",
+        "Relacionados",
+        "Lançamento?",
+        "Desenho Técnico",
+        "Material",
+        "Title SEO",
+        "Description SEO"
+      ]
     })
-    fetchNextPage();
-  }, function done(err) {
-    if (err) {res.render('404'); return; }
-    res.locals.productsData = productsData;
-    // console.log('getdataEnd');
-    next();
-  });
+    .eachPage(
+      function page(records, fetchNextPage) {
+        records.forEach(function(item) {
+          productsData.push(item);
+        });
+        fetchNextPage();
+      },
+      function done(err) {
+        if (err) {
+          res.render("404");
+          return;
+        }
+        res.locals.productsData = productsData;
+        // console.log('getdataEnd');
+        next();
+      }
+    );
 }
 
-function getGalleryData(req, res, next){
+function getGalleryData(req, res, next) {
   var productsData = [];
-  base('Produtos').select({
-    view: "Ordem do site",
-    fields: [
-      "Código",
-      "Nome",
-      "Tipo",
-      "Categoria",
-      "Linha",
-      "Fotos",
-      "Lançamento?",
-      "Esconder na Galeria?"
-    ]
-  }).eachPage(function page(records, fetchNextPage) {
-    records.forEach(function(item){
-      productsData.push(item);
+  base("Produtos")
+    .select({
+      view: "Ordem do site",
+      fields: [
+        "Código",
+        "Nome",
+        "Tipo",
+        "Categoria",
+        "Linha",
+        "Fotos",
+        "Lançamento?",
+        "Esconder na Galeria?"
+      ]
     })
-    fetchNextPage();
-  }, function done(err) {
-    if (err) {res.render('404'); return; }
-    res.locals.productsData = productsData;
-    // console.log('getdataEnd');
-    next();
-  });
+    .eachPage(
+      function page(records, fetchNextPage) {
+        records.forEach(function(item) {
+          productsData.push(item);
+        });
+        fetchNextPage();
+      },
+      function done(err) {
+        if (err) {
+          res.render("404");
+          return;
+        }
+        res.locals.productsData = productsData;
+        // console.log('getdataEnd');
+        next();
+      }
+    );
 }
 
-function getColorsData(req, res, next){
+function getColorsData(req, res, next) {
   var colorsData = [];
-  base('Cores').select({}).eachPage(function page(records, fetchNextPage) {
-    records.forEach(function(item){
-      colorsData.push(item);
-    });
-    fetchNextPage();
-  }, function done(err) {
-    if (err) {res.render('404'); return; }
-    res.locals.colorsData = colorsData;
-    next();
-  });
+  base("Cores")
+    .select({})
+    .eachPage(
+      function page(records, fetchNextPage) {
+        records.forEach(function(item) {
+          colorsData.push(item);
+        });
+        fetchNextPage();
+      },
+      function done(err) {
+        if (err) {
+          res.render("404");
+          return;
+        }
+        res.locals.colorsData = colorsData;
+        next();
+      }
+    );
 }
 
-function getCupulasData(req, res, next){
+function getCupulasData(req, res, next) {
   var cupulasData = [];
-  base('Cúpulas').select({}).eachPage(function page(records, fetchNextPage) {
-    records.forEach(function(item){
-      cupulasData.push(item);
-    });
-    fetchNextPage();
-  }, function done(err) {
-    if (err) {res.render('404'); return; }
-    res.locals.cupulasData = cupulasData;
-    next();
-  });
+  base("Cúpulas")
+    .select({})
+    .eachPage(
+      function page(records, fetchNextPage) {
+        records.forEach(function(item) {
+          cupulasData.push(item);
+        });
+        fetchNextPage();
+      },
+      function done(err) {
+        if (err) {
+          res.render("404");
+          return;
+        }
+        res.locals.cupulasData = cupulasData;
+        next();
+      }
+    );
 }
 
-function getVidrosData(req, res, next){
+function getVidrosData(req, res, next) {
   var vidrosData = [];
-  base('Vidros').select({}).eachPage(function page(records, fetchNextPage) {
-    records.forEach(function(item){
-      vidrosData.push(item);
-    });
-    fetchNextPage();
-  }, function done(err) {
-    if (err) {res.render('404'); return; }
-    res.locals.vidrosData = vidrosData;
-    next();
-  });
+  base("Vidros")
+    .select({})
+    .eachPage(
+      function page(records, fetchNextPage) {
+        records.forEach(function(item) {
+          vidrosData.push(item);
+        });
+        fetchNextPage();
+      },
+      function done(err) {
+        if (err) {
+          res.render("404");
+          return;
+        }
+        res.locals.vidrosData = vidrosData;
+        next();
+      }
+    );
 }
 
 module.exports = {
-    getData : getData,
-    getGalleryData : getGalleryData,
-    getColorsData : getColorsData,
-    getCupulasData : getCupulasData,
-    getVidrosData : getVidrosData,
-}
+  getData: getData,
+  getGalleryData: getGalleryData,
+  getColorsData: getColorsData,
+  getCupulasData: getCupulasData,
+  getVidrosData: getVidrosData
+};

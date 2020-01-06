@@ -1,40 +1,56 @@
 <% if (data['Fotos']) {%>
 <div class="relative">
-    <div class="siema">
-        <% for (i in data['Fotos']){ %>
-      <div class='relative'>
-        <div class="absolute ma3">
-          <a
-            href="https://www.pinterest.com/pin/create/button/"
-            data-pin-do='buttonPin'
-            data-pin-tall='true'
-            data-pin-description=" <%= 'Golden-Art ' + data['Código'] +  ' ' + data['Tipo'] +  ' ' + data['Nome'] + ' ' +  (data['Descrição'] || '') %> "
-            data-pin-media= "<%= data['Fotos'][i]['url'] %>"
-            data-pin-url= "<%= 'http://www.goldenart.com.br/produtos/' + data['Código']  %>"
-          >
-          </a>
-        </div>
-        <img src= "<%= data['Fotos'][i]['url'] %>"
-             alt= "<%= data['Tipo'] +  ' ' + data['Nome'] + ' – iluminação de ' + data['Categoria'] %>" /></div>
-        <% }%>
+  <img id="printThumbPhoto" src="<%= data['Fotos'][0]['url'] %>" />
+  <div class="siema">
+    <% for (i in data['Fotos']){ %>
+    <div class="relative">
+      <div class="absolute ma3">
+        <a
+          href="https://www.pinterest.com/pin/create/button/"
+          data-pin-do="buttonPin"
+          data-pin-tall="true"
+          data-pin-description=" <%= 'Golden-Art ' + data['Código'] +  ' ' + data['Tipo'] +  ' ' + data['Nome'] + ' ' +  (data['Descrição'] || '') %> "
+          data-pin-media="<%= data['Fotos'][i]['url'] %>"
+          data-pin-url="<%= 'http://www.goldenart.com.br/produtos/' + data['Código']  %>"
+        >
+        </a>
+      </div>
+      <img
+        src="<%= data['Fotos'][i]['url'] %>"
+        alt="<%= data['Tipo'] +  ' ' + data['Nome'] + ' – iluminação de ' + data['Categoria'] %>"
+      />
     </div>
-    <%if (data['Fotos'].length > 1) {%>
-    <div class="prev absolute w1 h1 pointer dn-ns" style="bottom:40px; left:25px; mix-blend-mode: multiply;">
-        <%-include ../arrowleft-small.svg %>
-    </div>
-    <div class="next absolute w1 h1 pointer dn-ns" style="bottom:40px; right:25px; mix-blend-mode: multiply;">
-        <%-include ../arrowright-small.svg %>
-    </div>
-    <div class="prev absolute w2-ns w1 h2-ns h1 pointer dib-ns dn" style="top:calc(40% + 20px); left:50px; mix-blend-mode: multiply;">
-        <%-include ../arrowleft.svg %>
-    </div>
-    <div class="next absolute w2-ns w1 h2-ns h1 pointer dib-ns dn" style="top:calc(40% + 20px); right:50px; mix-blend-mode: multiply;">
-        <%-include ../arrowright.svg %>
-    </div>
-    <% } %>
-</div>
-<% } else {%>
-  <div class="relative">
-    <h1 class="tc light-gray pa4 ">Não há fotos para este produto</h1>
+    <% }%>
+  </div>
+  <%if (data['Fotos'].length > 1) {%>
+  <div
+    class="prev absolute w1 h1 pointer dn-ns"
+    style="bottom:40px; left:25px; mix-blend-mode: multiply;"
+  >
+    <%-include ../arrowleft-small.svg %>
+  </div>
+  <div
+    class="next absolute w1 h1 pointer dn-ns"
+    style="bottom:40px; right:25px; mix-blend-mode: multiply;"
+  >
+    <%-include ../arrowright-small.svg %>
+  </div>
+  <div
+    class="prev absolute w2-ns w1 h2-ns h1 pointer dib-ns dn"
+    style="top:calc(40% + 20px); left:50px; mix-blend-mode: multiply;"
+  >
+    <%-include ../arrowleft.svg %>
+  </div>
+  <div
+    class="next absolute w2-ns w1 h2-ns h1 pointer dib-ns dn"
+    style="top:calc(40% + 20px); right:50px; mix-blend-mode: multiply;"
+  >
+    <%-include ../arrowright.svg %>
   </div>
   <% } %>
+</div>
+<% } else {%>
+<div class="relative">
+  <h1 class="tc light-gray pa4 ">Não há fotos para este produto</h1>
+</div>
+<% } %>

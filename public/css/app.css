@@ -1,47 +1,48 @@
-body{
+body {
   background-color: white;
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: .05rem;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.05rem;
   font-weight: 300;
 }
 
-.main{
+.main {
   min-height: 100vh;
 }
 
-#pageContent{
-  min-height:60vh;
+#pageContent {
+  min-height: 60vh;
 }
 
-#logo{
-  width:10rem;
-  transition: all .2s;
+#logo {
+  width: 10rem;
+  transition: all 0.2s;
 }
-#logo-small, #logo-expanded{
-  height:4rem;
+#logo-small,
+#logo-expanded {
+  height: 4rem;
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
-  transition: all .2s;
+  transition: all 0.2s;
 }
-#logo-small{
-  width:4rem;
-  transition: all .2s;
+#logo-small {
+  width: 4rem;
+  transition: all 0.2s;
 }
 #desktopMenuWrapper,
-#mobileMenuItems{
-    transition: all .2s;
-    overflow: hidden;
+#mobileMenuItems {
+  transition: all 0.2s;
+  overflow: hidden;
 }
 
 input:focus {
-    outline: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+  outline: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
-input::placeholder{
-	color: lightGray;
+input::placeholder {
+  color: lightGray;
 }
 
 #flexbox {
@@ -52,52 +53,56 @@ input::placeholder{
 .flexed {
   height: 100%;
   flex-grow: 1;
-  transition: flex-grow .3s ease-in-out ;
+  transition: flex-grow 0.3s ease-in-out;
 }
 
 .flexGrow {
-	flex-grow: 4;
-	transition: flex-grow .3s ease-in-out ;
+  flex-grow: 4;
+  transition: flex-grow 0.3s ease-in-out;
 }
 
-.currentLine{
-	color:#222;
-	font-weight: bold;
+.currentLine {
+  color: #222;
+  font-weight: bold;
 }
 
-.currentContact{
-	color:#d62626;
-	font-weight: bold;
+.currentContact {
+  color: #d62626;
+  font-weight: bold;
   border-bottom: 3px solid #d62626;
 }
 
-#categoryFilterList{
-  transition: opacity .2s;
+#categoryFilterList {
+  transition: opacity 0.2s;
 }
 
-a:hover, a:active, a:focus {
+a:hover,
+a:active,
+a:focus {
   outline: 0;
 }
 
-.link:hover, .link:active, .link:focus {
+.link:hover,
+.link:active,
+.link:focus {
   outline: 0;
 }
 
-.f8{
-  font-size: .6rem;
+.f8 {
+  font-size: 0.6rem;
 }
 
-.productThumb{
-overflow:hidden;
+.productThumb {
+  overflow: hidden;
 }
 
-.productCode{
-background-color: black;
-bottom: -100px;
-transition: all .2s;
+.productCode {
+  background-color: black;
+  bottom: -100px;
+  transition: all 0.2s;
 }
-.productThumb:hover .productCode{
-bottom: 0px;
+.productThumb:hover .productCode {
+  bottom: 0px;
 }
 
 /*LOADER*/
@@ -111,7 +116,7 @@ bottom: 0px;
   margin: 0 auto;
   width: 4rem;
   &:before {
-    content: '';
+    content: "";
     display: block;
     padding-top: 100%;
   }
@@ -163,45 +168,81 @@ bottom: 0px;
   0% {
     stroke: red;
   }
-
 }
-
 
 /*MAILCHIMP*/
 
-#mc_embed_signup .mc-field-group label{
-display:none;
+#mc_embed_signup .mc-field-group label {
+  display: none;
 }
-#mc_embed_signup .mc-field-group{
-padding: 0rem 0rem 1rem 0rem;
-}
-
-#mc_embed_signup .mc-field-group{
-padding: 0rem 0rem 1rem 0rem;
+#mc_embed_signup .mc-field-group {
+  padding: 0rem 0rem 1rem 0rem;
 }
 
-#mc_embed_signup .mc-field-group input{
-background-color: #333333;
-border: 1px solid #111111;
-height:3rem;
-/*width: 17rem;*/
-color: white;
-font-family: Montserrat;
-padding-left:.5rem;
+#mc_embed_signup .mc-field-group {
+  padding: 0rem 0rem 1rem 0rem;
 }
 
-#mc_embed_signup .mc-field-group input::placeholder{
-font-family: Montserrat;
-padding-left:.5rem;
+#mc_embed_signup .mc-field-group input {
+  background-color: #333333;
+  border: 1px solid #111111;
+  height: 3rem;
+  /*width: 17rem;*/
+  color: white;
+  font-family: Montserrat;
+  padding-left: 0.5rem;
 }
 
-#mc_embed_signup input.button{
-font-family: Montserrat;
-padding:.8rem;
-background: red;
-border: 0px solid white;
-color: white;
-font-weight: bold;
-font-size:.8rem;
-letter-spacing: .1rem;
+#mc_embed_signup .mc-field-group input::placeholder {
+  font-family: Montserrat;
+  padding-left: 0.5rem;
+}
+
+#mc_embed_signup input.button {
+  font-family: Montserrat;
+  padding: 0.8rem;
+  background: red;
+  border: 0px solid white;
+  color: white;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+}
+
+/*PRINT PAGES*/
+#printThumbPhoto {
+  display: none;
+}
+@media print {
+  #logo {
+    width: 30px;
+  }
+  #page-wrapper {
+    padding: 0px;
+    margin-top: 50px;
+    display: flex;
+  }
+  #mobileMenuWrapper {
+    padding: 0px;
+    height: 40px;
+  }
+  h1 {
+    font-size: 18px;
+  }
+  p,
+  table {
+    font-size: 12px;
+  }
+  #printThumbPhoto {
+    display: block;
+    margin-right: 50px;
+  }
+  #mobileMenuItems,
+  #mobileMenuButton,
+  #productColors,
+  #footer,
+  #_hj_feedback_container,
+  .siema {
+    display: none;
+  }
 }

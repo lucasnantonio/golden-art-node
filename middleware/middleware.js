@@ -26,6 +26,7 @@ function getData(req, res, next) {
         "Fotos",
         "Cúpulas",
         "Vidros",
+        "Link Arquivo 3D",
         "Modelo 3D",
         "Relacionados",
         "Lançamento?",

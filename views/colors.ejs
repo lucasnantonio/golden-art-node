@@ -24,6 +24,28 @@ description: null}); %> <%- include('./includes/menu', {theme: 'positive'}) %>
     </a>
     <% } %> <% }) %>
   </div>
+  <div class="db w-100 fl">
+    <h1>Acabamentos de latão</h1>
+    <p class="mb5 measure-narrow lh-copy black-50">
+      Apenas peças de latão podem receber os acabamentos abaixo.
+    </p>
+    <% colors.forEach(function(color){ %> <% if ((color['fields']['Grupo'] ==
+    'Acabamento especial') && color['fields']['Render']) {%>
+    <a
+      target="_blank"
+      href="<%= color['fields']['Render'][0]['url'] %>"
+      class="link black w-25 fl dib cf tc pa2"
+    >
+      <img src="<%= color['fields']['Render'][0]['url'] %>" />
+      <div class="mt2 mb5">
+        <div class="fl dib  f6 b pr3"><%= color['fields']['Nome'] %></div>
+        <div class="fl dib  f6 ">
+          <%= color['fields']['Código'] %>
+        </div>
+      </div>
+    </a>
+    <% } %> <% }) %>
+  </div>
 </div>
 
 <%- include('./includes/footer') %>

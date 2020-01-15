@@ -93,7 +93,7 @@ function getGalleryData(req, res, next) {
 function getColorsData(req, res, next) {
   var colorsData = [];
   base("Cores")
-    .select({})
+    .select({ view: "Ordem das cores" })
     .eachPage(
       function page(records, fetchNextPage) {
         records.forEach(function(item) {

@@ -36,7 +36,6 @@ description: null}); %> <%- include('./includes/menu', {theme: 'positive'}) %>
           <% }%>
         </div>
       </div>
-
       <% } %> <% }) %>
     </div>
   </div>
@@ -46,22 +45,37 @@ description: null}); %> <%- include('./includes/menu', {theme: 'positive'}) %>
       Qualquer peça pode ser pintada com as cores abaixo. Images apenas para
       referência.
     </p>
-    <% colors.forEach(function(color){ %> <% if ((color['fields']['Grupo'] ==
-    'Pintura') && color['fields']['Render']) {%>
-    <a
-      target="_blank"
-      href="<%= color['fields']['Render'][0]['url'] %>"
-      class="link black w-25 fl dib cf tc pa2"
-    >
-      <img src="<%= color['fields']['Render'][0]['url'] %>" />
-      <div class="mt2 mb5">
-        <div class="fl dib  f6 b pr3 tl"><%= color['fields']['Nome'] %></div>
-        <div class="fl dib  f6 tl">
-          <%= color['fields']['Código'] %>
+    <div class="flex flex-wrap">
+      <% colors.forEach(function(color){ %> <% if ((color['fields']['Grupo'] ==
+      'Pintura') && color['fields']['Render']) {%>
+
+      <div class="flex flex-column w-25-l w-third-ns w-50 pa2">
+        <a
+          target="_blank"
+          href="<%= color['fields']['Render'][0]['url'] %>"
+          class="link black"
+        >
+          <img class="w-100" src="<%= color['fields']['Render'][0]['url'] %>" />
+        </a>
+        <div class="mt2 mb4 flex flex-column">
+          <div class="f6 b tl pr3"><%= color['fields']['Nome'] %></div>
+          <div class="f6 b tl pr3">
+            <%= color['fields']['Código'] %>
+          </div>
+          <% if (color['fields']['Foto Exemplo']) {%>
+          <div class="f6 tl pt2">
+            <a
+              class="black-40 hover-red b "
+              target="_blank"
+              href="<%=color['fields']['Foto Exemplo']%>"
+              >Ver Exemplo →</a
+            >
+          </div>
+          <% }%>
         </div>
       </div>
-    </a>
-    <% } %> <% }) %>
+      <% } %> <% }) %>
+    </div>
   </div>
 </div>
 

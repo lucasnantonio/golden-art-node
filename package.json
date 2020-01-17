@@ -17,7 +17,7 @@
     "socket.io": "~0.9.14"
   },
   "now": {
-  "dotenv": ".env"
+    "dotenv": ".env"
   },
   "scripts": {
     "start": "node app.js"

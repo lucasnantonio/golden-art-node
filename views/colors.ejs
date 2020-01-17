@@ -1,80 +1,82 @@
-<%- include('./includes/header', {title: "Golden-Art", share_image: null, description: null}); %>
-<%- include('./includes/menu', {theme: 'positive'}) %>
+<%- include('./includes/header', {title: "Golden-Art", share_image: null,
+description: null}); %> <%- include('./includes/menu', {theme: 'positive'}) %>
 <div id="page-wrapper" class="ph5-ns ph4 cf">
-<div class="db w-100 fl">
-<h1>Cores de pintura</h1>
-<% colors.forEach(function(color){ %>
-    <% if (color['fields']['Grupo'] == 'Pintura') {%>
+  <div class="db w-100">
+    <h1>Acabamentos de latão</h1>
+    <p class="mb5 measure-narrow lh-copy black-50">
+      Apenas peças de latão podem receber os acabamentos abaixo. Imagens apenas
+      para referência.
+    </p>
+    <div class="flex flex-wrap">
+      <% colors.forEach(function(color){ %> <% if ((color['fields']['Grupo'] ==
+      'Acabamento especial') && color['fields']['Render']) {%>
 
-    <div class="colorWrapper w-10-l w-25 fl dib cf tc pa2 mt3">
-         <div class="aspect-ratio aspect-ratio--1x1 dim mb2">
-            <div class="db br-100 bg-center cover aspect-ratio--object ba b--near-white" style= <%= "background-color:" + color['fields']['Webcode'] %> >
-            </div>
+      <div class="flex flex-column w-25-l w-third-ns w-50 pa2">
+        <a
+          target="_blank"
+          href="<%= color['fields']['Render'][0]['url'] %>"
+          class="link black"
+        >
+          <img class="w-100" src="<%= color['fields']['Render'][0]['url'] %>" />
+        </a>
+        <div class="mt2 mb4 flex flex-column">
+          <div class="f6 b tl pr3"><%= color['fields']['Nome'] %></div>
+          <div class="f6 b tl pr3">
+            <%= color['fields']['Código'] %>
+          </div>
+          <% if (color['fields']['Foto Exemplo']) {%>
+          <div class="f6 tl pt2">
+            <a
+              class="black-40 hover-red b "
+              target="_blank"
+              href="<%=color['fields']['Foto Exemplo']%>"
+              >Ver Exemplo →</a
+            >
+          </div>
+          <% }%>
         </div>
-        <div class="fl db h1 tc w-100 f6 silver pt2"><%= color['fields']['Código'] %> </div>
-        <div class="fl db h3 tc w-100 pt3 f6"><%= color['fields']['Nome'] %> </div>
+      </div>
+      <% } %> <% }) %>
     </div>
+  </div>
+  <div class="db w-100 fl">
+    <h1>Acabamentos em pintura</h1>
+    <p class="mb5 measure-narrow lh-copy black-50">
+      Qualquer peça pode ser pintada com as cores abaixo. Images apenas para
+      referência.
+    </p>
+    <div class="flex flex-wrap">
+      <% colors.forEach(function(color){ %> <% if ((color['fields']['Grupo'] ==
+      'Pintura') && color['fields']['Render']) {%>
 
-    <% } %>
-<% }) %>
-</div>
-
-<div class="db w-100 fl">
-<h1>Acabamentos especiais</h1>
-<% colors.forEach(function(color){ %>
-    <% if (color['fields']['Grupo'] == 'Acabamento especial') {%>
-
-    <div class="colorWrapper w-10-l w-25 fl dib cf tc pa2 mt3">
-         <div class="aspect-ratio aspect-ratio--1x1 dim mb2">
-            <div class="db br-100 bg-center cover aspect-ratio--object ba b--near-white" style= <%= "background-color:" + color['fields']['Webcode'] %> >
+      <div class="flex flex-column w-25-l w-third-ns w-50 pa2">
+        <a
+          target="_blank"
+          href="<%= color['fields']['Render'][0]['url'] %>"
+          class="link black"
+        >
+          <img class="w-100" src="<%= color['fields']['Render'][0]['url'] %>" />
+        </a>
+        <div class="mt2 mb4 flex flex-column">
+          <div class="f6 b tl pr3"><%= color['fields']['Nome'] %></div>
+          <div class="f6 b tl pr3">
+            <%= color['fields']['Código'] %>
+          </div>
+          <% if (color['fields']['Foto Exemplo']) {%>
+          <div class="f6 tl pt2">
+            <a
+              class="black-40 hover-red b "
+              target="_blank"
+              href="<%=color['fields']['Foto Exemplo']%>"
+              >Ver Exemplo →</a
+            >
+          </div>
+          <% }%>
         </div>
-        </div>
-        <div class="fl db h1 tc w-100 f6 silver pt2"><%= color['fields']['Código'] %> </div>
-        <div class="fl db h3 tc w-100 pt3 f6"><%= color['fields']['Nome'] %> </div>
-
+      </div>
+      <% } %> <% }) %>
     </div>
-
-    <% } %>
-<% }) %>
-</div>
-<div class="db w-100 fl">
-<h1>Cores de cúpulas de tecido</h1>
-<% colors.forEach(function(color){ %>
-    <% if (color['fields']['Grupo'] == 'Cúpula tecido') {%>
-
-    <div class="colorWrapper w-10-l w-25 fl dib cf tc pa2 mt3">
-         <div class="aspect-ratio aspect-ratio--1x1 dim mb2">
-            <div class="db br-100 bg-center cover aspect-ratio--object ba b--near-white" style= <%= "background-color:" + color['fields']['Webcode'] %> >
-        </div>
-        </div>
-        <div class="fl db h1 tc w-100 f6 silver pt2"><%= color['fields']['Código'] %> </div>
-        <div class="fl db h3 tc w-100 pt3 f6"><%= color['fields']['Nome'] %> </div>
-
-    </div>
-
-    <% } %>
-<% }) %>
-</div>
-
-<div class="db w-100 fl">
-<h1>Cores de cúpulas plásticas</h1>
-<% colors.forEach(function(color){ %>
-    <% if (color['fields']['Grupo'] == 'Cúpula plástica') {%>
-
-    <div class="colorWrapper w-10-l w-25 fl dib cf tc pa2 mt3">
-         <div class="aspect-ratio aspect-ratio--1x1 dim mb2">
-            <div class="db br-100 bg-center cover aspect-ratio--object ba b--near-white" style= <%= "background-color:" + color['fields']['Webcode'] %> >
-        </div>
-        </div>
-        <div class="fl db h1 tc w-100 f6 silver pt2"><%= color['fields']['Código'] %> </div>
-        <div class="fl db h3 tc w-100 pt3 f6"><%= color['fields']['Nome'] %> </div>
-
-    </div>
-
-    <% } %>
-<% }) %>
-</div>
-
+  </div>
 </div>
 
 <%- include('./includes/footer') %>

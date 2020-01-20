@@ -35,4 +35,4 @@ var loadMenu = function () {
   });
 }
 
-ready(loadMenu);
+// ready(loadMenu);

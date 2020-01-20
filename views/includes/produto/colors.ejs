@@ -4,9 +4,14 @@
     <% allColors.filter(function(color){return color.fields['Grupo'] === 'Pintura'}).forEach(function(color){ %>
     <div class="db fl f6">
       <% if(color.fields['Render']) { %>
-      <div class="br-pill overflow-hidden w1 h1 relative mr1 mt1">
+      <div class="color-thumbnail br-pill overflow-hidden w1 h1 relative mr1 mt1 relative">
         <img style="transform:scale(2)" class="absolute center tc"
           src="<%= color.fields['Render'][0]['thumbnails']['large']['url'] %>" alt="">
+      </div>
+      <div class="color-detail absolute pa2 bg-white shadow-1"
+        style="width:300px; margin-top:-350px; margin-left:-150px;">
+        <img src="<%= color.fields['Render'][0]['thumbnails']['large']['url'] %>" alt="">
+        <div class="bg-white pv2 b"><%=color.fields['Nome']%></div>
       </div>
       <% } %>
     </div>

@@ -245,16 +245,17 @@ letter-spacing: .1rem;
 	background-image: url('/images/banner-escriba-2.jpg')
 }
 
+
 @media (max-width: 800px) {
   #home-banner{
-    height: 30rem;
-  background-position:100px -200px; 
+  height: 30rem;
+  background-position:0px -120px;
+  background-image: url('/images/banner-escriba-2-mobile.jpg')
   }
 }
 
 @media (max-width: 500px) {
   #home-banner{
-  background-position:-50px -300px;
-  background-size: 250%;
+  background-position:0px 0px;
   }
 }

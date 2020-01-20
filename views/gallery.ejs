@@ -1,4 +1,7 @@
 <div class="br3 flex flex-wrap w-100 overflow-hidden">
+  <% if(products.length === 0){ %>
+  <p class="f1-l f2 black-30 pv5">Nenhum resultado encontrado.</p>
+  <% } %>
   <% products.forEach(function(product) { %>
   <%- include('./includes/gallery-item', {product: product}) %>
   <% }); %>

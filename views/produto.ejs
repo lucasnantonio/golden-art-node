@@ -32,6 +32,9 @@
                     <% if(data['Código']) {%>
                     <%- include ./includes/produto/codigo %>
                     <% } %>
+                    <% if(data['Link Arquivo 3D']) {%>
+                    <%- include ./includes/produto/3D %>
+                    <% } %>
                     <% if(data['Soquete']) {%>
                     <%- include ./includes/produto/soquete %>
                     <% } %>
@@ -41,12 +44,8 @@
                     <% if(data['Material']) {%>
                     <%- include ./includes/produto/materials %>
                     <% } %>
-                    <% if(data['Cores Pintura']) {%>
                     <%- include ./includes/produto/colors %>
-                    <% } %>
-                    <% if(data['Cores Especiais']) {%>
                     <%- include ./includes/produto/specialColors %>
-                    <% } %>
                     <% if(data['Cores Especiais'] || data['Cores Pintura']) {%>
                     <tr>
                         <td></td>

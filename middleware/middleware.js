@@ -23,7 +23,7 @@ function getData(req, res, next) {
         "Soquete",
         "Cores Pintura",
         "Cores Especiais",
-        "Diponível em Latão",
+        "Disponível em Latão",
         "Fotos",
         "Cúpulas",
         "Vidros",

@@ -11,25 +11,21 @@ var middleware = require("../middleware/middleware");
 let thisProductData = [],
   thisProductCupulas = [],
   thisProductVidros = [],
-  thisProductVariations = [],
-  thisProductColors = [],
-  thisProductSpecialColors = [];
+  thisProductVariations = []
 
 function restartVariables(req, res, next) {
   (thisProductData = []),
     (thisProductCupulas = []),
     (thisProductVidros = []),
-    (thisProductVariations = []),
-    (thisProductColors = []),
-    (thisProductSpecialColors = []);
+    (thisProductVariations = []);
   next();
 }
 
 function parallel(middlewares) {
-  return function(req, res, next) {
+  return function (req, res, next) {
     async.each(
       middlewares,
-      function(mw, cb) {
+      function (mw, cb) {
         mw(req, res, cb);
       },
       next
@@ -49,18 +45,14 @@ router.get(
   restartVariables,
   getProductInfo,
   parallel([
-    filterThisProductColors,
-    filterThisProductSpecialColors,
     filterThisProductVariations,
     filterThisProductCupulas,
     filterThisProductVidros
   ]),
-  function(req, res) {
+  function (req, res) {
     res.render("produto", {
       data: thisProductData[0]["fields"],
       allColors: res.locals.colorsData,
-      colors: thisProductColors,
-      specialcolors: thisProductSpecialColors,
       variations: thisProductVariations,
       cupulas: thisProductCupulas,
       vidros: thisProductVidros
@@ -124,34 +116,6 @@ function filterThisProductVariations(req, res, next) {
   }
 }
 
-function filterThisProductColors(req, res, next) {
-  if (thisProductData[0]["fields"]["Cores Pintura"]) {
-    thisProductColors = res.locals.colorsData.filter(item => {
-      return !(
-        thisProductData[0]["fields"]["Cores Pintura"].indexOf(item["id"]) == -1
-      );
-    });
-    next();
-  } else {
-    next();
-  }
-}
-
-function filterThisProductSpecialColors(req, res, next) {
-  if (thisProductData[0]["fields"]["Cores Especiais"]) {
-    thisProductSpecialColors = res.locals.colorsData.filter(item => {
-      return !(
-        thisProductData[0]["fields"]["Cores Especiais"].indexOf(item["id"]) ==
-        -1
-      );
-    });
-    next();
-  } else {
-    next();
-  }
-}
-
-//TODO: special colors
 //TODO: cúpulas
 //TODO: related products
 

@@ -60,9 +60,20 @@ input::placeholder{
 	transition: flex-grow .3s ease-in-out ;
 }
 
-.currentLine{
-	color:#222;
-	font-weight: bold;
+.categoryFilter, .lineFilter{
+  padding: 1rem;
+  color: #999;
+  font-weight: bold;
+}
+
+.categoryFilter:hover, .lineFilter:hover{
+  background-color:rgba(0,0,0,.05);
+}
+
+.currentLine, .currentCategory, .currentLine:hover, .currentCategory:hover{
+  background-color:rgba(255,0,0,.1);
+  color:red;
+  font-weight: bold;
 }
 
 .currentContact{

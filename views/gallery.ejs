@@ -1,3 +1,5 @@
-<% products.forEach(function(product) { %>
+<div class="br3 flex flex-wrap w-100 overflow-hidden">
+  <% products.forEach(function(product) { %>
   <%- include('./includes/gallery-item', {product: product}) %>
-<% }); %>
+  <% }); %>
+</div>

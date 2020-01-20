@@ -119,6 +119,7 @@ function redefineMenuLinks() {
   });
 }
 
+
 function init() {
   lineFilters = [].slice.call(document.querySelectorAll('.lineFilter'));
   request('allLines', 'allCategories')

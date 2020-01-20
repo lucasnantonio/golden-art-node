@@ -33,15 +33,6 @@ var loadMenu = function () {
     }
 
   });
-
-  // logo.addEventListener("mouseenter", function( event ) {
-  //   logoExpanded.style.left = '0';
-  //   logoExpanded.style.opacity = 1;
-  // });
-  // logo.addEventListener("mouseleave", function( event ) {
-  //   logoExpanded.style.left = '-10rem'
-  //   logoExpanded.style.opacity = 0;
-  // });
 }
 
 ready(loadMenu);

@@ -205,3 +205,15 @@ font-weight: bold;
 font-size:.8rem;
 letter-spacing: .1rem;
 }
+
+.color-detail{
+  display: none;
+  z-index: 999;
+}
+.color-thumbnail:hover {
+  border: 2px solid black;
+  transform: scale(1.5);
+}
+.color-thumbnail:hover + .color-detail {
+  display: block;
+}

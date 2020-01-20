@@ -1,52 +1,61 @@
 <!--DESKTOP MENU-->
-<nav id="desktopMenuWrapper" class="<%= (theme==='negative' && 'absolute top-0 z-max ' || 'relative ') + 'db-l dn w-100 border-box pv5 ph5 bg-transparent' %>">
-    <!--LOGO-->
-    <a href="/" id="logo" class="dib v-top mid-gray link relative" style="overflow-x:hidden; width:10rem; height:4rem">
-    	<img rel="preload" as="svg" src="/images/logotipo_golden.svg"  id="logo-small" class="dib" alt="golden art logotype">
-      <img src="/images/logotipo_golden_expanded.svg" id="logo-expanded" class="" alt="golden art logotype">
-    </a>
+<nav id="desktopMenuWrapper"
+  class="<%= (theme==='negative' && 'absolute top-0 z-max ' || 'relative ') + 'db-l dn w-100 border-box pv5 ph5 bg-transparent' %>">
+  <!--LOGO-->
+  <a href="/" id="logo" class="dib v-top mid-gray link relative" style="overflow-x:hidden; width:10rem; height:4rem">
+    <img rel="preload" as="svg" src="/images/logotipo_golden.svg" id="logo-small" class="dib" alt="golden art logotype">
+    <img src="/images/logotipo_golden_expanded.svg" id="logo-expanded" class="" alt="golden art logotype">
+  </a>
 
-		<!--//MENU ITEMS-->
-    <div id="desktopMenuItems" class="fr cf">
-			<!--SEARCH-->
-      <a class="link f5 dib tl pv1 pointer mr4 black" href='/sobre/sobre'> Sobre nós </a>
-			<a class='black link f5 dib tl pa3 pointer mr4 ba hover-white hover-bg-black' href='/sobre/contato'> Orçamentos </a>
-      <form class="dib w4 mr4" action="/busca" method="GET">
-					<input class="input-reset ba b--white black pa3 db w-100 f5 tl" type="text input" placeholder="Busca" name="search" style=" <%= (theme==='negative' && 'background-color: white;' || 'background-color: #f3f3f3') %> ">
-					<input class="dn" type="submit">
-			</form>
-      <div class="mt3 db tr">
-          <%- include('./social', {color: theme==='positive' && "#d62626" || "white", size: "1rem"}) %>
-      </div>
+  <!--//MENU ITEMS-->
+  <div id="desktopMenuItems" class="fr cf">
+    <!--SEARCH-->
+    <a class="link f5 dib tl pv1 pointer mr4 black" href='/sobre/sobre'> Sobre nós </a>
+    <a class="link f5 dib tl pv1 pointer mr4 black" href='/'> Produtos </a>
+    <a class="link f5 dib tl pv1 pointer mr4 black" href='/cores'> Acabamentos </a>
+    <a class='black link f5 dib tl pa3 pointer mr4 ba hover-white hover-bg-black' href='/sobre/contato'> Orçamentos </a>
+    <form class="dib w4 mr4" action="/busca" method="GET">
+      <input class="input-reset ba b--white black pa3 db w-100 f5 tl" type="text input" placeholder="Busca"
+        name="search"
+        style=" <%= (theme==='negative' && 'background-color: white;' || 'background-color: #f3f3f3') %> ">
+      <input class="dn" type="submit">
+    </form>
+    <div class="mt3 db tr">
+      <%- include('./social', {color: theme==='positive' && "#d62626" || "white", size: "1rem"}) %>
     </div>
+  </div>
 </nav>
 
 
 <!--MOBILE MENU-->
-<nav id="mobileMenuWrapper" class="<%= (theme==='negative' && 'absolute top-0 z-max ' || 'relative cf ') + 'dn-l w-100 border-box pv4 ph4' %>">
-    <!--LOGO-->
-    <a href="/" id="logo" class="fl w4 dib-ns db v-top mid-gray link dim relative">
+<nav id="mobileMenuWrapper"
+  class="<%= (theme==='negative' && 'absolute top-0 z-max ' || 'relative cf ') + 'dn-l w-100 border-box pv4 ph4' %>">
+  <!--LOGO-->
+  <a href="/" id="logo" class="fl w4 dib-ns db v-top mid-gray link dim relative">
     <img src="/images/logotipo_golden.svg" id="logo-small" class="" alt="golden art logotype">
-    </a>
+  </a>
 
-    <div id="mobileMenuButton" class="<%= (theme==='negative' && 'white ' || 'gray ') + ' pointer fr pv3 f5'%>">MENU</div>
+  <div id="mobileMenuButton" class="<%= (theme==='negative' && 'white ' || 'gray ') + ' pointer fr pv3 f5'%>">MENU</div>
 
-    <!--//MENU ITEMS-->
-    <div id="mobileMenuItems" class="db w-100 fl v-mid center tl pt">
-        <div id="spacer" class="h3"></div>
-				<!--SEARCH-->
-        <form class="dib w-100 pt2 black" action="/busca" method="GET">
-						<input class="input-reset black pv3 fl tc ba b--near-white bg-near-white mb2 db w-100 f4" type="text input" placeholder="Busca" name="search" style="font-family:inherit;">
-						<input class="dn" type="submit">
-				</form>
+  <!--//MENU ITEMS-->
+  <div id="mobileMenuItems" class="db w-100 fl v-mid center tl pt">
+    <div id="spacer" class="h3"></div>
+    <!--SEARCH-->
+    <form class="dib w-100 pt2 black" action="/busca" method="GET">
+      <input class="input-reset black pv3 fl tc ba b--near-white bg-near-white mb2 db w-100 f4" type="text input"
+        placeholder="Busca" name="search" style="font-family:inherit;">
+      <input class="dn" type="submit">
+    </form>
 
-          <div class="db v-top pb4 pt1">
-            <span class="link dark-gray f4 b db pv1 mb2"></span>
-            <a class="link gray f4 mr3 db hover-red pv3 pointer" href="/">Home</a>
-            <a class="link gray f4 mr3 db hover-red pv3 pointer" href="/sobre/sobre">Sobre nós</a>
-            <a class="link gray f4 mr3 db hover-red pv3 pointer" href="/sobre/contato">Contato</a>
-          </div>
-
+    <div class="db v-top pb4 pt1">
+      <span class="link dark-gray f4 b db pv1 mb2"></span>
+      <a class="link gray f4 mr3 db hover-red pv3 pointer" href="/">Home</a>
+      <a class="link gray f4 mr3 db hover-red pv3 pointer" href="/sobre/sobre">Sobre nós</a>
+      <a class="link gray f4 mr3 db hover-red pv3 pointer" href="/">Produtos</a>
+      <a class="link gray f4 mr3 db hover-red pv3 pointer" href="/cores">Acabamentos</a>
+      <a class="link gray f4 mr3 db hover-red pv3 pointer" href="/sobre/contato">Orçamentos</a>
     </div>
+
+  </div>
 
 </nav>

@@ -58,6 +58,7 @@ router.get(
   function(req, res) {
     res.render("produto", {
       data: thisProductData[0]["fields"],
+      allColors: res.locals.colorsData,
       colors: thisProductColors,
       specialcolors: thisProductSpecialColors,
       variations: thisProductVariations,

@@ -23,6 +23,7 @@ function getData(req, res, next) {
         "Soquete",
         "Cores Pintura",
         "Cores Especiais",
+        "Disponível em Latão",
         "Fotos",
         "Cúpulas",
         "Vidros",
@@ -38,7 +39,7 @@ function getData(req, res, next) {
     })
     .eachPage(
       function page(records, fetchNextPage) {
-        records.forEach(function(item) {
+        records.forEach(function (item) {
           productsData.push(item);
         });
         fetchNextPage();
@@ -73,7 +74,7 @@ function getGalleryData(req, res, next) {
     })
     .eachPage(
       function page(records, fetchNextPage) {
-        records.forEach(function(item) {
+        records.forEach(function (item) {
           productsData.push(item);
         });
         fetchNextPage();
@@ -96,7 +97,7 @@ function getColorsData(req, res, next) {
     .select({ view: "Ordem das cores" })
     .eachPage(
       function page(records, fetchNextPage) {
-        records.forEach(function(item) {
+        records.forEach(function (item) {
           colorsData.push(item);
         });
         fetchNextPage();
@@ -118,7 +119,7 @@ function getCupulasData(req, res, next) {
     .select({})
     .eachPage(
       function page(records, fetchNextPage) {
-        records.forEach(function(item) {
+        records.forEach(function (item) {
           cupulasData.push(item);
         });
         fetchNextPage();
@@ -140,7 +141,7 @@ function getVidrosData(req, res, next) {
     .select({})
     .eachPage(
       function page(records, fetchNextPage) {
-        records.forEach(function(item) {
+        records.forEach(function (item) {
           vidrosData.push(item);
         });
         fetchNextPage();

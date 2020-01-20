@@ -1,16 +1,20 @@
-<% if(data['Cores Pintura']) {%>
 <tr>
-    <td class="v-top w-10 b pt2 pb3 pr3 bt b--light-gray"> Cores Pintura </td>
-    <td class="v-top w-10  pt1 pb3 pr3 bt b--light-gray">
-      <% if (data["Código Acabamento Especial"]){ %>
-        <div class="pv2"><%= data["Código"] %></div>
+  <td class="v-top w-10 b pt2 pb3 pr3 bt b--light-gray lh-copy"> Acabamentos em Pintura </td>
+  <td class="v-top w-10  pt1 pb3 pr3 bt b--light-gray pt2">
+    <% allColors.filter(function(color){return color.fields['Grupo'] === 'Pintura'}).forEach(function(color){ %>
+    <div class="db fl f6">
+      <% if(color.fields['Render']) { %>
+      <div class="color-thumbnail br-pill overflow-hidden w1 h1 relative mr1 mt1 relative">
+        <img style="transform:scale(2)" class="absolute center tc"
+          src="<%= color.fields['Render'][0]['thumbnails']['large']['url'] %>" alt="">
+      </div>
+      <div class="color-detail absolute pa2 bg-white shadow-1"
+        style="width:300px; margin-top:-350px; margin-left:-150px;">
+        <img src="<%= color.fields['Render'][0]['thumbnails']['large']['url'] %>" alt="">
+        <div class="bg-white pv2 b"><%=color.fields['Nome']%></div>
+      </div>
       <% } %>
-    <% colors.forEach(function(color, index){ %>
-        <div class="db fl w-50-ns w-100 f6 mt2">
-        <div class=' h1 w1 dib br-100 ba b--light-gray mr2 fl'  style=  <%= "background-color:" + color["fields"]["Webcode"] + ";min-width:1rem;"  %> ></div>
-        <div class="dtc pl2 pr2"><%= color["fields"]["Nome"] %></div>
-        </div>
+    </div>
     <% }); %>
-    </td>
+  </td>
 </tr>
-<% } %>

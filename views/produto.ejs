@@ -7,9 +7,9 @@
     <div id="product-image" class="fl w-50-l w-100 mb4">
         <%- include ./includes/produto/slider %>
         <div class="db-l dn">
-          <% if(data['Variações']) {%>
-              <%- include ./includes/produto/variations %>
-          <% } %>
+            <% if(data['Variações']) {%>
+            <%- include ./includes/produto/variations %>
+            <% } %>
         </div>
     </div>
 
@@ -18,38 +18,39 @@
         <div id="product-content-table" class="w-100 db cf">
 
             <% if (data["Descrição"]) { %>
-                <p class="pt1 mv4 db fl lh-copy measure gray"><%= data["Descrição"] %> </p>
+            <p class="pt1 mv4 db fl lh-copy measure gray"><%= data["Descrição"] %> </p>
             <% } %>
 
             <table class="fl w-100 mt4 v-top" cellspacing="0">
                 <colgroup>
-                   <col class="w-30">
-                   <col class="w-70">
+                    <col class="w-30">
+                    <col class="w-70">
                 </colgroup>
 
                 <tbody class="w-100">
-                  <% if(data['Código']) {%>
-                      <%- include ./includes/produto/codigo %>
-                  <% } %>
-                  <% if(data['Soquete']) {%>
-                      <%- include ./includes/produto/soquete %>
-                  <% } %>
+
+                    <% if(data['Código']) {%>
+                    <%- include ./includes/produto/codigo %>
+                    <% } %>
+                    <% if(data['Soquete']) {%>
+                    <%- include ./includes/produto/soquete %>
+                    <% } %>
                     <% if(data['Medidas']) {%>
-                        <%- include ./includes/produto/medidas %>
+                    <%- include ./includes/produto/medidas %>
                     <% } %>
                     <% if(data['Material']) {%>
-                        <%- include ./includes/produto/materials %>
+                    <%- include ./includes/produto/materials %>
                     <% } %>
                     <% if(data['Cores Pintura']) {%>
-                        <%- include ./includes/produto/colors %>
+                    <%- include ./includes/produto/colors %>
                     <% } %>
                     <% if(data['Cores Especiais']) {%>
-                        <%- include ./includes/produto/specialColors %>
+                    <%- include ./includes/produto/specialColors %>
                     <% } %>
                     <% if(data['Cores Especiais'] || data['Cores Pintura']) {%>
                     <tr>
                         <td></td>
-                        <td class="v-top w-10 pt2 pb3 pr3" >
+                        <td class="v-top w-10 pt2 pb3 pr3">
                             <a class="link black dim f6" href="/cores">Conheça o catálogo completo de cores →</a>
                         </td>
                     </tr>
@@ -61,15 +62,15 @@
         <%- include ./includes/produto/technical %>
         <% } %>
         <% if(data['Cúpulas']) {%>
-            <%- include ./includes/produto/cupulas %>
+        <%- include ./includes/produto/cupulas %>
         <% } %>
         <% if(data['Vidros']) {%>
-            <%- include ./includes/produto/vidros %>
+        <%- include ./includes/produto/vidros %>
         <% } %>
         <div class="dn-l db">
-          <% if(data['Variações']) {%>
-              <%- include ./includes/produto/variations %>
-          <% } %>
+            <% if(data['Variações']) {%>
+            <%- include ./includes/produto/variations %>
+            <% } %>
         </div>
     </div>
 </div>

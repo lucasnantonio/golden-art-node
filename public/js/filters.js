@@ -85,7 +85,6 @@ function onCategoryChange(e) {
   e.preventDefault();
   request(currentLine, e.target.id);
   assignCategoryClasses(e);
-  changeSelectedFilter(e.target.id)
 }
 
 function onLineChange(e) {
@@ -122,7 +121,7 @@ function redefineMenuLinks() {
 
 function init() {
   lineFilters = [].slice.call(document.querySelectorAll('.lineFilter'));
-  request('designlab', 'todos')
+  request('allLines', 'allCategories')
   setSiemaImage();
   homeSlider = new Siema({
     draggable: false,

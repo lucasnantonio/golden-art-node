@@ -22,21 +22,31 @@ app.use(contato);
 app.use(busca);
 app.use(cores);
 
-app.get("/filtro", middleware.getGalleryData, function(req, res) {
+app.get("/filtro", middleware.getGalleryData, function (req, res) {
   function filterAll(item) {
-    if (req.query.categoria.toLowerCase() == "todos") {
+    if (req.query.categoria.toLowerCase() == "allcategories" && req.query.linha.toLowerCase() == "alllines") {
+      return (
+        item["fields"]["Linha"]
+      )
+    } else if (req.query.categoria.toLowerCase() == "allcategories" && req.query.linha.toLowerCase() != "alllines") {
       return (
         item["fields"]["Linha"] &&
         item["fields"]["Linha"].toLowerCase() == req.query.linha.toLowerCase()
       );
-    } else {
+    } else if (req.query.linha.toLowerCase() == "alllines" && req.query.categoria.toLowerCase() != "allcategories") {
+      return (
+        item["fields"]["Linha"] &&
+        item["fields"]["Categoria"].toLowerCase() == req.query.categoria.toLowerCase()
+      );
+    }
+    else {
       return (
         item["fields"]["Linha"] &&
         item["fields"]["Linha"].toLowerCase() ==
-          req.query.linha.toLowerCase() &&
+        req.query.linha.toLowerCase() &&
         item["fields"]["Categoria"] &&
         item["fields"]["Categoria"].toLowerCase() ==
-          req.query.categoria.toLowerCase()
+        req.query.categoria.toLowerCase()
       );
     }
   }
@@ -46,20 +56,20 @@ app.get("/filtro", middleware.getGalleryData, function(req, res) {
 });
 
 // SOBRE
-app.get("/sobre/sobre", function(req, res) {
+app.get("/sobre/sobre", function (req, res) {
   res.render("sobre");
 });
 
 // Assinaturas
-app.get("/assinaturas", function(req, res) {
+app.get("/assinaturas", function (req, res) {
   res.render("assinaturas");
 });
 
-app.get("*", function(req, res) {
+app.get("*", function (req, res) {
   // res.status(404);
   res.render("404");
 });
 
-app.listen(process.env.PORT || 4321, process.env.IP, function() {
+app.listen(process.env.PORT || 4321, process.env.IP, function () {
   console.log("Golden-art has started!!!");
 });

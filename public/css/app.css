@@ -61,7 +61,6 @@ input::placeholder{
 }
 
 .categoryFilter, .lineFilter, .menuitem{
-  padding: 1rem;
   border-radius: 4px;
   color: #999;
   font-weight: bold;

@@ -1,6 +1,6 @@
 <%- include('./includes/header', {title: "Golden-Art", share_image: null,
 description: null}); %> <%- include('./includes/menu', {theme: 'positive'}) %>
-<div id="page-wrapper" class="ph5-ns ph4 cf">
+<div id="page-wrapper" class="ph4 cf pt6">
   <div class="db w-100">
     <h1>Acabamentos de latão</h1>
     <p class="mb5 measure-narrow lh-copy black-50">
@@ -12,11 +12,7 @@ description: null}); %> <%- include('./includes/menu', {theme: 'positive'}) %>
       'Acabamento especial') && color['fields']['Render']) {%>
 
       <div class="flex flex-column w-25-l w-third-ns w-50 pa2">
-        <a
-          target="_blank"
-          href="<%= color['fields']['Render'][0]['url'] %>"
-          class="link black"
-        >
+        <a target="_blank" href="<%= color['fields']['Render'][0]['url'] %>" class="link black">
           <img class="w-100" src="<%= color['fields']['Render'][0]['url'] %>" />
         </a>
         <div class="mt2 mb4 flex flex-column">
@@ -26,12 +22,8 @@ description: null}); %> <%- include('./includes/menu', {theme: 'positive'}) %>
           </div>
           <% if (color['fields']['Foto Exemplo']) {%>
           <div class="f6 tl pt2">
-            <a
-              class="black-40 hover-red b "
-              target="_blank"
-              href="<%=color['fields']['Foto Exemplo']%>"
-              >Ver Exemplo →</a
-            >
+            <a class="black-40 hover-red b " target="_blank" href="<%=color['fields']['Foto Exemplo']%>">Ver Exemplo
+              →</a>
           </div>
           <% }%>
         </div>
@@ -50,11 +42,7 @@ description: null}); %> <%- include('./includes/menu', {theme: 'positive'}) %>
       'Pintura') && color['fields']['Render']) {%>
 
       <div class="flex flex-column w-25-l w-third-ns w-50 pa2">
-        <a
-          target="_blank"
-          href="<%= color['fields']['Render'][0]['url'] %>"
-          class="link black"
-        >
+        <a target="_blank" href="<%= color['fields']['Render'][0]['url'] %>" class="link black">
           <img class="w-100" src="<%= color['fields']['Render'][0]['url'] %>" />
         </a>
         <div class="mt2 mb4 flex flex-column">
@@ -64,12 +52,8 @@ description: null}); %> <%- include('./includes/menu', {theme: 'positive'}) %>
           </div>
           <% if (color['fields']['Foto Exemplo']) {%>
           <div class="f6 tl pt2">
-            <a
-              class="black-40 hover-red b "
-              target="_blank"
-              href="<%=color['fields']['Foto Exemplo']%>"
-              >Ver Exemplo →</a
-            >
+            <a class="black-40 hover-red b " target="_blank" href="<%=color['fields']['Foto Exemplo']%>">Ver Exemplo
+              →</a>
           </div>
           <% }%>
         </div>

@@ -60,9 +60,20 @@ input::placeholder{
 	transition: flex-grow .3s ease-in-out ;
 }
 
-.currentLine{
-	color:#222;
-	font-weight: bold;
+.categoryFilter, .lineFilter, .menuitem{
+  border-radius: 4px;
+  color: #999;
+  font-weight: bold;
+}
+
+.categoryFilter:hover, .lineFilter:hover, .menuitem:hover{
+  background-color:rgba(0,0,0,.05);
+}
+
+.currentLine, .currentCategory, .currentLine:hover, .currentCategory:hover{
+  background-color:rgba(255,0,0,.1);
+  color:red;
+  font-weight: bold;
 }
 
 .currentContact{
@@ -216,4 +227,34 @@ letter-spacing: .1rem;
 }
 .color-thumbnail:hover + .color-detail {
   display: block;
+}
+
+#mobileMenuItems:not(:target) {
+	display: none;
+}
+#mobileMenuItems:target {
+	display: block;
+}
+
+#home-banner{
+  height: 40rem;
+  background-color: #f7f7f7; 
+	background-position:300px 50%; 
+	background-repeat: no-repeat; 
+	background-size: cover; 
+	background-image: url('/images/banner-escriba-2.jpg')
+}
+
+@media (max-width: 800px) {
+  #home-banner{
+    height: 30rem;
+  background-position:100px -200px; 
+  }
+}
+
+@media (max-width: 500px) {
+  #home-banner{
+  background-position:-50px -300px;
+  background-size: 250%;
+  }
 }

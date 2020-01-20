@@ -1,61 +1,51 @@
 <!--DESKTOP MENU-->
 <nav id="desktopMenuWrapper"
-  class="<%= (theme==='negative' && 'absolute top-0 z-max ' || 'relative ') + 'db-l dn w-100 border-box pv5 ph5 bg-transparent' %>">
+  class="ph4 fixed bg-white z-max flex-l align-center justify-between items-center dn w-100 border-box">
   <!--LOGO-->
-  <a href="/" id="logo" class="dib v-top mid-gray link relative" style="overflow-x:hidden; width:10rem; height:4rem">
-    <img rel="preload" as="svg" src="/images/logotipo_golden.svg" id="logo-small" class="dib" alt="golden art logotype">
+  <a href="/" id="logo" class="dib v-top mid-gray link relative" style="overflow-x:hidden; width:12rem; height:4rem">
     <img src="/images/logotipo_golden_expanded.svg" id="logo-expanded" class="" alt="golden art logotype">
   </a>
-
   <!--//MENU ITEMS-->
-  <div id="desktopMenuItems" class="fr cf">
+  <div class="flex justify-between">
+    <a class="link w-100 pa3 f6 dib tl pointer black menuitem" href='/'> Produtos </a>
+    <a class="link w-100 pa3 f6 dib tl pointer black menuitem" href='/cores'> Acabamentos </a>
+    <a class='link w-100 pa3 f6 dib tl pointer black menuitem' href='/sobre/contato'> Orçamentos </a>
+    <a class="link w-100 pa3 f6 dib tl pointer black menuitem" href='/sobre/sobre'> Sobre </a>
     <!--SEARCH-->
-    <a class="link f5 dib tl pv1 pointer mr4 black" href='/sobre/sobre'> Sobre nós </a>
-    <a class="link f5 dib tl pv1 pointer mr4 black" href='/'> Produtos </a>
-    <a class="link f5 dib tl pv1 pointer mr4 black" href='/cores'> Acabamentos </a>
-    <a class='black link f5 dib tl pa3 pointer mr4 ba hover-white hover-bg-black' href='/sobre/contato'> Orçamentos </a>
-    <form class="dib w4 mr4" action="/busca" method="GET">
-      <input class="input-reset ba b--white black pa3 db w-100 f5 tl" type="text input" placeholder="Busca"
-        name="search"
-        style=" <%= (theme==='negative' && 'background-color: white;' || 'background-color: #f3f3f3') %> ">
+    <form class="dib" action="/busca" method="GET">
+      <input class="input-reset ba b--white black pa3 tl b gray" type="text input" placeholder="Busca" name="search"
+        style="background-color: #f3f3f3">
       <input class="dn" type="submit">
     </form>
-    <div class="mt3 db tr">
-      <%- include('./social', {color: theme==='positive' && "#d62626" || "white", size: "1rem"}) %>
-    </div>
   </div>
 </nav>
 
 
 <!--MOBILE MENU-->
-<nav id="mobileMenuWrapper"
-  class="<%= (theme==='negative' && 'absolute top-0 z-max ' || 'relative cf ') + 'dn-l w-100 border-box pv4 ph4' %>">
+<nav id="mobileMenuWrapper" class="fixed bg-white w-100 z-max dn-l h3 justify-between flex align-center items-center">
   <!--LOGO-->
-  <a href="/" id="logo" class="fl w4 dib-ns db v-top mid-gray link dim relative">
+  <a href="/" id="logo" class="link dim">
     <img src="/images/logotipo_golden.svg" id="logo-small" class="" alt="golden art logotype">
   </a>
+  <a href="#mobileMenuItems" id="mobileMenuButton" class="pointer b gray link pr4">Menu</a>
+</nav>
+<!--//MENU ITEMS-->
+<div id="mobileMenuItems" class="absolute w-100 vh-100 z-max mt5 ph4 fl center bg-white">
+  <div id="spacer" class="h3"></div>
+  <!--SEARCH-->
+  <form class="dib w-100 pt2 black" action="/busca" method="GET">
+    <input class="input-reset black pv3 fl tc ba b--near-white bg-near-white mb2 db w-100 f4" type="text input"
+      placeholder="Busca" name="search" style="font-family:inherit;">
+    <input class="dn" type="submit">
+  </form>
 
-  <div id="mobileMenuButton" class="<%= (theme==='negative' && 'white ' || 'gray ') + ' pointer fr pv3 f5'%>">MENU</div>
-
-  <!--//MENU ITEMS-->
-  <div id="mobileMenuItems" class="db w-100 fl v-mid center tl pt">
-    <div id="spacer" class="h3"></div>
-    <!--SEARCH-->
-    <form class="dib w-100 pt2 black" action="/busca" method="GET">
-      <input class="input-reset black pv3 fl tc ba b--near-white bg-near-white mb2 db w-100 f4" type="text input"
-        placeholder="Busca" name="search" style="font-family:inherit;">
-      <input class="dn" type="submit">
-    </form>
-
-    <div class="db v-top pb4 pt1">
-      <span class="link dark-gray f4 b db pv1 mb2"></span>
-      <a class="link gray f4 mr3 db hover-red pv3 pointer" href="/">Home</a>
-      <a class="link gray f4 mr3 db hover-red pv3 pointer" href="/sobre/sobre">Sobre nós</a>
-      <a class="link gray f4 mr3 db hover-red pv3 pointer" href="/">Produtos</a>
-      <a class="link gray f4 mr3 db hover-red pv3 pointer" href="/cores">Acabamentos</a>
-      <a class="link gray f4 mr3 db hover-red pv3 pointer" href="/sobre/contato">Orçamentos</a>
-    </div>
-
+  <div class="flex flex-column pb4 pt1">
+    <span class="link dark-gray f4 b db pv1 mb2"></span>
+    <a class="link gray f4 mr3 db hover-red pv3 pointer" href="/">Home</a>
+    <a class="link gray f4 mr3 db hover-red pv3 pointer" href="/sobre/sobre">Sobre nós</a>
+    <a class="link gray f4 mr3 db hover-red pv3 pointer" href="/">Produtos</a>
+    <a class="link gray f4 mr3 db hover-red pv3 pointer" href="/cores">Acabamentos</a>
+    <a class="link gray f4 mr3 db hover-red pv3 pointer" href="/sobre/contato">Orçamentos</a>
   </div>
 
-</nav>
+</div>

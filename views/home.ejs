@@ -3,54 +3,66 @@
 <%- include('./includes/banner') %>
 <script type="text/javascript" src="/js/filters.js"></script>
 
-<div class="w-100 ph5-l">
-	<div class="lineFilters w-100 center flex justify-around relative bg-white pa3" style="margin-top:-3rem; box-shadow: 0 25px 58px 0 rgba(0,0,0,0.10);">
-			<div class="pointer f7 f5-ns  ttu lineFilter link gray tc w-25-ns mh3-ns pa3-ns currentLine " id="designlab">Linha Design.lab</div>
-			<div class="pointer f7 f5-ns  ttu lineFilter link gray tc w-25-ns mh3-ns pa3-ns" id="essencial">Linha Essencial</div>
-			<div class="pointer f7 f5-ns  ttu lineFilter link gray tc w-25-ns mh3-ns pa3-ns" id="cristal">Linha Cristal</div>
-			<div class="pointer f7 f5-ns  ttu lineFilter link gray tc w-25-ns mh3-ns pa3-ns" id="vintage">Linha Vintage</div>
-	</div>
-</div>
+<div id='pageContent' class="ph4-ns ph4 cf">
+  <div class="w-100">
+    <div class="flex flex-nowrap-ns flex-wrap w-100 mb4">
 
-<div id='pageContent' class="ph5-ns ph4 cf mt5-ns mt4">
-  <!-- <div class="w-100 bg-dark-red pa4 mb5 cf" style="">
-    <p class="white lh-copy fl">Do dia 8 a 10 de Agosto, venha nos visitar na <span class="b">HIGH DESIGN EXPO</span></p>
-    <a target="_blank" class="white link ba b--white ph3 pv3 center nowrap fr bg-animate hover-bg-white hover-dark-red pointer" href="https://www.highdesignexpo.com/pt/home.html"> SAIBA MAIS</a>
-  </div> -->
-  <div id="categoryFilterWrapper" class="pb3 relative dib w-100 tl-l tc">
-    <div id="categoryFilterHandle" class="dib cf">
-      <div id='filterLabel' class="f5-l f4 b pr3 di pointer">
-        Filtros
-      </div>
-      <div id='selectedFilter' class="f5-l f4 pr3 di pb1 bb b--light-gray pointer">
-        Todos
-      </div>
-    </div>
+      <ul class='items-start mt3 mr0-l mr3 list pl0 flex flex-column  align-center mb3-l w-100'>
+        <div class="b pv3 pr3 f6-l f7 pl3">Linha</div>
+        <div class="flex flex-row-l flex-column flex-wrap w-100">
+          <li id="allLines"
+            class="lineFilter w-auto-l w-100 flex items-center dib pa3-l pa2 f6-l f7 pointer currentLine">
 
-    <div id="categoryFilterList" class="dn w4-l w-100 pa3-ns pa4 pv1 ml5-l absolute z-max bg-white pointer" style='box-shadow: 0 25px 58px 0 rgba(0,0,0,0.10);'>
-      <ul class='mt3 list pl0 pointer'>
-        <li id='Todos'class='categoryFilter hover-red f5-l f4 db pa2-l pa3 bb b--near-white currentCategory'>Todos</li>
-        <li id='Mesa'class='categoryFilter hover-red f5-l f4 db pa2-l pa3 bb b--near-white pointer'>Mesa</li>
-        <li id='Teto' class='categoryFilter hover-red f5-l f4 db pa2-l pa3 bb b--near-white pointer'>Teto</li>
-        <li id='Piso' class='categoryFilter hover-red f5-l f4 db pa2-l pa3 bb b--near-white pointer'>Piso</li>
-        <li id='Parede' class='categoryFilter hover-red f5-l f4 db pa2-l pa3 pb0 pointer'>Parede</li>
+            Todas</li>
+          <li id="designlab" class="lineFilter w-auto-l w-100 flex items-center dib pa3-l pa2 f6-l f7 pointer">
+            <img class="mr1" src="/images/design.svg">
+            Design.lab</li>
+          <li id="essencial" class="lineFilter w-auto-l w-100 flex items-center dib pa3-l pa2 f6-l f7 pointer">
+            <img class="mr1" src="/images/essencial.svg">
+            Essencial
+          </li>
+          <li id="cristal" class="lineFilter w-auto-l w-100 flex items-center dib pa3-l pa2 f6-l f7 pointer">
+            <img class="mr1" src="/images/cristal.svg">
+            Cristal</li>
+          <li id="vintage" class="lineFilter w-auto-l w-100 flex items-center dib pa3-l pa2 f6-l f7 pointer">
+            <img class="mr1" src="/images/vintage.svg">
+            Vintage</li>
+        </div>
+      </ul>
+
+      <ul class='items-start mt3 list pl0 flex flex-column align-center w-100'>
+        <div class="b pv3 pr3-l f6-l f7 pl3">Uso</div>
+        <div class="flex flex-row-l flex-column flex-wrap w-100">
+          <li id='allCategories' class='categoryFilter flex items-center dib pa3-l pa2 f6-l f7 currentCategory'>
+            Todos</li>
+          <li id='Mesa' class='categoryFilter flex items-center dib pa3-l pa2 f6-l f7 pointer'>
+            <img class="mr1" src="/images/mesa.svg">
+            Mesa</li>
+          <li id='Teto' class='categoryFilter flex items-center dib pa3-l pa2 f6-l f7 pointer'>
+            <img class="mr1" src="/images/teto.svg">
+            Teto</li>
+          <li id='Piso' class='categoryFilter flex items-center dib pa3-l pa2 f6-l f7 pointer'>
+            <img class="mr1" src="/images/coluna.svg">
+            Piso</li>
+          <li id='Parede' class='categoryFilter flex items-center dib pa3-l pa2 f6-l f7 pb0 pointer'>
+            <img class="mr1" src="/images/arandela.svg">
+            Arandela</li>
+        </div>
       </ul>
     </div>
-    <span class='pointer'>▾</span>
+    <div id="loader" class="w-100 h3 fl db relative mt2 showbox">
+      <div class="loader">
+        <svg class="circular" viewBox="25 25 50 50">
+          <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+      </div>
+    </div>
+
+    <main id="main" class="flex flex-wrap w-100 mt3 mb5 relative h6">
+
+    </main>
+
   </div>
-
-	<div id="loader" class="w-100 h3 fl db relative mt2 showbox">
-		<div class="loader">
-			<svg class="circular" viewBox="25 25 50 50">
-				<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
-			</svg>
-		</div>
-	</div>
-
-  <main id="main" class="cf fl dib w-100 mt3 mb5 relative h6">
-
-	</main>
-
 </div>
 
 <%- include('./includes/footer') %>

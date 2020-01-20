@@ -5,11 +5,11 @@
 
 
 
-<div id='pageContent' class="ph4-ns ph4 cf mt4">
+<div id='pageContent' class="ph4-ns ph4 cf">
   <div class="w-100">
-    <div class="flex w-100 mb5">
-      <ul class='mt3 list pl0 pointer flex flex-column mb3 w-100'>
-        <div class="b mb3 ttu">Linhas</div>
+    <div class="flex w-100">
+      <ul class='mt3 list pl0 flex items-center align-center mb3 w-100'>
+        <div class="b pa3">Linhas:</div>
         <div class="flex">
           <li id="allLines" class="lineFilter pointer currentLine">
             Todas</li>
@@ -22,8 +22,8 @@
         </div>
       </ul>
 
-      <ul class='mt3 list pl0 pointer flex flex-column w-100'>
-        <div class="b mb3 ttu">Categorias</div>
+      <ul class='mt3 list pl0 flex items-center align-center w-100'>
+        <div class="b pa3">Categorias:</div>
         <div class="flex">
           <li id='allCategories' class='categoryFilter currentCategory'>Todos</li>
           <li id='Mesa' class='categoryFilter pointer'>Mesa</li>
@@ -46,5 +46,6 @@
     </main>
 
   </div>
+</div>
 
-  <%- include('./includes/footer') %>
+<%- include('./includes/footer') %>

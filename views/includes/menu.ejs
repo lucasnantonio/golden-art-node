@@ -1,29 +1,22 @@
 <!--DESKTOP MENU-->
-<nav id="desktopMenuWrapper"
-  class="<%= (theme==='negative' && 'absolute top-0 z-max ' || 'relative ') + 'db-l dn w-100 border-box pv5 ph5 bg-transparent' %>">
+<nav id="desktopMenuWrapper" class="ph4 fixed bg-white z-max flex-l align-center  items-center dn w-100 border-box">
   <!--LOGO-->
-  <a href="/" id="logo" class="dib v-top mid-gray link relative" style="overflow-x:hidden; width:10rem; height:4rem">
-    <img rel="preload" as="svg" src="/images/logotipo_golden.svg" id="logo-small" class="dib" alt="golden art logotype">
+  <a href="/" id="logo" class="dib v-top mid-gray link relative" style="overflow-x:hidden; width:12rem; height:4rem">
     <img src="/images/logotipo_golden_expanded.svg" id="logo-expanded" class="" alt="golden art logotype">
   </a>
-
   <!--//MENU ITEMS-->
-  <div id="desktopMenuItems" class="fr cf">
+  <div class="w-100 flex justify-end" id="desktopMenuItems">
+    <a class="link f5 dib tl pv1 pointer mr4 black menuitem" href='/sobre/sobre'> Sobre </a>
+    <a class="link f5 dib tl pv1 pointer mr4 black menuitem" href='/'> Produtos </a>
+    <a class="link f5 dib tl pv1 pointer mr4 black menuitem" href='/cores'> Acabamentos </a>
+    <a class='link f5 dib tl pv1 pointer mr4 black menuitem' href='/sobre/contato'> Orçamentos </a>
     <!--SEARCH-->
-    <a class="link f5 dib tl pv1 pointer mr4 black" href='/sobre/sobre'> Sobre nós </a>
-    <a class="link f5 dib tl pv1 pointer mr4 black" href='/'> Produtos </a>
-    <a class="link f5 dib tl pv1 pointer mr4 black" href='/cores'> Acabamentos </a>
-    <a class='black link f5 dib tl pa3 pointer mr4 ba hover-white hover-bg-black' href='/sobre/contato'> Orçamentos </a>
-    <form class="dib w4 mr4" action="/busca" method="GET">
-      <input class="input-reset ba b--white black pa3 db w-100 f5 tl" type="text input" placeholder="Busca"
-        name="search"
-        style=" <%= (theme==='negative' && 'background-color: white;' || 'background-color: #f3f3f3') %> ">
-      <input class="dn" type="submit">
-    </form>
-    <div class="mt3 db tr">
-      <%- include('./social', {color: theme==='positive' && "#d62626" || "white", size: "1rem"}) %>
-    </div>
   </div>
+  <form class="dib w4 mr4" action="/busca" method="GET">
+    <input class="input-reset ba b--white black pa3 db w-100 f5 tl" type="text input" placeholder="Busca" name="search"
+      style="background-color: #f3f3f3">
+    <input class="dn" type="submit">
+  </form>
 </nav>
 
 

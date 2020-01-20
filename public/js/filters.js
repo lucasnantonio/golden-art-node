@@ -94,14 +94,7 @@ function redefineMenuLinks() {
 function init() {
   lineFilters = [].slice.call(document.querySelectorAll('.lineFilter'));
   request('allLines', 'allCategories')
-  // setSiemaImage();
-  // homeSlider = new Siema({
-  //   draggable: false,
-  // }
-  // );
-  // homeSlider.goTo(0);
   redefineMenuLinks();
-  initFilters();
 }
 
 ready(init);

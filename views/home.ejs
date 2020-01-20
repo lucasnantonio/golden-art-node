@@ -3,33 +3,32 @@
 <%- include('./includes/banner') %>
 <script type="text/javascript" src="/js/filters.js"></script>
 
-<div class="w-100 ph4-l">
-  <div class="lineFilters w-100 center flex justify-around relative bg-white pa3"
-    style="margin-top:-3rem; box-shadow: 0 25px 58px 0 rgba(0,0,0,0.10);">
-    <div class="pointer f7 f5-ns  ttu lineFilter link gray tc w-25-ns mh3-ns pa3-ns currentLine " id="designlab">Linha
-      Design.lab</div>
-    <div class="pointer f7 f5-ns  ttu lineFilter link gray tc w-25-ns mh3-ns pa3-ns" id="essencial">Linha Essencial
-    </div>
-    <div class="pointer f7 f5-ns  ttu lineFilter link gray tc w-25-ns mh3-ns pa3-ns" id="cristal">Linha Cristal</div>
-    <div class="pointer f7 f5-ns  ttu lineFilter link gray tc w-25-ns mh3-ns pa3-ns" id="vintage">Linha Vintage</div>
-  </div>
-</div>
+
 
 <div id='pageContent' class="ph4-ns ph4 cf mt5-ns mt4">
-  <!-- <div class="w-100 bg-dark-red pa4 mb5 cf" style="">
-    <p class="white lh-copy fl">Do dia 8 a 10 de Agosto, venha nos visitar na <span class="b">HIGH DESIGN EXPO</span></p>
-    <a target="_blank" class="white link ba b--white ph3 pv3 center nowrap fr bg-animate hover-bg-white hover-dark-red pointer" href="https://www.highdesignexpo.com/pt/home.html"> SAIBA MAIS</a>
-  </div> -->
-  <div id="categoryFilterWrapper" class="pb3 relative dib w-100 tl-l tc">
-    <div id="categoryFilterList" class="">
-      <ul class='mt3 list pl0 pointer flex'>
-        <li id='Todos' class='categoryFilter mr4 hover-red f5-l f4 currentCategory'>Todos</li>
-        <li id='Mesa' class='categoryFilter mr4 hover-red f5-l f4 pointer'>Mesa</li>
-        <li id='Teto' class='categoryFilter mr4 hover-red f5-l f4 pointer'>Teto</li>
-        <li id='Piso' class='categoryFilter mr4 hover-red f5-l f4 pointer'>Piso</li>
-        <li id='Parede' class='categoryFilter mr4 hover-red f5-l f4 pb0 pointer'>Parede</li>
-      </ul>
-    </div>
+
+  <div class="w-100">
+
+    <ul class='mt3 list pl0 pointer flex'>
+      <div class="b">Linhas</div>
+      <li id="designlab" class="pointer f7 f5-ns lineFilter link gray currentLine">Linha
+        Design.lab</li>
+      <li id="essencial" class="pointer f7 f5-ns lineFilter link gray">Linha Essencial
+      </li>
+      <li id="cristal" class="pointer f7 f5-ns lineFilter link gray">Linha Cristal</li>
+      <li id="vintage" class="pointer f7 f5-ns lineFilter link gray">Linha Vintage</li>
+    </ul>
+  </div>
+
+  <div class="w-100">
+    <ul class='mt3 list pl0 pointer flex'>
+      <div class="b">Categorias</div>
+      <li id='Todos' class='categoryFilter mr4 hover-red f5-l f4 currentCategory'>Todos</li>
+      <li id='Mesa' class='categoryFilter mr4 hover-red f5-l f4 pointer'>Mesa</li>
+      <li id='Teto' class='categoryFilter mr4 hover-red f5-l f4 pointer'>Teto</li>
+      <li id='Piso' class='categoryFilter mr4 hover-red f5-l f4 pointer'>Piso</li>
+      <li id='Parede' class='categoryFilter mr4 hover-red f5-l f4 pb0 pointer'>Parede</li>
+    </ul>
   </div>
 
   <div id="loader" class="w-100 h3 fl db relative mt2 showbox">

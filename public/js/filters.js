@@ -53,31 +53,43 @@ function getUrlParams(param) {
 }
 
 function onCategoryChange(e) {
+  var realTarget;
+  if (e.target.id === "") {
+    realTarget = e.target.parentElement;
+  } else {
+    realTarget = e.target;
+  }
   var currentLine = [].slice.call(document.querySelectorAll('.currentLine'))[0].getAttribute('id');
   e.preventDefault();
-  request(currentLine, e.target.id);
-  assignCategoryClasses(e);
+  request(currentLine, realTarget.id);
+  assignCategoryClasses(e, realTarget);
 }
 
 function onLineChange(e) {
+  var realTarget;
+  if (e.target.id === "") {
+    realTarget = e.target.parentElement;
+  } else {
+    realTarget = e.target;
+  }
   var currentCategory = [].slice.call(document.querySelectorAll('.currentCategory'))[0].getAttribute('id')
   e.preventDefault();
-  request(e.target.id, currentCategory);
-  assignLineClasses(e);
+  request(realTarget.id, currentCategory);
+  assignLineClasses(e, realTarget);
 }
 
-function assignLineClasses(e) {
+function assignLineClasses(e, realTarget) {
   lineFilters.forEach(function (item) {
     item.classList.remove('currentLine');
   })
-  e.target.classList.add('currentLine');
+  realTarget.classList.add('currentLine');
 }
 
-function assignCategoryClasses(e) {
+function assignCategoryClasses(e, realTarget) {
   categoryFilters.forEach(function (item) {
     item.classList.remove('currentCategory');
   })
-  e.target.classList.add('currentCategory');
+  realTarget.classList.add('currentCategory');
 }
 
 function redefineMenuLinks() {

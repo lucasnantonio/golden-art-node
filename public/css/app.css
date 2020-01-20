@@ -235,3 +235,26 @@ letter-spacing: .1rem;
 #mobileMenuItems:target {
 	display: block;
 }
+
+#home-banner{
+  height: 40rem;
+  background-color: #f7f7f7; 
+	background-position:300px 50%; 
+	background-repeat: no-repeat; 
+	background-size: cover; 
+	background-image: url('/images/banner-escriba-2.jpg')
+}
+
+@media (max-width: 800px) {
+  #home-banner{
+    height: 30rem;
+  background-position:100px -200px; 
+  }
+}
+
+@media (max-width: 500px) {
+  #home-banner{
+  background-position:-50px -400px;
+  background-size: 250%;
+  }
+}

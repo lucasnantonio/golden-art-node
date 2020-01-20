@@ -1,17 +1,17 @@
 <%- include('./includes/header', {title: "Resultados da busca", share_image: null, description: null}); %>
 <%- include('./includes/menu', {theme: 'positive'}) %>
 
-<div class="w-100 pa5-l pa4">
-<h1>Resultados da busca por <%= query %></h1>
-    <main class="cf w-100 mt5">
-				<% if(data.length > 0) { %>
-        <% data.forEach(function(product) { %>
-          <%- include('./includes/gallery-item', {product: product}) %>
-        <% }); %>
-				<% } else { %>
-					<p class="f3" > Nenhum resultado encontrado.</p>
-					<% } %>
-    </main>
+<div class="w-100 pa4 pt6">
+  <h1>Resultados da busca por <%= query %></h1>
+  <main class="cf w-100 mt5">
+    <% if(data.length > 0) { %>
+    <% data.forEach(function(product) { %>
+    <%- include('./includes/gallery-item', {product: product}) %>
+    <% }); %>
+    <% } else { %>
+    <p class="f3 pv6"> Nenhum resultado encontrado.</p>
+    <% } %>
+  </main>
 
 </div>
 <%- include('./includes/footer') %>

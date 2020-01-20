@@ -1,22 +1,23 @@
 <!--DESKTOP MENU-->
-<nav id="desktopMenuWrapper" class="ph4 fixed bg-white z-max flex-l align-center  items-center dn w-100 border-box">
+<nav id="desktopMenuWrapper"
+  class="ph4 fixed bg-white z-max flex-l align-center justify-between items-center dn w-100 border-box">
   <!--LOGO-->
   <a href="/" id="logo" class="dib v-top mid-gray link relative" style="overflow-x:hidden; width:12rem; height:4rem">
     <img src="/images/logotipo_golden_expanded.svg" id="logo-expanded" class="" alt="golden art logotype">
   </a>
   <!--//MENU ITEMS-->
-  <div class="w-100 flex justify-end" id="desktopMenuItems">
-    <a class="link pa3 f6 dib tl pointer mr4 black menuitem" href='/sobre/sobre'> Sobre </a>
-    <a class="link pa3 f6 dib tl pointer mr4 black menuitem" href='/'> Produtos </a>
-    <a class="link pa3 f6 dib tl pointer mr4 black menuitem" href='/cores'> Acabamentos </a>
-    <a class='link pa3 f6 dib tl pointer mr4 black menuitem' href='/sobre/contato'> Orçamentos </a>
+  <div class="flex justify-between">
+    <a class="link w-100 pa3 f6 dib tl pointer black menuitem" href='/'> Produtos </a>
+    <a class="link w-100 pa3 f6 dib tl pointer black menuitem" href='/cores'> Acabamentos </a>
+    <a class='link w-100 pa3 f6 dib tl pointer black menuitem' href='/sobre/contato'> Orçamentos </a>
+    <a class="link w-100 pa3 f6 dib tl pointer black menuitem" href='/sobre/sobre'> Sobre </a>
     <!--SEARCH-->
+    <form class="dib" action="/busca" method="GET">
+      <input class="input-reset ba b--white black pa3 tl b gray" type="text input" placeholder="Busca" name="search"
+        style="background-color: #f3f3f3">
+      <input class="dn" type="submit">
+    </form>
   </div>
-  <form class="dib w5 mr4" action="/busca" method="GET">
-    <input class="input-reset ba b--white black pa3 db w-100 f5 tl br3 b gray" type="text input" placeholder="Busca"
-      name="search" style="background-color: #f3f3f3">
-    <input class="dn" type="submit">
-  </form>
 </nav>
 
 

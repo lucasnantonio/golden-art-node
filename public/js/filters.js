@@ -22,37 +22,9 @@ function removeLoading() {
   document.getElementById('loader').classList.add('dn');
 }
 
-//Alert: rataria ahead. TO-DO: replace this by re-writing siema banner on home without the use of siema.
-function setSiemaImage() {
-  var width = window.innerWidth
-    || document.documentElement.clientWidth
-    || document.body.clientWidth;
-  var images = [].slice.call(document.querySelectorAll('.siema img'));
-  if (width < 500) {
-    images.forEach(function (image) {
-      image.src = image.src.replace('.png', '-mobile.png');
-    })
-  }
-}
-
 function renderContent(res) {
   var wrapper = document.getElementById('main')
   wrapper.innerHTML = res;
-}
-
-function changeSlider(e) {
-  if (e.target.id == "designlab") {
-    homeSlider.goTo(0);
-  }
-  else if (e.target.id == "essencial") {
-    homeSlider.goTo(1);
-  }
-  else if (e.target.id == "vintage") {
-    homeSlider.goTo(3);
-  }
-  else if (e.target.id == "cristal") {
-    homeSlider.goTo(2);
-  }
 }
 
 function request(linha, categoria) {
@@ -91,7 +63,6 @@ function onLineChange(e) {
   var currentCategory = [].slice.call(document.querySelectorAll('.currentCategory'))[0].getAttribute('id')
   e.preventDefault();
   request(e.target.id, currentCategory);
-  changeSlider(e);
   assignLineClasses(e);
 }
 
@@ -123,12 +94,12 @@ function redefineMenuLinks() {
 function init() {
   lineFilters = [].slice.call(document.querySelectorAll('.lineFilter'));
   request('allLines', 'allCategories')
-  setSiemaImage();
-  homeSlider = new Siema({
-    draggable: false,
-  }
-  );
-  homeSlider.goTo(0);
+  // setSiemaImage();
+  // homeSlider = new Siema({
+  //   draggable: false,
+  // }
+  // );
+  // homeSlider.goTo(0);
   redefineMenuLinks();
   initFilters();
 }

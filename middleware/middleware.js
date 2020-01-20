@@ -21,8 +21,6 @@ function getData(req, res, next) {
         "Linha",
         "Tipo",
         "Soquete",
-        "Cores Pintura",
-        "Cores Especiais",
         "Disponível em Latão",
         "Fotos",
         "Cúpulas",

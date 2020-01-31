@@ -259,3 +259,37 @@ letter-spacing: .1rem;
   background-position:0px 0px;
   }
 }
+
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  color: black;
+  cursor: pointer;
+  width: 100%;
+  padding: 1rem 0rem;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  /* font-weight: bold; */
+  border-bottom: 1px solid #e7e7e7;
+  margin-bottom: 0px;
+  margin-top: 0px
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+ .accordion:hover {
+  background-color: #f7f7f7;
+
+}
+
+.active{
+  border-bottom: 1px solid black;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 2rem 0rem;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}

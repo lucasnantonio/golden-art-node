@@ -71,5 +71,5 @@ app.get("*", function (req, res) {
 });
 
 app.listen(process.env.PORT || 4321, process.env.IP, function () {
-  console.log("Golden-art has started!!!");
+  console.log("Golden-art has started!!! on localhost:4321");
 });

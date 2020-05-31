@@ -197,17 +197,17 @@ border: 1px solid #111111;
 height:3rem;
 /*width: 17rem;*/
 color: white;
-font-family: Montserrat;
+font-family: "DM Sans";
 padding-left:.5rem;
 }
 
 #mc_embed_signup .mc-field-group input::placeholder{
-font-family: Montserrat;
+font-family: "DM Sans";
 padding-left:.5rem;
 }
 
 #mc_embed_signup input.button{
-font-family: Montserrat;
+font-family: "DM Sans";
 padding:.8rem;
 background: red;
 border: 0px solid white;

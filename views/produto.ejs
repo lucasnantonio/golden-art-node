@@ -46,7 +46,7 @@
                     <% } %>
                     <%- include ./includes/produto/specialColors %>
                     <%- include ./includes/produto/colors %>
-
+<!-- 
                     <tr>
                         <td></td>
                         <td class="v-top w-10 pt2 pb3 pr3">
@@ -54,15 +54,15 @@
                                 de
                                 acabamentos</a>
                         </td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>
+        <% if(data['Cúpulas']) {%>
+            <%- include ./includes/produto/cupulas %>
+        <% } %>
         <% if(data['Desenho Técnico']) {%>
         <%- include ./includes/produto/technical %>
-        <% } %>
-        <% if(data['Cúpulas']) {%>
-        <%- include ./includes/produto/cupulas %>
         <% } %>
         <% if(data['Vidros']) {%>
         <%- include ./includes/produto/vidros %>

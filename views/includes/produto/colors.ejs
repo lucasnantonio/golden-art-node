@@ -1,6 +1,9 @@
 <tr>
   <td class="w-10 pv3 pr3 bt b--light-gray"> Acabamentos em Pintura </td>
   <td class="v-top w-10  pv3 pr3 bt b--light-gray">
+    <% if(data['Esconder cores?']){ %>
+      <p class="black-40"> Não disponível </p>
+      <% } else if(!data['Esconder cores?']) {%>
     <% allColors.filter(function(color){return color.fields['Grupo'] === 'Pintura'}).forEach(function(color){ %>
     <div class="db fl f6">
       <% if(color.fields['Render']) { %>
@@ -15,6 +18,6 @@
       </div>
       <% } %>
     </div>
-    <% }); %>
+    <% });} %>
   </td>
 </tr>

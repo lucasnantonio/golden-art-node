@@ -30,6 +30,7 @@ function getData(req, res, next) {
         "Relacionados",
         "Lançamento?",
         "Desenho Técnico",
+        "Esconder cores?",
         "Material",
         "Title SEO",
         "Description SEO"

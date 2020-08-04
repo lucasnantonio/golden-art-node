@@ -2,8 +2,7 @@
   <td class="w-10 pv3 pr3 bt b--light-gray"> Acabamentos em Latão </td>
   <td class="v-top w-10  pv3 pr3 bt b--light-gray">
     <% if(!data['Disponível em Latão']){ %>
-    <% console.log(data) %>
-    <p> Não disponível </p>
+    <p class="black-40"> Não disponível </p>
     <% } else if(data['Disponível em Latão']) {%>
     <% allColors.filter(function(color){return color.fields['Grupo'] === 'Acabamento especial'}).forEach(function(color){ %>
     <div class="db fl f6">

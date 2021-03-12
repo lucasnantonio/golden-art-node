@@ -1,47 +1,48 @@
-body{
+body {
   background-color: white;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   /* letter-spacing: -.01rem; */
   font-weight: 300;
 }
 
-.main{
+.main {
   min-height: 100vh;
 }
 
-#pageContent{
-  min-height:60vh;
+#pageContent {
+  min-height: 60vh;
 }
 
-#logo{
-  width:10rem;
-  transition: all .2s;
+#logo {
+  width: 10rem;
+  transition: all 0.2s;
 }
-#logo-small, #logo-expanded{
-  height:4rem;
+#logo-small,
+#logo-expanded {
+  height: 4rem;
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
-  transition: all .2s;
+  transition: all 0.2s;
 }
-#logo-small{
-  width:4rem;
-  transition: all .2s;
+#logo-small {
+  width: 4rem;
+  transition: all 0.2s;
 }
 #desktopMenuWrapper,
-#mobileMenuItems{
-    transition: all .2s;
-    overflow: hidden;
+#mobileMenuItems {
+  transition: all 0.2s;
+  overflow: hidden;
 }
 
 input:focus {
-    outline: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+  outline: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
-input::placeholder{
-	color: lightGray;
+input::placeholder {
+  color: lightGray;
 }
 
 #flexbox {
@@ -52,63 +53,74 @@ input::placeholder{
 .flexed {
   height: 100%;
   flex-grow: 1;
-  transition: flex-grow .3s ease-in-out ;
+  transition: flex-grow 0.3s ease-in-out;
 }
 
 .flexGrow {
-	flex-grow: 4;
-	transition: flex-grow .3s ease-in-out ;
+  flex-grow: 4;
+  transition: flex-grow 0.3s ease-in-out;
 }
 
-.categoryFilter, .lineFilter, .menuitem{
+.categoryFilter,
+.lineFilter,
+.menuitem {
   border-radius: 4px;
   color: #999;
   font-weight: bold;
 }
 
-.categoryFilter:hover, .lineFilter:hover, .menuitem:hover{
-  background-color:rgba(0,0,0,.05);
+.categoryFilter:hover,
+.lineFilter:hover,
+.menuitem:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
-.currentLine, .currentCategory, .currentLine:hover, .currentCategory:hover{
-  background-color:rgba(255,0,0,.1);
-  color:red;
+.currentLine,
+.currentCategory,
+.currentLine:hover,
+.currentCategory:hover {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: red;
   font-weight: bold;
 }
 
-.currentContact{
-	color:#d62626;
-	font-weight: bold;
+.currentContact {
+  color: #d62626;
+  font-weight: bold;
   border-bottom: 3px solid #d62626;
 }
 
-#categoryFilterList{
-  transition: opacity .2s;
+#categoryFilterList {
+  transition: opacity 0.2s;
 }
 
-a:hover, a:active, a:focus {
+a:hover,
+a:active,
+a:focus {
   outline: 0;
 }
 
-.link:hover, .link:active, .link:focus {
+.link:hover,
+.link:active,
+.link:focus {
   outline: 0;
 }
 
-.f8{
-  font-size: .6rem;
+.f8 {
+  font-size: 0.6rem;
 }
 
-.productThumb{
-overflow:hidden;
+.productThumb {
+  overflow: hidden;
 }
 
-.productCode{
-background-color: black;
-bottom: -100px;
-transition: all .2s;
+.productCode {
+  background-color: black;
+  bottom: -100px;
+  transition: all 0.2s;
 }
-.productThumb:hover .productCode{
-bottom: 0px;
+.productThumb:hover .productCode {
+  bottom: 0px;
 }
 
 /*LOADER*/
@@ -122,7 +134,7 @@ bottom: 0px;
   margin: 0 auto;
   width: 4rem;
   &:before {
-    content: '';
+    content: "";
     display: block;
     padding-top: 100%;
   }
@@ -174,50 +186,48 @@ bottom: 0px;
   0% {
     stroke: red;
   }
-
 }
-
 
 /*MAILCHIMP*/
 
-#mc_embed_signup .mc-field-group label{
-display:none;
+#mc_embed_signup .mc-field-group label {
+  display: none;
 }
-#mc_embed_signup .mc-field-group{
-padding: 0rem 0rem 1rem 0rem;
-}
-
-#mc_embed_signup .mc-field-group{
-padding: 0rem 0rem 1rem 0rem;
+#mc_embed_signup .mc-field-group {
+  padding: 0rem 0rem 1rem 0rem;
 }
 
-#mc_embed_signup .mc-field-group input{
-background-color: #333333;
-border: 1px solid #111111;
-height:3rem;
-/*width: 17rem;*/
-color: white;
-font-family: "DM Sans";
-padding-left:.5rem;
+#mc_embed_signup .mc-field-group {
+  padding: 0rem 0rem 1rem 0rem;
 }
 
-#mc_embed_signup .mc-field-group input::placeholder{
-font-family: "DM Sans";
-padding-left:.5rem;
+#mc_embed_signup .mc-field-group input {
+  background-color: #333333;
+  border: 1px solid #111111;
+  height: 3rem;
+  /*width: 17rem;*/
+  color: white;
+  font-family: "DM Sans";
+  padding-left: 0.5rem;
 }
 
-#mc_embed_signup input.button{
-font-family: "DM Sans";
-padding:.8rem;
-background: red;
-border: 0px solid white;
-color: white;
-font-weight: bold;
-font-size:.8rem;
-letter-spacing: .1rem;
+#mc_embed_signup .mc-field-group input::placeholder {
+  font-family: "DM Sans";
+  padding-left: 0.5rem;
 }
 
-.color-detail{
+#mc_embed_signup input.button {
+  font-family: "DM Sans";
+  padding: 0.8rem;
+  background: red;
+  border: 0px solid white;
+  color: white;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+}
+
+.color-detail {
   display: none;
   z-index: 999;
 }
@@ -230,33 +240,32 @@ letter-spacing: .1rem;
 }
 
 #mobileMenuItems:not(:target) {
-	display: none;
+  display: none;
 }
 #mobileMenuItems:target {
-	display: block;
+  display: block;
 }
 
-#home-banner{
+#home-banner {
   height: 40rem;
-  background-color: #f7f7f7; 
-	background-position:300px 50%; 
-	background-repeat: no-repeat; 
-	background-size: cover; 
-	background-image: url('/images/banner-escriba-2.jpg')
+  background-color: #f7f7f7;
+  background-position: 300px 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("/images/banner-escriba-2.jpg");
 }
-
 
 @media (max-width: 800px) {
-  #home-banner{
-  height: 30rem;
-  background-position:0px -120px;
-  background-image: url('/images/banner-escriba-2-mobile.jpg')
+  #home-banner {
+    height: 30rem;
+    background-position: 0px -120px;
+    background-image: url("/images/banner-escriba-2-mobile.jpg");
   }
 }
 
 @media (max-width: 500px) {
-  #home-banner{
-  background-position:0px 0px;
+  #home-banner {
+    background-position: 0px 0px;
   }
 }
 
@@ -273,16 +282,15 @@ letter-spacing: .1rem;
   /* font-weight: bold; */
   border-bottom: 1px solid #e7e7e7;
   margin-bottom: 0px;
-  margin-top: 0px
+  margin-top: 0px;
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
- .accordion:hover {
+.accordion:hover {
   background-color: #f7f7f7;
-
 }
 
-.active{
+.active {
   border-bottom: 1px solid black;
 }
 
@@ -290,6 +298,6 @@ letter-spacing: .1rem;
 .panel {
   padding: 2rem 0rem;
   background-color: white;
-  display: none;
+  /* display: none; */
   overflow: hidden;
 }

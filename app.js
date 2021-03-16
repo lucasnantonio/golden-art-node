@@ -1,3 +1,4 @@
+require("dotenv").config();
 var compression = require("compression");
 var express = require("express");
 var request = require("request");
@@ -24,29 +25,36 @@ app.use(cores);
 
 app.get("/filtro", middleware.getGalleryData, function (req, res) {
   function filterAll(item) {
-    if (req.query.categoria.toLowerCase() == "allcategories" && req.query.linha.toLowerCase() == "alllines") {
-      return (
-        item["fields"]["Linha"]
-      )
-    } else if (req.query.categoria.toLowerCase() == "allcategories" && req.query.linha.toLowerCase() != "alllines") {
+    if (
+      req.query.categoria.toLowerCase() == "allcategories" &&
+      req.query.linha.toLowerCase() == "alllines"
+    ) {
+      return item["fields"]["Linha"];
+    } else if (
+      req.query.categoria.toLowerCase() == "allcategories" &&
+      req.query.linha.toLowerCase() != "alllines"
+    ) {
       return (
         item["fields"]["Linha"] &&
         item["fields"]["Linha"].toLowerCase() == req.query.linha.toLowerCase()
       );
-    } else if (req.query.linha.toLowerCase() == "alllines" && req.query.categoria.toLowerCase() != "allcategories") {
+    } else if (
+      req.query.linha.toLowerCase() == "alllines" &&
+      req.query.categoria.toLowerCase() != "allcategories"
+    ) {
       return (
         item["fields"]["Linha"] &&
-        item["fields"]["Categoria"].toLowerCase() == req.query.categoria.toLowerCase()
+        item["fields"]["Categoria"].toLowerCase() ==
+          req.query.categoria.toLowerCase()
       );
-    }
-    else {
+    } else {
       return (
         item["fields"]["Linha"] &&
         item["fields"]["Linha"].toLowerCase() ==
-        req.query.linha.toLowerCase() &&
+          req.query.linha.toLowerCase() &&
         item["fields"]["Categoria"] &&
         item["fields"]["Categoria"].toLowerCase() ==
-        req.query.categoria.toLowerCase()
+          req.query.categoria.toLowerCase()
       );
     }
   }

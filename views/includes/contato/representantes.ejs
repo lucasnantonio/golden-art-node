@@ -1,60 +1,51 @@
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-        console.log(acc.length)
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function () {
-                /* Toggle between adding and removing the "active" class,
-                to highlight the button that controls the panel */
-                this.classList.toggle("active");
-
-                /* Toggle between hiding and showing the active panel */
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
-            });
-        }
-    });
+  var allStates;
+  document.addEventListener("DOMContentLoaded", function () {
+    var x = document.getElementById("mySelect");
+    allStates = document.querySelectorAll(".panel");
+  });
+  var handleChange = function (value) {
+    for (i = 0; i < allStates.length; i++) {
+      allStates[i].classList.add("dn");
+    }
+    var selectedState = document.getElementById(value);
+    selectedState.classList.toggle("dn");
+  };
 </script>
 <div id="representantes" class="cf db w-100">
-    <h2 class="f5 b black">Nossos representantes</h2>
+  <select id="myselect" onChange="handleChange(this.value)">
+    <option value="none" selected disabled hidden>Escolha seu estado</option>
     <% states.forEach(function(state){%>
-    <button class='f5 red mv1 link accordion'> <%= state %> </button>
-    <div class="panel" id="<%= state %>">
-        <% representantes.forEach(function(item){ %>
-        <% item['fields']['Estado'].forEach(function(estado){ %>
-        <% if (estado == state){ %>
-        <h4 href="$" class='f6 mv1'> <%= item['fields']['Empresa'] %> </h4>
-        <div class="f6 lh-copy">
-            <% if(item['fields']['Observação']){ %>
-            <div class="mb2"> <%= item['fields']['Observação'] %> </div>
-            <% } %>
-            <div> <%= item['fields']['Nome'] %> </div>
-            <div> <%= item['fields']['Email'] %> </div>
-
-            <% if(item['fields']['Telefone 1']){ %>
-            <div> <%= item['fields']['Telefone 1'] %> </div>
-            <% } %>
-            <% if(item['fields']['Telefone 2']){ %>
-            <div> <%= item['fields']['Telefone 2'] %> </div>
-            <% } %>
-            <% if(item['fields']['Telefone 3']){ %>
-            <div> <%= item['fields']['Telefone 3'] %> </div>
-            <% } %>
-            <% if(item['fields']['Telefone 4']){ %>
-            <div> <%= item['fields']['Telefone 4'] %> </div>
-            <% } %>
-            <% if(item['fields']['Telefone 5']){ %>
-            <div> <%= item['fields']['Telefone 5'] %> </div>
-            <% } %>
-        </div>
-        <% } %>
-        <%  }) %>
-        <% }) %>
-    </div>
+    <option value="<%= state %>"><%= state %></option>
     <% }) %>
+  </select>
+  <% states.forEach(function(state){%>
+  <div class="panel dn" id="<%= state %>">
+    <% representantes.forEach(function(item){ %> <%
+    item['fields']['Estado'].forEach(function(estado){ %> <% if (estado ==
+    state){ %>
+    <p>Para <%= state %>, entre em contato com:</p>
+    <h4 href="$" class="f6 mv1"><%= item['fields']['Empresa'] %></h4>
+    <div class="f6 lh-copy">
+      <% if(item['fields']['Observação']){ %>
+      <div class="mb2"><%= item['fields']['Observação'] %></div>
+      <% } %>
+      <div><%= item['fields']['Nome'] %></div>
+      <div><%= item['fields']['Email'] %></div>
+
+      <% if(item['fields']['Telefone 1']){ %>
+      <div><%= item['fields']['Telefone 1'] %></div>
+      <% } %> <% if(item['fields']['Telefone 2']){ %>
+      <div><%= item['fields']['Telefone 2'] %></div>
+      <% } %> <% if(item['fields']['Telefone 3']){ %>
+      <div><%= item['fields']['Telefone 3'] %></div>
+      <% } %> <% if(item['fields']['Telefone 4']){ %>
+      <div><%= item['fields']['Telefone 4'] %></div>
+      <% } %> <% if(item['fields']['Telefone 5']){ %>
+      <div><%= item['fields']['Telefone 5'] %></div>
+      <% } %>
+    </div>
+    <% } %> <% }) %> <% }) %>
+  </div>
+  <% }) %>
 </div>
